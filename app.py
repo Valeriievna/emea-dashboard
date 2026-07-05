@@ -36,9 +36,10 @@ st.markdown("""
 
   .tags { display: flex; gap: 4px; flex-wrap: wrap; }
   .tag  { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
-  .t-ads    { background:#312e81; color:#a5b4fc; }
-  .t-inmail { background:#14532d; color:#86efac; }
-  .t-demo   { background:#451a03; color:#fdba74; }
+  .t-ads     { background:#312e81; color:#a5b4fc; }
+  .t-inmail  { background:#14532d; color:#86efac; }
+  .t-demo    { background:#451a03; color:#fdba74; }
+  .t-inbound { background:#4a1d96; color:#e9d5ff; }
 
   .num { color: #e5e7eb; font-variant-numeric: tabular-nums; }
   .dim { color: #374151; }
@@ -80,9 +81,9 @@ NORTH = [
     dict(co="Delivery Hero",        ctry="Germany",       ch=["Ads"],                 views=651,   clicks=16,   ctr=2.46, op=None,  lead="Kanchan Khatri",       ltitle="Engineering Manager",       ldate="Mar 13"),
     dict(co="Ericsson",             ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Jitender Thakur",      ltitle="Senior Engineer",           ldate="Mar 12"),
     dict(co="Siemens",              ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Rithika Ravichandran",  ltitle="AI/ML Eng. (Healthineers)", ldate="Apr 19"),
-    dict(co="Fidelity Investments", ctry="Ireland",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Tanish Bhardwaj",      ltitle="Senior QA Engineer",        ldate="Mar 17"),
-    dict(co="Sogeti",               ctry="Netherlands",   ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Etienne Dankfort",     ltitle="Smart Workspace Engineer",  ldate="Mar 7"),
-    dict(co="Sandvik",              ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Carlos Soares",        ltitle="Manager Testing & QA",      ldate="Mar 6"),
+    dict(co="Fidelity Investments", ctry="Ireland",       ch=["Inbound"],             views=None,  clicks=None, ctr=None, op=None,  lead="Tanish Bhardwaj",      ltitle="Senior QA Engineer",        ldate="Mar 17"),
+    dict(co="Sogeti",               ctry="Netherlands",   ch=["Inbound"],             views=None,  clicks=None, ctr=None, op=None,  lead="Etienne Dankfort",     ltitle="Smart Workspace Engineer",  ldate="Mar 7"),
+    dict(co="Sandvik",              ctry="Sweden",        ch=["Inbound"],             views=None,  clicks=None, ctr=None, op=None,  lead="Carlos Soares",        ltitle="Manager Testing & QA",      ldate="Mar 6"),
     # ── no lead ──
     dict(co="IBM",                  ctry="USA",           ch=["Ads","Demo","InMail"], views=3145,  clicks=28,   ctr=0.89, op=51.56, lead=None,ltitle=None,ldate=None),
     dict(co="Lloyds Banking Group", ctry="UK",            ch=["Ads","InMail"],        views=1331,  clicks=26,   ctr=1.95, op=41.13, lead=None,ltitle=None,ldate=None),
@@ -111,8 +112,8 @@ SOUTH = [
     dict(co="Qualitest",                   ctry="Israel",        ch=["Ads","Demo","InMail"], views=1545, clicks=26,   ctr=1.68, op=56.00, lead="Zumirrah Khalid",   ltitle="SDET",                     ldate="Apr 17"),
     dict(co="stc",                         ctry="Saudi Arabia",  ch=["Ads","Demo"],          views=1212, clicks=14,   ctr=1.16, op=None,  lead="Jamal Saleh",       ltitle="QA and Test Lead",         ldate="Mar 10"),
     dict(co="Expleo Group",                ctry="France",        ch=["Ads","Demo"],          views=1551, clicks=15,   ctr=0.97, op=None,  lead="Sherin Elmoghazy",  ltitle="Sr QA Analyst",            ldate="Mar 6"),
-    dict(co="Technology Innovation Inst.", ctry="UAE",           ch=["InMail"],              views=None, clicks=None, ctr=None, op=None,  lead="Shaaban Hassan",    ltitle="Senior Software Engineer", ldate="Jun 24"),
-    dict(co="SEAT, S.A.",                  ctry="Spain",         ch=["InMail"],              views=None, clicks=None, ctr=None, op=None,  lead="Xavier Agustin",    ltitle="Manager Vehicle Testing",  ldate="Apr 15"),
+    dict(co="Technology Innovation Inst.", ctry="UAE",           ch=["Inbound"],             views=None, clicks=None, ctr=None, op=None,  lead="Shaaban Hassan",    ltitle="Senior Software Engineer", ldate="Jun 24"),
+    dict(co="SEAT, S.A.",                  ctry="Spain",         ch=["Inbound"],             views=None, clicks=None, ctr=None, op=None,  lead="Xavier Agustin",    ltitle="Manager Vehicle Testing",  ldate="Apr 15"),
     # ── no lead ──
     dict(co="Capgemini",       ctry="France",        ch=["Ads","Demo","InMail"], views=5727, clicks=66,   ctr=1.15, op=66.06, lead=None,ltitle=None,ldate=None),
     dict(co="Emirates NBD",    ctry="UAE",           ch=["Ads","Demo","InMail"], views=2506, clicks=49,   ctr=1.96, op=68.35, lead=None,ltitle=None,ldate=None),
@@ -158,7 +159,7 @@ def fmt_open(v, has_clicks):
     return         f'<span class="op-lo">{v:.2f}%</span>'
 
 def fmt_channels(ch):
-    tag_map = {"Ads": "t-ads", "InMail": "t-inmail", "Demo": "t-demo"}
+    tag_map = {"Ads": "t-ads", "InMail": "t-inmail", "Demo": "t-demo", "Inbound": "t-inbound"}
     pills = "".join(f'<span class="tag {tag_map[c]}">{c}</span>' for c in ch)
     return f'<div class="tags">{pills}</div>'
 
