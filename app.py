@@ -199,7 +199,7 @@ st.markdown('<div class="dash-sub">Apr – Jul 2026 · Highlighted rows = lead s
 col_campaign, col_region, col_data = st.columns([2, 2, 2])
 with col_campaign:
     st.caption("CAMPAIGN")
-    campaign = st.radio("Campaign", ["Smart Tests", "Unify (AI Governance)", "Feature Management"],
+    campaign = st.radio("Campaign", ["Smart Tests", "Unify (AI Governance) — coming soon", "Feature Management — coming soon"],
                         horizontal=False, label_visibility="collapsed")
 with col_region:
     st.caption("REGION")
@@ -214,7 +214,7 @@ st.divider()
 
 # ── Content ───────────────────────────────────────────────────────────────────
 
-if campaign != "Smart Tests":
+if campaign != "Smart Tests" and "coming soon" in campaign:
     st.markdown(f"""
     <div class="g2-placeholder">
       <h3>{campaign} — data coming soon</h3>
