@@ -79,8 +79,8 @@ NORTH = [
     # ── leads first ──
     dict(co="Sky",                  ctry="UK",            ch=["Ads","InMail"],        views=774,   clicks=22,   ctr=2.84, op=46.02, lead="Megha Parameswaran",   ltitle="Software Engineer",         ldate="Apr 16"),
     dict(co="Delivery Hero",        ctry="Germany",       ch=["Ads"],                 views=651,   clicks=16,   ctr=2.46, op=None,  lead="Kanchan Khatri",       ltitle="Engineering Manager",       ldate="Mar 13"),
-    dict(co="Ericsson",             ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Jitender Thakur",      ltitle="Senior Engineer",           ldate="Mar 12"),
-    dict(co="Siemens",              ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Rithika Ravichandran",  ltitle="AI/ML Eng. (Healthineers)", ldate="Apr 19"),
+    dict(co="Ericsson",             ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=55.71, lead="Jitender Thakur",      ltitle="Senior Engineer",           ldate="Mar 12"),
+    dict(co="Siemens",              ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=50.91, lead="Rithika Ravichandran",  ltitle="AI/ML Eng. (Healthineers)", ldate="Apr 19"),
     # ── no lead ──
     dict(co="IBM",                  ctry="USA",           ch=["Ads","Demo","InMail"], views=3145,  clicks=28,   ctr=0.89, op=51.56, lead=None,ltitle=None,ldate=None),
     dict(co="Lloyds Banking Group", ctry="UK",            ch=["Ads","InMail"],        views=1331,  clicks=26,   ctr=1.95, op=41.13, lead=None,ltitle=None,ldate=None),
@@ -93,15 +93,15 @@ NORTH = [
     dict(co="Mercedes-Benz AG",     ctry="Germany",       ch=["Ads"],                 views=259,   clicks=5,    ctr=1.93, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="Volvo Cars",           ctry="Sweden",        ch=["Ads","Demo","InMail"], views=706,   clicks=3,    ctr=0.42, op=75.00, lead=None,ltitle=None,ldate=None),
     dict(co="EY",                   ctry="UK",            ch=["Demo"],                views=123,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="SAP",                  ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Booking.com",          ctry="Netherlands",   ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Spotify",              ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="BBC",                  ctry="UK",            ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Philips",              ctry="Netherlands",   ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Deutsche Bank",        ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="UBS",                  ctry="Switzerland",   ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="IKEA",                 ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Sage",                 ctry="UK",            ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="SAP",                  ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=51.85, lead=None,ltitle=None,ldate=None),
+    dict(co="Booking.com",          ctry="Netherlands",   ch=["InMail"],              views=None,  clicks=None, ctr=None, op=40.68, lead=None,ltitle=None,ldate=None),
+    dict(co="Spotify",              ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=40.74, lead=None,ltitle=None,ldate=None),
+    dict(co="BBC",                  ctry="UK",            ch=["InMail"],              views=None,  clicks=None, ctr=None, op=46.15, lead=None,ltitle=None,ldate=None),
+    dict(co="Philips",              ctry="Netherlands",   ch=["InMail"],              views=None,  clicks=None, ctr=None, op=58.00, lead=None,ltitle=None,ldate=None),
+    dict(co="Deutsche Bank",        ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=46.94, lead=None,ltitle=None,ldate=None),
+    dict(co="UBS",                  ctry="Switzerland",   ch=["InMail"],              views=None,  clicks=None, ctr=None, op=36.73, lead=None,ltitle=None,ldate=None),
+    dict(co="IKEA",                 ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=62.22, lead=None,ltitle=None,ldate=None),
+    dict(co="Sage",                 ctry="UK",            ch=["InMail"],              views=None,  clicks=None, ctr=None, op=59.52, lead=None,ltitle=None,ldate=None),
 ]
 
 SOUTH = [
@@ -128,7 +128,7 @@ SOUTH = [
     dict(co="monday.com",      ctry="Israel",        ch=["Ads","Demo"],          views=396,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="Inetum",          ctry="France",        ch=["Ads","Demo"],          views=377,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="Valeo",           ctry="France",        ch=["Ads"],                 views=322,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Capgemini Eng.",  ctry="France",        ch=["InMail"],              views=None, clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Capgemini Eng.",  ctry="France",        ch=["InMail"],              views=None, clicks=None, ctr=None, op=73.17, lead=None,ltitle=None,ldate=None),
     dict(co="Careem",          ctry="UAE",           ch=["Demo"],                views=239,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="knowmad mood",    ctry="Spain",         ch=["Demo"],                views=131,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
 ]
@@ -149,8 +149,9 @@ def fmt_ctr(v):
     if v >= 1:    return f'<span class="ctr-mid">{v:.2f}%</span>'
     return         f'<span class="ctr-lo">{v:.2f}%</span>'
 
-def fmt_open(v, has_clicks):
-    if not has_clicks or v is None: return '<span class="dim">—</span>'
+def fmt_open(v, has_clicks, inmail_only=False):
+    if v is None: return '<span class="dim">—</span>'
+    if not has_clicks and not inmail_only: return '<span class="dim">—</span>'
     if v >= 55:   return f'<span class="op-hi">{v:.2f}%</span>'
     if v >= 40:   return f'<span class="op-mid">{v:.2f}%</span>'
     return         f'<span class="op-lo">{v:.2f}%</span>'
@@ -170,6 +171,7 @@ def render_table(data):
     for d in data:
         has_lead = d["lead"] is not None
         has_clicks = d["clicks"] is not None
+        inmail_only = d["views"] is None
         cls = "lead-row" if has_lead else ""
         rows += f"""
         <tr class="{cls}">
@@ -178,7 +180,7 @@ def render_table(data):
           <td class="r">{fmt_views(d['views'])}</td>
           <td class="r">{fmt_clicks(d['clicks'])}</td>
           <td class="r">{fmt_ctr(d['ctr'])}</td>
-          <td class="r">{fmt_open(d['op'], has_clicks)}</td>
+          <td class="r">{fmt_open(d['op'], has_clicks, inmail_only)}</td>
           <td>{fmt_lead(d['lead'], d['ltitle'], d['ldate'])}</td>
         </tr>"""
 
