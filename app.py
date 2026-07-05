@@ -294,7 +294,7 @@ else:
     flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
 
     st.markdown(f'<div class="section-lbl">{region.upper()} — {flag}</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px; color:#4b5563; margin-bottom:8px;">Apr 1 – Jun 30, 2026</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">Apr 1 – Jun 30, 2026</div>', unsafe_allow_html=True)
     render_table(data)
 
     leads = [d for d in data if d["lead"]]
