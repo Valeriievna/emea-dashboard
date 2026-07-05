@@ -109,8 +109,8 @@ SOUTH = [
     dict(co="Qualitest",                   ctry="Israel",        ch=["Ads","Demo","InMail"], views=1545, clicks=26,   ctr=1.68, op=56.00, lead="Zumirrah Khalid",   ltitle="SDET",                     ldate="Apr 17"),
     dict(co="stc",                         ctry="Saudi Arabia",  ch=["Ads","Demo"],          views=1212, clicks=14,   ctr=1.16, op=None,  lead="Jamal Saleh",       ltitle="QA and Test Lead",         ldate="Mar 10"),
     dict(co="Expleo Group",                ctry="France",        ch=["Ads","Demo"],          views=1551, clicks=15,   ctr=0.97, op=None,  lead="Sherin Elmoghazy",  ltitle="Sr QA Analyst",            ldate="Mar 6"),
-    dict(co="Technology Innovation Inst.", ctry="UAE",           ch=["Inbound"],             views=None, clicks=None, ctr=None, op=None,  lead="Shaaban Hassan",    ltitle="Senior Software Engineer", ldate="Jun 24"),
-    dict(co="SEAT, S.A.",                  ctry="Spain",         ch=["Inbound"],             views=None, clicks=None, ctr=None, op=None,  lead="Xavier Agustin",    ltitle="Manager Vehicle Testing",  ldate="Apr 15"),
+    dict(co="Technology Innovation Inst.", ctry="UAE",           ch=["InMail","Inbound"],    views=None, clicks=None, ctr=None, op=None,  lead="Shaaban Hassan",    ltitle="Senior Software Engineer", ldate="Jun 24"),
+    dict(co="SEAT, S.A.",                  ctry="Spain",         ch=["InMail","Inbound"],    views=None, clicks=None, ctr=None, op=None,  lead="Xavier Agustin",    ltitle="Manager Vehicle Testing",  ldate="Apr 15"),
     # ── no lead ──
     dict(co="Capgemini",       ctry="France",        ch=["Ads","Demo","InMail"], views=5727, clicks=66,   ctr=1.15, op=66.06, lead=None,ltitle=None,ldate=None),
     dict(co="Emirates NBD",    ctry="UAE",           ch=["Ads","Demo","InMail"], views=2506, clicks=49,   ctr=1.96, op=68.35, lead=None,ltitle=None,ldate=None),
