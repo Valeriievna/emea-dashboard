@@ -81,9 +81,6 @@ NORTH = [
     dict(co="Delivery Hero",        ctry="Germany",       ch=["Ads"],                 views=651,   clicks=16,   ctr=2.46, op=None,  lead="Kanchan Khatri",       ltitle="Engineering Manager",       ldate="Mar 13"),
     dict(co="Ericsson",             ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Jitender Thakur",      ltitle="Senior Engineer",           ldate="Mar 12"),
     dict(co="Siemens",              ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=None,  lead="Rithika Ravichandran",  ltitle="AI/ML Eng. (Healthineers)", ldate="Apr 19"),
-    dict(co="Fidelity Investments", ctry="Ireland",       ch=["Inbound"],             views=None,  clicks=None, ctr=None, op=None,  lead="Tanish Bhardwaj",      ltitle="Senior QA Engineer",        ldate="Mar 17"),
-    dict(co="Sogeti",               ctry="Netherlands",   ch=["Inbound"],             views=None,  clicks=None, ctr=None, op=None,  lead="Etienne Dankfort",     ltitle="Smart Workspace Engineer",  ldate="Mar 7"),
-    dict(co="Sandvik",              ctry="Sweden",        ch=["Inbound"],             views=None,  clicks=None, ctr=None, op=None,  lead="Carlos Soares",        ltitle="Manager Testing & QA",      ldate="Mar 6"),
     # ── no lead ──
     dict(co="IBM",                  ctry="USA",           ch=["Ads","Demo","InMail"], views=3145,  clicks=28,   ctr=0.89, op=51.56, lead=None,ltitle=None,ldate=None),
     dict(co="Lloyds Banking Group", ctry="UK",            ch=["Ads","InMail"],        views=1331,  clicks=26,   ctr=1.95, op=41.13, lead=None,ltitle=None,ldate=None),
