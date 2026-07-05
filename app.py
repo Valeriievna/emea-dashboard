@@ -163,7 +163,7 @@ def fmt_channels(ch):
 def fmt_lead(name, title, date):
     if name is None:
         return '<span class="no-lead">—</span>'
-    return f'<span class="lead-name">{name}</span><br><span class="lead-sub">{title} · {date}</span>'
+    return f'<span class="lead-name">{name}</span><br><span class="lead-sub">{title}</span>'
 
 def render_table(data):
     rows = ""
@@ -248,6 +248,7 @@ else:
     flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
 
     st.markdown(f'<div class="section-lbl">{region.upper()} — {flag}</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:11px; color:#4b5563; margin-bottom:8px;">Apr 1 – Jun 30, 2026</div>', unsafe_allow_html=True)
     st.markdown(render_table(data), unsafe_allow_html=True)
 
     leads = [d for d in data if d["lead"]]
