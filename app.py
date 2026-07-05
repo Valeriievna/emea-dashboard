@@ -193,7 +193,6 @@ def render_table(data):
 # ── UI ───────────────────────────────────────────────────────────────────────
 
 st.markdown('<div class="dash-title">EMEA Intent Dashboard</div>', unsafe_allow_html=True)
-st.markdown('<div class="dash-sub">Apr – Jul 2026 · Highlighted rows = lead submitted</div>', unsafe_allow_html=True)
 
 # ── Navigation ────────────────────────────────────────────────────────────────
 col_campaign, col_region, col_data = st.columns([2, 2, 2])
