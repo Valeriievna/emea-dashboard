@@ -117,8 +117,10 @@ SOUTH = [
 
 G2_NORTH = [
     # ── High ──
-    dict(co="T-Systems International", ctry="Germany",     activity="High",   visitor="Slovakia",      last="27 days ago",  days=27, visitors=2,    signals=10),
-    dict(co="Yara",                    ctry="Norway",       activity="High",   visitor="Denmark",       last="22 days ago",  days=22, visitors=5,    signals=13),
+    dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Slovakia", last="27 days ago", days=27, visitors=2, signals=10,
+         details=dict(website="t-systems.com", hq_full="Frankfurt, Germany", founded=2000, revenue=None, employees=None, feed=[])),
+    dict(co="Yara", ctry="Norway", activity="High", visitor="Denmark", last="22 days ago", days=22, visitors=5, signals=13,
+         details=dict(website="yara.com", hq_full="Oslo, Norway", founded=1905, revenue=None, employees=None, feed=[])),
     # ── Medium ──
     dict(co="University of Zurich",    ctry="Switzerland",  activity="Medium", visitor="Switzerland",   last="~1 month ago", days=30, visitors=2,    signals=7),
     dict(co="Datev eG",                ctry="Germany",      activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=1,    signals=7),
@@ -148,10 +150,29 @@ G2_NORTH = [
 
 G2_SOUTH = [
     # ── High ──
-    dict(co="Thales",             ctry="France",    activity="High",   visitor="France",       last="3 days ago",   days=3,  visitors=10, signals=10),
-    dict(co="Naval Group",        ctry="France",    activity="High",   visitor="France",       last="27 days ago",  days=27, visitors=7,  signals=7),
-    dict(co="Check Point",        ctry="Israel",    activity="High",   visitor="Israel",       last="~1 month ago", days=30, visitors=5,  signals=6),
-    dict(co="Dnata",              ctry="UAE",       activity="High",   visitor="Switzerland",  last="2 months ago", days=60, visitors=3,  signals=6),
+    dict(co="Thales", ctry="France", activity="High", visitor="France", last="3 days ago", days=3, visitors=10, signals=10,
+         details=dict(
+             website="thalesgroup.com", hq_full="Ile-de-France, France", founded=1893,
+             revenue="$25,092,430,000", employees="78,189",
+             feed=[
+                 dict(text="Visitor from France viewed profile page for <b>GitLab</b>",                           time="4 days ago",         loc="Yvelines", type="profile"),
+                 dict(text="Visitor from France viewed profile page for <b>Freshservice</b>",                     time="5 days ago",         loc="Yvelines", type="profile"),
+                 dict(text="Visitor from France viewed profile page for <b>TeamCity</b>",                         time="19 days ago",        loc="Yvelines", type="profile"),
+                 dict(text="Visitor from France viewed the <b>Continuous Integration</b> category page",          time="19 days ago",        loc="Yvelines", type="category"),
+                 dict(text="Visitor from France viewed the <b>Configuration Management</b> category page",        time="about 2 months ago", loc="Yvelines", type="category"),
+                 dict(text="<b>2 visitors</b> compared <b>GitLab</b> to <b>Jira</b>",                            time="about 2 months ago", loc=None,       type="compare"),
+                 dict(text="Visitor from France viewed profile page for <b>ServiceNow IT Service Management</b>", time="about 2 months ago", loc="Yvelines", type="profile"),
+                 dict(text="Visitor from France looked at alternatives to <b>Octopus Deploy</b>",                 time="2 months ago",       loc="Yvelines", type="alt"),
+                 dict(text="Visitor from France viewed profile page for <b>GitHub</b>",                           time="2 months ago",       loc="Paris",    type="profile"),
+                 dict(text="Visitor from France viewed the <b>Configuration Management</b> category page",        time=None,                 loc=None,       type="category"),
+             ]
+         )),
+    dict(co="Naval Group", ctry="France", activity="High", visitor="France", last="27 days ago", days=27, visitors=7, signals=7,
+         details=dict(website="naval-group.com", hq_full="Paris, France", founded=2017, revenue=None, employees=None, feed=[])),
+    dict(co="Check Point", ctry="Israel", activity="High", visitor="Israel", last="~1 month ago", days=30, visitors=5, signals=6,
+         details=dict(website="checkpoint.com", hq_full="Tel Aviv, Israel", founded=1993, revenue=None, employees=None, feed=[])),
+    dict(co="Dnata", ctry="UAE", activity="High", visitor="Switzerland", last="2 months ago", days=60, visitors=3, signals=6,
+         details=dict(website="dnata.com", hq_full="Dubai, UAE", founded=1959, revenue=None, employees=None, feed=[])),
     # ── Medium ──
     dict(co="Schneider Electric", ctry="France",    activity="Medium", visitor="France",       last="12 days ago",  days=12, visitors=6,  signals=6),
     dict(co="Cognyte",            ctry="Israel",    activity="Medium", visitor="Israel",       last="19 days ago",  days=19, visitors=3,  signals=5),
@@ -306,18 +327,56 @@ def render_g2_table(data):
         "Medium": ("background:#713f12;color:#facc15;", "Medium"),
         "Low":    ("background:#1c1c1c;color:#6b7280;",  "Low"),
     }
+    dot_color = {"profile": "#60a5fa", "category": "#4b5563", "compare": "#f97316", "alt": "#fbbf24"}
+
+    def build_detail(det):
+        info = ""
+        if det.get("website"):
+            info += f'<div class="ir"><span class="il">Website</span><span class="iv lk">{det["website"]}</span></div>'
+        if det.get("hq_full"):
+            info += f'<div class="ir"><span class="il">HQ Location</span><span class="iv">{det["hq_full"]}</span></div>'
+        if det.get("founded"):
+            info += f'<div class="ir"><span class="il">Year Founded</span><span class="iv">{det["founded"]}</span></div>'
+        if det.get("revenue"):
+            info += f'<div class="ir"><span class="il">Annual Revenue</span><span class="iv">{det["revenue"]}</span></div>'
+        if det.get("employees"):
+            info += f'<div class="ir"><span class="il">Employee Count</span><span class="iv">{det["employees"]}</span></div>'
+
+        feed = ""
+        for item in det.get("feed", []):
+            dc = dot_color.get(item["type"], "#4b5563")
+            meta_parts = [p for p in [item.get("time"), item.get("loc")] if p]
+            meta = f'<div class="fm">{"&nbsp;•&nbsp;".join(meta_parts)}</div>' if meta_parts else ""
+            feed += f'<div class="fi"><span class="dot" style="background:{dc}"></span><div><div class="ft">{item["text"]}</div>{meta}</div></div>'
+        if not feed:
+            feed = '<div style="color:#374151;font-size:11px;font-style:italic;">Activity feed not yet available for this company.</div>'
+
+        return f"""<div class="det">
+  <div class="dc"><div class="dh">COMPANY INFO</div>{info}</div>
+  <div class="dc"><div class="dh">ACTIVITY FEED</div><div class="fscroll">{feed}</div></div>
+</div>"""
+
     rows = ""
-    for d in data:
-        sig     = d["signals"]  if d["signals"]  is not None else -999
-        vis     = d["visitors"] if d["visitors"] is not None else -999
-        act_n   = act_order[d["activity"]]
+    for i, d in enumerate(data):
+        det    = d.get("details")
+        sig    = d["signals"]  if d["signals"]  is not None else -999
+        vis    = d["visitors"] if d["visitors"] is not None else -999
+        act_n  = act_order[d["activity"]]
         sty, lbl = act_style[d["activity"]]
         act_html = f'<span style="{sty}font-size:9px;font-weight:700;padding:2px 9px;border-radius:3px;">{lbl}</span>'
         sig_html = f'<span class="num">{d["signals"]}</span>'  if d["signals"]  is not None else '<span class="dim">—</span>'
         vis_html = f'<span class="num">{d["visitors"]}</span>' if d["visitors"] is not None else '<span class="dim">—</span>'
+
+        if det is not None:
+            chev = f'<span class="chev" id="c{i}">&#9654;</span> '
+            row_attr = f'class="xr" onclick="tog({i})" data-det="d{i}"'
+        else:
+            chev = ""
+            row_attr = ""
+
         rows += f"""
-        <tr>
-          <td data-v="{d['co'].lower()}"><div class="co">{d['co']}</div><div class="ctry">{d['ctry']}</div></td>
+        <tr {row_attr}>
+          <td data-v="{d['co'].lower()}">{chev}<span class="co">{d['co']}</span><div class="ctry">{d['ctry']}</div></td>
           <td data-v="{act_n}">{act_html}</td>
           <td data-v="{d['visitor'].lower()}" style="color:#9ca3af;font-size:12px;">{d['visitor']}</td>
           <td data-v="{d['days']}" style="color:#6b7280;font-size:11px;">{d['last']}</td>
@@ -325,27 +384,51 @@ def render_g2_table(data):
           <td class="r" data-v="{sig}">{sig_html}</td>
         </tr>"""
 
-    height = 55 + len(data) * 50 + 20
+        if det is not None:
+            rows += f"""
+        <tr id="d{i}" class="det-row" style="display:none;">
+          <td colspan="6" style="padding:0;">{build_detail(det)}</td>
+        </tr>"""
+
+    has_feed = any(d.get("details", {}) and d.get("details", {}).get("feed") for d in data)
+    height   = 55 + len(data) * 50 + 20 + (420 if has_feed else 200 if any(d.get("details") for d in data) else 0)
+
     html = f"""<!DOCTYPE html><html><head><meta charset="UTF-8">
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}
 body{{background:#0d0d0d;font-family:'Segoe UI',Arial,sans-serif}}
 table{{width:100%;border-collapse:collapse;font-size:12px}}
 thead th{{text-align:left;padding:7px 12px;font-size:10px;font-weight:700;letter-spacing:.8px;
-  color:#6b7280;border-bottom:2px solid #1e1e2e;white-space:nowrap;
-  cursor:pointer;user-select:none}}
+  color:#6b7280;border-bottom:2px solid #1e1e2e;white-space:nowrap;cursor:pointer;user-select:none}}
 thead th:hover{{color:#a78bfa}}
 thead th.r{{text-align:right}}
 thead th .si{{margin-left:4px;font-size:9px;opacity:.4}}
 thead th.asc .si,thead th.desc .si{{opacity:1;color:#a78bfa}}
 tbody tr{{border-bottom:1px solid #111827}}
-tbody tr:hover{{background:#111827}}
+tbody tr.xr{{cursor:pointer}}
+tbody tr.xr:hover td:first-child .co{{color:#c4b5fd}}
 td{{padding:7px 12px;vertical-align:middle}}
 td.r{{text-align:right}}
-.co{{font-weight:600;color:#fff;font-size:13px}}
+.co{{font-weight:600;color:#fff;font-size:13px;transition:color .15s}}
 .ctry{{font-size:10px;color:#4b5563}}
 .num{{color:#e5e7eb;font-variant-numeric:tabular-nums}}
 .dim{{color:#374151}}
+.chev{{color:#a78bfa;font-size:9px;margin-right:4px;display:inline-block;transition:transform .2s;}}
+.chev.open{{transform:rotate(90deg)}}
+/* Detail panel */
+.det{{display:grid;grid-template-columns:230px 1fr;gap:0;background:#07070f;border-top:2px solid #1e1e2e;border-bottom:2px solid #1e1e2e;}}
+.dc{{padding:18px 20px 20px;}}
+.dc+.dc{{border-left:1px solid #1a1a2e;}}
+.dh{{font-size:9px;font-weight:700;letter-spacing:1.5px;color:#4b5563;margin-bottom:14px;}}
+.ir{{display:flex;flex-direction:column;margin-bottom:10px;}}
+.il{{font-size:9px;color:#374151;letter-spacing:.4px;text-transform:uppercase;}}
+.iv{{font-size:12px;color:#d1d5db;margin-top:2px;}}
+.iv.lk{{color:#a78bfa;}}
+.fscroll{{max-height:260px;overflow-y:auto;padding-right:4px;}}
+.fi{{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start;}}
+.dot{{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0;}}
+.ft{{font-size:12px;color:#d1d5db;line-height:1.45;}}
+.fm{{font-size:10px;color:#4b5563;margin-top:3px;}}
 </style></head><body>
 <table id="g2t">
   <thead><tr>
@@ -359,6 +442,13 @@ td.r{{text-align:right}}
   <tbody>{rows}</tbody>
 </table>
 <script>
+function tog(i) {{
+  var det=document.getElementById('d'+i), chev=document.getElementById('c'+i);
+  if(!det) return;
+  var open=det.style.display!=='none';
+  det.style.display=open?'none':'table-row';
+  if(chev) chev.classList.toggle('open',!open);
+}}
 var cur=-1,asc=true;
 document.querySelectorAll('#g2t thead th[data-col]').forEach(function(th){{
   th.addEventListener('click',function(){{
@@ -371,18 +461,24 @@ document.querySelectorAll('#g2t thead th[data-col]').forEach(function(th){{
     th.classList.add(asc?'asc':'desc');
     th.querySelector('.si').textContent=asc?'↑':'↓';
     var tb=document.querySelector('#g2t tbody');
-    Array.from(tb.rows).sort(function(a,b){{
-      var av=a.cells[col].getAttribute('data-v');
-      var bv=b.cells[col].getAttribute('data-v');
+    var main=Array.from(tb.rows).filter(function(r){{return !r.classList.contains('det-row')}});
+    main.sort(function(a,b){{
+      var av=a.cells[col]?a.cells[col].getAttribute('data-v'):'';
+      var bv=b.cells[col]?b.cells[col].getAttribute('data-v'):'';
       var an=parseFloat(av),bn=parseFloat(bv);
       if(!isNaN(an)&&!isNaN(bn))return asc?an-bn:bn-an;
-      return asc?av.localeCompare(bv):bv.localeCompare(av);
-    }}).forEach(function(r){{tb.appendChild(r)}});
+      return asc?(av||'').localeCompare(bv||''):(bv||'').localeCompare(av||'');
+    }});
+    main.forEach(function(r){{
+      tb.appendChild(r);
+      var did=r.getAttribute('data-det');
+      if(did){{var dr=document.getElementById(did);if(dr)tb.appendChild(dr);}}
+    }});
   }});
 }});
 </script>
 </body></html>"""
-    components.html(html, height=height, scrolling=False)
+    components.html(html, height=height, scrolling=True)
 
 # ── UI ───────────────────────────────────────────────────────────────────────
 
