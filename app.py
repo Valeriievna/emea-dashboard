@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="EMEA Intent — Sales",
@@ -154,32 +155,94 @@ def render_table(data):
         has_clicks = d["clicks"] is not None
         inmail_only = d["views"] is None
         cls = "lead-row" if has_lead else ""
+        sv = lambda x: str(x) if x is not None else "-999"
         rows += f"""
         <tr class="{cls}">
-          <td><div class="co">{d['co']}</div><div class="ctry">{d['ctry']}</div></td>
+          <td data-v="{d['co'].lower()}"><div class="co">{d['co']}</div><div class="ctry">{d['ctry']}</div></td>
           <td>{fmt_channels(d['ch'])}</td>
-          <td class="r">{fmt_views(d['views'])}</td>
-          <td class="r">{fmt_clicks(d['clicks'])}</td>
-          <td class="r">{fmt_ctr(d['ctr'])}</td>
-          <td class="r">{fmt_open(d['op'], has_clicks, inmail_only)}</td>
-          <td>{fmt_lead(d['lead'], d['ltitle'], d['ldate'])}</td>
+          <td class="r" data-v="{sv(d['views'])}">{fmt_views(d['views'])}</td>
+          <td class="r" data-v="{sv(d['clicks'])}">{fmt_clicks(d['clicks'])}</td>
+          <td class="r" data-v="{sv(d['ctr'])}">{fmt_ctr(d['ctr'])}</td>
+          <td class="r" data-v="{sv(d['op'])}">{fmt_open(d['op'], has_clicks, inmail_only)}</td>
+          <td data-v="{'1' if has_lead else '0'}">{fmt_lead(d['lead'], d['ltitle'], d['ldate'])}</td>
         </tr>"""
 
-    return f"""
-    <table>
-      <thead>
-        <tr>
-          <th>COMPANY</th>
-          <th>CHANNELS</th>
-          <th class="r">AD VIEWS</th>
-          <th class="r">AD CLICKS</th>
-          <th class="r">CTR</th>
-          <th class="r">INMAIL OPEN RATE</th>
-          <th>LEAD SUBMITTED</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>"""
+    height = 55 + len(data) * 52 + 20
+    html = f"""<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+*{{box-sizing:border-box;margin:0;padding:0}}
+body{{background:#0d0d0d;font-family:'Segoe UI',Arial,sans-serif}}
+table{{width:100%;border-collapse:collapse;font-size:12px}}
+thead th{{text-align:left;padding:7px 12px;font-size:10px;font-weight:700;letter-spacing:.8px;
+  color:#6b7280;border-bottom:2px solid #1e1e2e;white-space:nowrap;
+  cursor:pointer;user-select:none}}
+thead th:hover{{color:#a78bfa}}
+thead th.r{{text-align:right}}
+thead th .si{{margin-left:4px;font-size:9px;opacity:.4}}
+thead th.asc .si{{opacity:1;color:#a78bfa}}
+thead th.desc .si{{opacity:1;color:#a78bfa}}
+tbody tr{{border-bottom:1px solid #111827}}
+tbody tr:hover{{background:#111827}}
+tbody tr.lead-row{{background:#1a1500}}
+tbody tr.lead-row:hover{{background:#231d00}}
+td{{padding:7px 12px;vertical-align:middle}}
+td.r{{text-align:right}}
+.co{{font-weight:600;color:#fff;font-size:13px}}
+.ctry{{font-size:10px;color:#4b5563}}
+.tags{{display:flex;gap:4px;flex-wrap:wrap}}
+.tag{{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;white-space:nowrap}}
+.t-ads{{background:#312e81;color:#a5b4fc}}
+.t-inmail{{background:#14532d;color:#86efac}}
+.t-demo{{background:#451a03;color:#fdba74}}
+.num{{color:#e5e7eb;font-variant-numeric:tabular-nums}}
+.dim{{color:#374151}}
+.ctr-hi{{color:#4ade80;font-weight:700}}
+.ctr-mid{{color:#facc15;font-weight:600}}
+.ctr-lo{{color:#6b7280}}
+.op-hi{{color:#4ade80;font-weight:700}}
+.op-mid{{color:#facc15;font-weight:600}}
+.op-lo{{color:#6b7280}}
+.lead-name{{font-weight:700;color:#fde68a;font-size:12px}}
+.lead-sub{{font-size:10px;color:#92400e}}
+.no-lead{{color:#1f2937}}
+</style></head><body>
+<table id="t">
+  <thead><tr>
+    <th data-col="0">COMPANY <span class="si">↕</span></th>
+    <th>CHANNELS</th>
+    <th class="r" data-col="2">AD VIEWS <span class="si">↕</span></th>
+    <th class="r" data-col="3">AD CLICKS <span class="si">↕</span></th>
+    <th class="r" data-col="4">CTR <span class="si">↕</span></th>
+    <th class="r" data-col="5">INMAIL OPEN RATE <span class="si">↕</span></th>
+    <th data-col="6">LEAD SUBMITTED <span class="si">↕</span></th>
+  </tr></thead>
+  <tbody>{rows}</tbody>
+</table>
+<script>
+var cur=-1,asc=true;
+document.querySelectorAll('thead th[data-col]').forEach(function(th){{
+  th.addEventListener('click',function(){{
+    var col=parseInt(th.getAttribute('data-col'));
+    if(cur===col){{asc=!asc}}else{{cur=col;asc=col===0}}
+    document.querySelectorAll('thead th').forEach(function(t){{
+      t.classList.remove('asc','desc');
+      var s=t.querySelector('.si');if(s)s.textContent='↕';
+    }});
+    th.classList.add(asc?'asc':'desc');
+    th.querySelector('.si').textContent=asc?'↑':'↓';
+    var tb=document.querySelector('#t tbody');
+    Array.from(tb.rows).sort(function(a,b){{
+      var av=a.cells[col].getAttribute('data-v');
+      var bv=b.cells[col].getAttribute('data-v');
+      var an=parseFloat(av),bn=parseFloat(bv);
+      if(!isNaN(an)&&!isNaN(bn))return asc?an-bn:bn-an;
+      return asc?av.localeCompare(bv):bv.localeCompare(av);
+    }}).forEach(function(r){{tb.appendChild(r)}});
+  }});
+}});
+</script>
+</body></html>"""
+    components.html(html, height=height, scrolling=False)
 
 # ── UI ───────────────────────────────────────────────────────────────────────
 
@@ -232,7 +295,7 @@ else:
 
     st.markdown(f'<div class="section-lbl">{region.upper()} — {flag}</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size:11px; color:#4b5563; margin-bottom:8px;">Apr 1 – Jun 30, 2026</div>', unsafe_allow_html=True)
-    st.markdown(render_table(data), unsafe_allow_html=True)
+    render_table(data)
 
     leads = [d for d in data if d["lead"]]
     total_views = sum(d["views"] for d in data if d["views"])
