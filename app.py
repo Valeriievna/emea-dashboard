@@ -115,6 +115,61 @@ SOUTH = [
     dict(co="hiberus",         ctry="Spain",         ch=["Ads","Demo"],          views=1193, clicks=3,    ctr=0.25, op=None,  lead=None,ltitle=None,ldate=None),
 ]
 
+G2_NORTH = [
+    # ── High ──
+    dict(co="T-Systems International", ctry="Germany",     activity="High",   visitor="Slovakia",      last="27 days ago",  days=27, visitors=2,    signals=10),
+    dict(co="Yara",                    ctry="Norway",       activity="High",   visitor="Denmark",       last="22 days ago",  days=22, visitors=5,    signals=13),
+    # ── Medium ──
+    dict(co="University of Zurich",    ctry="Switzerland",  activity="Medium", visitor="Switzerland",   last="~1 month ago", days=30, visitors=2,    signals=7),
+    dict(co="Datev eG",                ctry="Germany",      activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=1,    signals=7),
+    dict(co="PwC",                     ctry="UK",           activity="Medium", visitor="France",        last="2 months ago", days=60, visitors=4,    signals=5),
+    dict(co="Vinted",                  ctry="Lithuania",    activity="Medium", visitor="Sweden",        last="~1 month ago", days=30, visitors=5,    signals=5),
+    dict(co="Visma",                   ctry="Norway",       activity="Medium", visitor="Sweden",        last="2 months ago", days=60, visitors=4,    signals=5),
+    dict(co="Sage",                    ctry="UK",           activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=5,    signals=5),
+    dict(co="O2 (Telefónica UK)",      ctry="UK",           activity="Medium", visitor="Poland",        last="2 months ago", days=60, visitors=2,    signals=5),
+    dict(co="DHL",                     ctry="Germany",      activity="Medium", visitor="South Africa",  last="19 days ago",  days=19, visitors=1,    signals=5),
+    dict(co="Novo Nordisk",            ctry="Denmark",      activity="Medium", visitor="France",        last="20 days ago",  days=20, visitors=4,    signals=4),
+    dict(co="Bosch",                   ctry="Germany",      activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=4,    signals=4),
+    dict(co="Acronis",                 ctry="Switzerland",  activity="Medium", visitor="Serbia",        last="14 days ago",  days=14, visitors=2,    signals=4),
+    dict(co="Swisscom",                ctry="Switzerland",  activity="Medium", visitor="Switzerland",   last="~1 month ago", days=30, visitors=None, signals=None),
+    # ── Low ──
+    dict(co="Bechtle",                 ctry="Germany",      activity="Low",    visitor="Germany",       last="16 days ago",  days=16, visitors=3,    signals=4),
+    dict(co="SAP",                     ctry="Germany",      activity="Low",    visitor="Israel",        last="20 days ago",  days=20, visitors=4,    signals=4),
+    dict(co="Ericsson",                ctry="Sweden",       activity="Low",    visitor="Nigeria",       last="3 days ago",   days=3,  visitors=4,    signals=4),
+    dict(co="Nuuday",                  ctry="Denmark",      activity="Low",    visitor="Denmark",       last="21 days ago",  days=21, visitors=3,    signals=4),
+    dict(co="Westcon-Comstor",         ctry="UK",           activity="Low",    visitor="UAE",           last="~1 month ago", days=30, visitors=1,    signals=4),
+    dict(co="NRB",                     ctry="Belgium",      activity="Low",    visitor="Belgium",       last="26 days ago",  days=26, visitors=3,    signals=3),
+    dict(co="DEPT",                    ctry="Netherlands",  activity="Low",    visitor="UK",            last="2 months ago", days=60, visitors=3,    signals=3),
+    dict(co="Foundever",               ctry="Luxembourg",   activity="Low",    visitor="Morocco",       last="5 days ago",   days=5,  visitors=1,    signals=3),
+    dict(co="Coleg Llandrillo",        ctry="UK",           activity="Low",    visitor="UK",            last="~1 month ago", days=30, visitors=1,    signals=3),
+    dict(co="Siemens",                 ctry="Germany",      activity="Low",    visitor="Germany",       last="11 days ago",  days=11, visitors=3,    signals=3),
+    dict(co="Mainova",                 ctry="Germany",      activity="Low",    visitor="Germany",       last="2 months ago", days=60, visitors=3,    signals=3),
+]
+
+G2_SOUTH = [
+    # ── High ──
+    dict(co="Thales",             ctry="France",    activity="High",   visitor="France",       last="3 days ago",   days=3,  visitors=10, signals=10),
+    dict(co="Naval Group",        ctry="France",    activity="High",   visitor="France",       last="27 days ago",  days=27, visitors=7,  signals=7),
+    dict(co="Check Point",        ctry="Israel",    activity="High",   visitor="Israel",       last="~1 month ago", days=30, visitors=5,  signals=6),
+    dict(co="Dnata",              ctry="UAE",       activity="High",   visitor="Switzerland",  last="2 months ago", days=60, visitors=3,  signals=6),
+    # ── Medium ──
+    dict(co="Schneider Electric", ctry="France",    activity="Medium", visitor="France",       last="12 days ago",  days=12, visitors=6,  signals=6),
+    dict(co="Cognyte",            ctry="Israel",    activity="Medium", visitor="Israel",       last="19 days ago",  days=19, visitors=3,  signals=5),
+    dict(co="GMG",                ctry="UAE",       activity="Medium", visitor="UAE",          last="~1 month ago", days=30, visitors=1,  signals=5),
+    dict(co="SFR",                ctry="France",    activity="Medium", visitor="France",       last="2 months ago", days=60, visitors=1,  signals=5),
+    # ── Low ──
+    dict(co="Académie de Rennes", ctry="France",    activity="Low",    visitor="France",       last="2 months ago", days=60, visitors=8,  signals=8),
+    dict(co="Capgemini",          ctry="France",    activity="Low",    visitor="Spain",        last="6 days ago",   days=6,  visitors=3,  signals=5),
+    dict(co="Sky Italia",         ctry="Italy",     activity="Low",    visitor="Italy",        last="~1 month ago", days=30, visitors=4,  signals=4),
+    dict(co="monday.com",         ctry="Israel",    activity="Low",    visitor="Israel",       last="26 days ago",  days=26, visitors=2,  signals=4),
+    dict(co="Togg",               ctry="Turkey",    activity="Low",    visitor="Turkey",       last="24 days ago",  days=24, visitors=1,  signals=4),
+    dict(co="Ben Gurion Univ.",   ctry="Israel",    activity="Low",    visitor="Israel",       last="~1 month ago", days=30, visitors=2,  signals=3),
+    dict(co="Zagrebacka banka",   ctry="Croatia",   activity="Low",    visitor="Croatia",      last="2 months ago", days=60, visitors=1,  signals=3),
+    dict(co="CTT",                ctry="Portugal",  activity="Low",    visitor="Portugal",     last="2 months ago", days=60, visitors=1,  signals=3),
+    dict(co="e&",                 ctry="UAE",       activity="Low",    visitor="UAE",          last="2 months ago", days=60, visitors=2,  signals=3),
+    dict(co="Sharaf DG",          ctry="UAE",       activity="Low",    visitor="UAE",          last="7 days ago",   days=7,  visitors=None, signals=None),
+]
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def fmt_views(v):
@@ -244,6 +299,91 @@ document.querySelectorAll('thead th[data-col]').forEach(function(th){{
 </body></html>"""
     components.html(html, height=height, scrolling=False)
 
+def render_g2_table(data):
+    act_order = {"High": 3, "Medium": 2, "Low": 1}
+    act_style = {
+        "High":   ("background:#14532d;color:#4ade80;", "High"),
+        "Medium": ("background:#713f12;color:#facc15;", "Medium"),
+        "Low":    ("background:#1c1c1c;color:#6b7280;",  "Low"),
+    }
+    rows = ""
+    for d in data:
+        sig     = d["signals"]  if d["signals"]  is not None else -999
+        vis     = d["visitors"] if d["visitors"] is not None else -999
+        act_n   = act_order[d["activity"]]
+        sty, lbl = act_style[d["activity"]]
+        act_html = f'<span style="{sty}font-size:9px;font-weight:700;padding:2px 9px;border-radius:3px;">{lbl}</span>'
+        sig_html = f'<span class="num">{d["signals"]}</span>'  if d["signals"]  is not None else '<span class="dim">—</span>'
+        vis_html = f'<span class="num">{d["visitors"]}</span>' if d["visitors"] is not None else '<span class="dim">—</span>'
+        rows += f"""
+        <tr>
+          <td data-v="{d['co'].lower()}"><div class="co">{d['co']}</div><div class="ctry">{d['ctry']}</div></td>
+          <td data-v="{act_n}">{act_html}</td>
+          <td data-v="{d['visitor'].lower()}" style="color:#9ca3af;font-size:12px;">{d['visitor']}</td>
+          <td data-v="{d['days']}" style="color:#6b7280;font-size:11px;">{d['last']}</td>
+          <td class="r" data-v="{vis}">{vis_html}</td>
+          <td class="r" data-v="{sig}">{sig_html}</td>
+        </tr>"""
+
+    height = 55 + len(data) * 50 + 20
+    html = f"""<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+*{{box-sizing:border-box;margin:0;padding:0}}
+body{{background:#0d0d0d;font-family:'Segoe UI',Arial,sans-serif}}
+table{{width:100%;border-collapse:collapse;font-size:12px}}
+thead th{{text-align:left;padding:7px 12px;font-size:10px;font-weight:700;letter-spacing:.8px;
+  color:#6b7280;border-bottom:2px solid #1e1e2e;white-space:nowrap;
+  cursor:pointer;user-select:none}}
+thead th:hover{{color:#a78bfa}}
+thead th.r{{text-align:right}}
+thead th .si{{margin-left:4px;font-size:9px;opacity:.4}}
+thead th.asc .si,thead th.desc .si{{opacity:1;color:#a78bfa}}
+tbody tr{{border-bottom:1px solid #111827}}
+tbody tr:hover{{background:#111827}}
+td{{padding:7px 12px;vertical-align:middle}}
+td.r{{text-align:right}}
+.co{{font-weight:600;color:#fff;font-size:13px}}
+.ctry{{font-size:10px;color:#4b5563}}
+.num{{color:#e5e7eb;font-variant-numeric:tabular-nums}}
+.dim{{color:#374151}}
+</style></head><body>
+<table id="g2t">
+  <thead><tr>
+    <th data-col="0">COMPANY <span class="si">↕</span></th>
+    <th data-col="1">ACTIVITY <span class="si">↕</span></th>
+    <th data-col="2">VISITOR LOCATION <span class="si">↕</span></th>
+    <th data-col="3">LAST ACTIVE <span class="si">↕</span></th>
+    <th class="r" data-col="4">VISITORS <span class="si">↕</span></th>
+    <th class="r" data-col="5">SIGNALS <span class="si">↕</span></th>
+  </tr></thead>
+  <tbody>{rows}</tbody>
+</table>
+<script>
+var cur=-1,asc=true;
+document.querySelectorAll('#g2t thead th[data-col]').forEach(function(th){{
+  th.addEventListener('click',function(){{
+    var col=parseInt(th.getAttribute('data-col'));
+    if(cur===col){{asc=!asc}}else{{cur=col;asc=(col===0||col===2)}}
+    document.querySelectorAll('#g2t thead th').forEach(function(t){{
+      t.classList.remove('asc','desc');
+      var s=t.querySelector('.si');if(s)s.textContent='↕';
+    }});
+    th.classList.add(asc?'asc':'desc');
+    th.querySelector('.si').textContent=asc?'↑':'↓';
+    var tb=document.querySelector('#g2t tbody');
+    Array.from(tb.rows).sort(function(a,b){{
+      var av=a.cells[col].getAttribute('data-v');
+      var bv=b.cells[col].getAttribute('data-v');
+      var an=parseFloat(av),bn=parseFloat(bv);
+      if(!isNaN(an)&&!isNaN(bn))return asc?an-bn:bn-an;
+      return asc?av.localeCompare(bv):bv.localeCompare(av);
+    }}).forEach(function(r){{tb.appendChild(r)}});
+  }});
+}});
+</script>
+</body></html>"""
+    components.html(html, height=height, scrolling=False)
+
 # ── UI ───────────────────────────────────────────────────────────────────────
 
 st.markdown('<div class="dash-title">EMEA Intent Dashboard</div>', unsafe_allow_html=True)
@@ -282,12 +422,23 @@ if False:
     """, unsafe_allow_html=True)
 
 elif data_type == "G2 Intent":
-    st.markdown("""
-    <div class="g2-placeholder">
-      <h3>G2 Intent data coming soon</h3>
-      <p>Paste G2 intent export here to see which accounts are actively researching on G2.</p>
-    </div>
-    """, unsafe_allow_html=True)
+    g2_data = G2_NORTH if region == "EMEA North" else G2_SOUTH
+    flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
+
+    st.markdown(f'<div class="section-lbl">{region.upper()} — {flag}</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">G2 Intent · Last 90 days</div>', unsafe_allow_html=True)
+    render_g2_table(g2_data)
+
+    high_co   = len([d for d in g2_data if d["activity"] == "High"])
+    med_co    = len([d for d in g2_data if d["activity"] == "Medium"])
+    tot_sigs  = sum(d["signals"] for d in g2_data if d["signals"])
+
+    st.divider()
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Companies researching", len(g2_data))
+    c2.metric("High intent",           high_co)
+    c3.metric("Medium intent",         med_co)
+    c4.metric("Total signals",         tot_sigs)
 
 else:
     data = NORTH if region == "EMEA North" else SOUTH
