@@ -118,9 +118,52 @@ SOUTH = [
 G2_NORTH = [
     # ── High ──
     dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Slovakia", last="27 days ago", days=27, visitors=2, signals=10,
-         details=dict(website="t-systems.com", hq_full="Frankfurt, Germany", founded=2000, revenue=None, employees=None, feed=[])),
+         details=dict(
+             website="t-systems.com", hq_full="Hessen, Germany", founded=2000,
+             revenue="$5,671,391,000", employees="27,000",
+             feed=[
+                 dict(text="Visitor from Germany viewed profile page for <b>Unleash</b>",           time="28 days ago",  loc="Nordrhein-Westfalen", type="profile"),
+                 dict(text="Visitor from Germany viewed profile page for <b>ConfigCat</b>",          time="28 days ago",  loc="Nordrhein-Westfalen", type="profile"),
+                 dict(text="Visitor from Germany viewed profile page for <b>LaunchDarkly</b>",       time="28 days ago",  loc="Nordrhein-Westfalen", type="profile"),
+                 dict(text="Visitor from Germany compared <b>Unleash</b> to <b>LaunchDarkly</b>",   time="28 days ago",  loc="Nordrhein-Westfalen", type="compare"),
+                 dict(text="Visitor from Germany compared <b>ConfigCat</b> to <b>Unleash</b>",      time="28 days ago",  loc="Nordrhein-Westfalen", type="compare"),
+                 dict(text="Visitor from Germany compared <b>ConfigCat</b> to <b>LaunchDarkly</b>", time="28 days ago",  loc="Nordrhein-Westfalen", type="compare"),
+                 dict(text="Visitor from Germany compared <b>LaunchDarkly</b> to <b>Statsig</b>",   time="28 days ago",  loc="Nordrhein-Westfalen", type="compare"),
+                 dict(text="Visitor from Slovakia viewed profile page for <b>GitLab</b>",            time="2 months ago", loc="Kosicky",             type="profile"),
+                 dict(text="Visitor from Germany looked at alternatives to <b>Plesk</b>",            time="4 months ago", loc="Nordrhein-Westfalen", type="alt"),
+             ]
+         )),
     dict(co="Yara", ctry="Norway", activity="High", visitor="Denmark", last="22 days ago", days=22, visitors=5, signals=13,
-         details=dict(website="yara.com", hq_full="Oslo, Norway", founded=1905, revenue=None, employees=None, feed=[])),
+         details=dict(
+             website="yara.com", hq_full="Oslo, Norway", founded=1905,
+             revenue="$14,154,000,000", employees="17,342",
+             feed=[
+                 dict(text="Visitor from Denmark viewed profile page for <b>Pentera</b>",                time="22 days ago",        loc="Hovedstaden",   type="profile"),
+                 dict(text="Visitor from Denmark viewed profile page for <b>Klocwork</b>",               time="about 1 month ago",  loc="Hovedstaden",   type="profile"),
+                 dict(text="<b>2 visitors</b> viewed the <b>Configuration Management</b> category page", time="about 2 months ago", loc=None,            type="category"),
+                 dict(text="Visitor from Denmark viewed profile page for <b>Freshservice</b>",           time="about 2 months ago", loc="Hovedstaden",   type="profile"),
+                 dict(text="Visitor from United States viewed profile page for <b>Codenvy</b>",          time="2 months ago",       loc="North Carolina", type="profile"),
+                 dict(text="Visitor from Denmark viewed profile page for <b>Netlify</b>",                time="2 months ago",       loc="Hovedstaden",   type="profile"),
+                 dict(text="Visitor from Denmark viewed profile page for <b>LaunchDarkly</b>",           time="2 months ago",       loc="Hovedstaden",   type="profile"),
+                 dict(text="Visitor from Brazil looked at alternatives to <b>Postman</b>",               time="2 months ago",       loc="Sao Paulo",     type="alt"),
+                 dict(text="Visitor from India viewed the <b>DevOps Platforms</b> category page",        time="4 months ago",       loc="Maharashtra",   type="category"),
+             ]
+         )),
+    dict(co="Yandex", ctry="Russia", activity="High", visitor="UK", last="28 days ago", days=28, visitors=6, signals=6,
+         details=dict(
+             website="yandex.com", hq_full="Moskva, Russia", founded=2000,
+             revenue="$13,653,545,000", employees="96,600",
+             feed=[
+                 dict(text="Visitor from United Kingdom compared <b>GitHub</b> to <b>Trello</b>",                   time="28 days ago",        loc="Greater London", type="compare"),
+                 dict(text="Visitor from United Kingdom compared <b>WordPress.com</b> to <b>Vercel</b>",            time="about 2 months ago", loc="Greater London", type="compare"),
+                 dict(text="Visitor from Latvia viewed profile page for <b>Pentera</b>",                            time="about 2 months ago", loc="Riga",           type="profile"),
+                 dict(text="Visitor from Latvia looked at alternatives to <b>Plesk</b>",                            time="about 2 months ago", loc="Riga",           type="alt"),
+                 dict(text="Visitor from United Kingdom viewed profile page for <b>Easyflow.io</b>",               time="2 months ago",       loc="Greater London", type="profile"),
+                 dict(text="Visitor from United Kingdom viewed profile page for <b>AB Tasty</b>",                   time="2 months ago",       loc="Greater London", type="profile"),
+                 dict(text="Visitor from Vietnam viewed the <b>Continuous Integration</b> category page",           time="3 months ago",       loc="Ho Chi Minh",    type="category"),
+                 dict(text="Visitor from Russia viewed profile page for <b>GitLab</b>",                             time=None,                 loc=None,             type="profile"),
+             ]
+         )),
     # ── Medium ──
     dict(co="University of Zurich",    ctry="Switzerland",  activity="Medium", visitor="Switzerland",   last="~1 month ago", days=30, visitors=2,    signals=7),
     dict(co="Datev eG",                ctry="Germany",      activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=1,    signals=7),
@@ -168,9 +211,31 @@ G2_SOUTH = [
              ]
          )),
     dict(co="Naval Group", ctry="France", activity="High", visitor="France", last="27 days ago", days=27, visitors=7, signals=7,
-         details=dict(website="naval-group.com", hq_full="Paris, France", founded=2017, revenue=None, employees=None, feed=[])),
+         details=dict(
+             website="naval-group.com", hq_full="Ile-de-France, France", founded=2008,
+             revenue="$4,713,936,000", employees="16,325",
+             feed=[
+                 dict(text="Visitor from France viewed profile page for <b>Freshservice</b>",  time="27 days ago",        loc="Morbihan", type="profile"),
+                 dict(text="<b>3 visitors</b> viewed profile page for <b>GitLab</b>",          time="about 1 month ago",  loc=None,       type="profile"),
+                 dict(text="<b>2 visitors</b> compared <b>GitLab</b> to <b>Jira</b>",          time="about 2 months ago", loc=None,       type="compare"),
+                 dict(text="Visitor from France looked at alternatives to <b>GitLab</b>",       time="about 2 months ago", loc="Morbihan", type="alt"),
+                 dict(text="Visitor from France looked at alternatives to <b>GitLab</b>",       time="4 months ago",       loc="Morbihan", type="alt"),
+             ]
+         )),
     dict(co="Check Point", ctry="Israel", activity="High", visitor="Israel", last="~1 month ago", days=30, visitors=5, signals=6,
-         details=dict(website="checkpoint.com", hq_full="Tel Aviv, Israel", founded=1993, revenue=None, employees=None, feed=[])),
+         details=dict(
+             website="checkpoint.com", hq_full="Tel Aviv, Israel", founded=1993,
+             revenue="$2,641,800,000", employees="6,669",
+             feed=[
+                 dict(text="Visitor from United States viewed profile page for <b>Statsig</b>",                    time="about 1 month ago", loc="New York", type="profile"),
+                 dict(text="<b>2 visitors</b> compared <b>ZeroFox</b> to <b>Check Point Exposure Management</b>", time="about 1 month ago", loc=None,       type="compare"),
+                 dict(text="Visitor from United States viewed the <b>Feature Management</b> category page",        time="about 1 month ago", loc="New York", type="category"),
+                 dict(text="Visitor from Germany viewed profile page for <b>GitLab</b>",                          time="about 2 months ago", loc="Hessen",   type="profile"),
+                 dict(text="<b>2 visitors</b> viewed profile page for <b>Check Point Exposure Management</b>",    time="2 months ago",      loc=None,       type="profile"),
+                 dict(text="Visitor from United States viewed profile page for <b>Plandek</b>",                   time="2 months ago",      loc="Virginia", type="profile"),
+                 dict(text="<b>2 visitors</b> viewed profile page for <b>Check Point Exposure Management</b>",    time=None,                loc=None,       type="profile"),
+             ]
+         )),
     dict(co="Dnata", ctry="UAE", activity="High", visitor="Switzerland", last="2 months ago", days=60, visitors=3, signals=6,
          details=dict(website="dnata.com", hq_full="Dubai, UAE", founded=1959, revenue=None, employees=None, feed=[])),
     # ── Medium ──
