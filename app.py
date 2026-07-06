@@ -287,7 +287,20 @@ G2_SOUTH = [
              ]
          )),
     dict(co="Dnata", ctry="UAE", activity="Medium", visitor="Switzerland", last="2 months ago", days=60, visitors=3, signals=6,
-         details=dict(website="dnata.com", hq_full="Dubai, UAE", founded=1959, revenue=None, employees=None, feed=[])),
+         details=dict(website="dnata.com", hq_full="Dubayy, United Arab Emirates", founded=1959,
+             revenue="$4,020,028,000", employees="49,000",
+             feed=[
+                 dict(text="Visitor from Switzerland compared <b>GitLab</b> to <b>Docker</b>",                              time="2 months ago",  loc="Zurich", type="compare"),
+                 dict(text="Visitor from Switzerland viewed profile page for <b>GitHub</b>",                                time="3 months ago",  loc="Zurich", type="profile"),
+                 dict(text="Visitor from Switzerland viewed profile page for <b>YesWeHack</b>",                             time="4 months ago",  loc="Zurich", type="profile"),
+                 dict(text="Visitor from Switzerland compared <b>GitLab</b> to <b>Octopus Deploy</b>",                      time="4 months ago",  loc="Zurich", type="compare"),
+                 dict(text="Visitor from United Arab Emirates viewed profile page for <b>Postman</b>",                      time="6 months ago",  loc="Dubayy", type="profile"),
+                 dict(text="Visitor from United Arab Emirates compared <b>Kong Insomnia</b> to <b>Postman</b>",             time="6 months ago",  loc="Dubayy", type="compare"),
+                 dict(text="Visitor from United Arab Emirates viewed profile page for <b>ACCELQ</b>",                       time="7 months ago",  loc="Dubayy", type="profile"),
+                 dict(text="Visitor from United Arab Emirates compared <b>ACCELQ</b> to <b>UiPath Agentic Automation</b>",  time="7 months ago",  loc="Dubayy", type="compare"),
+                 dict(text="Visitor from United Arab Emirates viewed pricing page for <b>ACCELQ</b>",                       time="9 months ago",  loc="Dubayy", type="profile"),
+                 dict(text="Visitor from United Arab Emirates compared <b>ServiceNow IT Service Management</b> to <b>BMC Helix ITSM</b>", time="10 months ago", loc="Dubayy", type="compare"),
+             ])),
     # ── Medium ──
     dict(co="Schneider Electric", ctry="France",    activity="Medium", visitor="France",       last="12 days ago",  days=12, visitors=6,  signals=6,
          details=dict(website="www.se.com", hq_full="Ile-de-France, France", founded=1836,
