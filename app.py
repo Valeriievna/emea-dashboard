@@ -236,7 +236,7 @@ G2_SOUTH = [
                  dict(text="<b>2 visitors</b> viewed profile page for <b>Check Point Exposure Management</b>",    time=None,                loc=None,       type="profile"),
              ]
          )),
-    dict(co="Dnata", ctry="UAE", activity="High", visitor="Switzerland", last="2 months ago", days=60, visitors=3, signals=6,
+    dict(co="Dnata", ctry="UAE", activity="Medium", visitor="Switzerland", last="2 months ago", days=60, visitors=3, signals=6,
          details=dict(website="dnata.com", hq_full="Dubai, UAE", founded=1959, revenue=None, employees=None, feed=[])),
     # ── Medium ──
     dict(co="Schneider Electric", ctry="France",    activity="Medium", visitor="France",       last="12 days ago",  days=12, visitors=6,  signals=6),
