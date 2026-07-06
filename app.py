@@ -594,7 +594,7 @@ elif data_type == "G2 Intent":
     med_co    = len([d for d in g2_data if d["activity"] == "Medium"])
     tot_sigs  = sum(d["signals"] for d in g2_data if d["signals"])
 
-    st.divider()
+    st.markdown('<div style="margin-top:-24px"></div>', unsafe_allow_html=True)
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Companies researching", len(g2_data))
     c2.metric("High intent",           high_co)
@@ -624,7 +624,7 @@ else:
     total_views = sum(d["views"] for d in data if d["views"])
     total_clicks = sum(d["clicks"] for d in data if d["clicks"])
 
-    st.divider()
+    st.markdown('<div style="margin-top:-24px"></div>', unsafe_allow_html=True)
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Companies reached", len(data))
     c2.metric("Total ad views",    f"{total_views:,}")
