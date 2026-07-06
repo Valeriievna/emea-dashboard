@@ -78,7 +78,7 @@ st.markdown("""
 NORTH = [
     # ── leads first ──
     dict(co="Sky",                    ctry="UK",            ch=["Ads","InMail"],        views=774,   clicks=22,   ctr=2.84, op=46.02, lead="Megha Parameswaran",   ltitle="Software Engineer",        ldate="Apr 16"),
-    dict(co="Delivery Hero",          ctry="Germany",       ch=["Ads"],                 views=651,   clicks=16,   ctr=2.46, op=None,  lead="Kanchan Khatri",       ltitle="Engineering Manager",      ldate="Mar 13"),
+    dict(co="Delivery Hero",          ctry="Germany",       ch=["Ads","InMail"],        views=651,   clicks=16,   ctr=2.46, op=None,  lead="Kanchan Khatri",       ltitle="Engineering Manager",      ldate="Mar 13"),
     dict(co="Ericsson",               ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=55.71, lead="Jitender Thakur",      ltitle="Senior Engineer",          ldate="Mar 12"),
     dict(co="Siemens Healthineers",   ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=50.91, lead="Rithika Ravichandran",  ltitle="AI/ML Engineer",           ldate="Apr 19"),
     # ── no lead ──
