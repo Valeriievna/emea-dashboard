@@ -119,7 +119,7 @@ G2_NORTH = [
     # ── High ──
     dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Slovakia", last="27 days ago", days=27, visitors=2, signals=10,
          details=dict(
-             website="t-systems.com", hq_full="Hessen, Germany", founded=2000,
+             website="t-systems.com", hq_full="Germany", founded=2000,
              revenue="$5,671,391,000", employees="27,000",
              feed=[
                  dict(text="Visitor from Germany viewed profile page for <b>Unleash</b>",           time="28 days ago",  loc="Nordrhein-Westfalen", type="profile"),
