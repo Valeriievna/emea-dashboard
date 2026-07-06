@@ -550,48 +550,28 @@ document.querySelectorAll('#g2t thead th[data-col]').forEach(function(th){{
 st.markdown('<div class="dash-title">EMEA Intent Dashboard</div>', unsafe_allow_html=True)
 
 # ── Navigation ────────────────────────────────────────────────────────────────
-col_campaign, col_region, col_data = st.columns([2, 2, 2])
-with col_campaign:
-    st.caption("LINKEDIN CAMPAIGN")
-    campaign = st.radio("Campaign", ["Smart Tests"],
-                        horizontal=False, label_visibility="collapsed")
-    st.markdown("""
-    <div style="opacity:0.3; cursor:not-allowed; font-size:14px; padding:2px 0 0 2px; color:#fff;">
-      ○ &nbsp;Unify (AI Governance)
-      <span style="font-size:10px; color:#6b7280;"> — coming soon</span>
-    </div>
-    """, unsafe_allow_html=True)
-with col_region:
-    st.caption("REGION")
-    region = st.radio("Region", ["EMEA North", "EMEA South"],
-                      horizontal=False, label_visibility="collapsed")
-with col_data:
-    st.caption("DATA SOURCE")
-    data_type = st.radio("Data source", ["LinkedIn Intent", "G2 Intent"],
-                         horizontal=False, label_visibility="collapsed")
+tab_li, tab_g2 = st.tabs(["LinkedIn Intent", "G2 Intent"])
 
-st.divider()
+# ── LinkedIn Intent tab ───────────────────────────────────────────────────────
+with tab_li:
+    col_campaign, col_region, _ = st.columns([2, 2, 2])
+    with col_campaign:
+        st.caption("CAMPAIGN")
+        campaign = st.radio("Campaign", ["Smart Tests"],
+                            horizontal=False, label_visibility="collapsed")
+        st.markdown("""
+        <div style="opacity:0.3; cursor:not-allowed; font-size:14px; padding:2px 0 0 2px; color:#fff;">
+          ○ &nbsp;Unify (AI Governance)
+          <span style="font-size:10px; color:#6b7280;"> — coming soon</span>
+        </div>
+        """, unsafe_allow_html=True)
+    with col_region:
+        st.caption("REGION")
+        region = st.radio("Region", ["EMEA North", "EMEA South"],
+                          horizontal=False, label_visibility="collapsed")
 
-# ── Content ───────────────────────────────────────────────────────────────────
+    st.divider()
 
-if False:
-    st.markdown(f"""
-    <div class="g2-placeholder">
-      <h3>{campaign} — data coming soon</h3>
-      <p>Intent data for this campaign will appear here once available.</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-elif data_type == "G2 Intent":
-    g2_data = G2_NORTH if region == "EMEA North" else G2_SOUTH
-    flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
-
-    st.markdown(f'<div class="section-lbl">{region.upper()} — {flag}</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">G2 Intent · Last 90 days</div>', unsafe_allow_html=True)
-    render_g2_table(g2_data)
-
-
-else:
     data = NORTH if region == "EMEA North" else SOUTH
     flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
 
@@ -607,4 +587,21 @@ else:
 </div>
 """, unsafe_allow_html=True)
     render_table(data)
+
+# ── G2 Intent tab ─────────────────────────────────────────────────────────────
+with tab_g2:
+    col_region_g2, _, _ = st.columns([2, 2, 2])
+    with col_region_g2:
+        st.caption("REGION")
+        region_g2 = st.radio("Region G2", ["EMEA North", "EMEA South"],
+                             horizontal=False, label_visibility="collapsed")
+
+    st.divider()
+
+    g2_data = G2_NORTH if region_g2 == "EMEA North" else G2_SOUTH
+    flag_g2 = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region_g2 == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
+
+    st.markdown(f'<div class="section-lbl">{region_g2.upper()} — {flag_g2}</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">G2 Intent · Last 90 days</div>', unsafe_allow_html=True)
+    render_g2_table(g2_data)
 
