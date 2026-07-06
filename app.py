@@ -552,7 +552,7 @@ st.markdown('<div class="dash-title">EMEA Intent Dashboard</div>', unsafe_allow_
 # ── Navigation ────────────────────────────────────────────────────────────────
 col_campaign, col_region, col_data = st.columns([2, 2, 2])
 with col_campaign:
-    st.caption("CAMPAIGN")
+    st.caption("LINKEDIN CAMPAIGN")
     campaign = st.radio("Campaign", ["Smart Tests"],
                         horizontal=False, label_visibility="collapsed")
     st.markdown("""
