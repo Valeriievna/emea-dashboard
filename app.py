@@ -11,10 +11,10 @@ st.set_page_config(
 # ── CSS ──────────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-  .block-container { padding-top: 2rem; padding-bottom: 2rem; max-width: 1100px; }
+  .block-container { padding-top: 3rem; padding-bottom: 2rem; max-width: 1100px; }
 
   /* Page title */
-  .dash-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .dash-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 2px; padding-top: 8px; }
   .dash-sub   { font-size: 12px; color: #6b7280; margin-bottom: 24px; }
 
   /* Table */
