@@ -607,6 +607,17 @@ else:
 
     st.markdown(f'<div class="section-lbl">{region.upper()} — {flag}</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">Apr 1 – Jun 30, 2026</div>', unsafe_allow_html=True)
+    st.markdown("""
+<div style="font-size:11px; color:#6b7280; background:#111827; border-left:2px solid #a78bfa;
+            padding:8px 14px; margin-bottom:14px; border-radius:0 4px 4px 0; line-height:1.6;">
+  <b style="color:#d1d5db;">CTR</b> (Click-Through Rate) — the % of people who saw the ad and clicked it.
+  A higher CTR means the ad was relevant enough to make the right people act.
+  It reflects audience fit and message quality, not just budget.
+  &nbsp;<span style="color:#4ade80;">■</span> ≥2% strong
+  &nbsp;<span style="color:#facc15;">■</span> ≥1% good
+  &nbsp;<span style="color:#6b7280;">■</span> &lt;1% low
+</div>
+""", unsafe_allow_html=True)
     render_table(data)
 
     leads = [d for d in data if d["lead"]]
