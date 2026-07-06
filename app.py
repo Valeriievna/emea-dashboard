@@ -601,8 +601,6 @@ else:
 <div style="font-size:11px; color:#6b7280; background:#111827; border-left:2px solid #a78bfa;
             padding:8px 14px; margin-bottom:14px; border-radius:0 4px 4px 0; line-height:1.6;">
   <b style="color:#d1d5db;">CTR</b> (Click-Through Rate) — the % of people who saw the ad and clicked it.
-  A higher CTR means the ad was relevant enough to make the right people act.
-  It reflects audience fit and message quality, not just budget.
   &nbsp;<span style="color:#4ade80;">■</span> ≥2% strong
   &nbsp;<span style="color:#facc15;">■</span> ≥1% good
   &nbsp;<span style="color:#6b7280;">■</span> &lt;1% low
