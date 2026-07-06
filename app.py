@@ -243,7 +243,7 @@ G2_NORTH = [
                  dict(text="Visitor from Poland viewed profile page for <b>Bamboo</b>",                              time="about 2 months ago",loc="Wielkopolskie", type="profile"),
                  dict(text="Visitor from Spain viewed profile page for <b>SolarWinds Observability</b>",             time="11 months ago",     loc="Madrid",       type="profile"),
              ])),
-    dict(co="DHL",                     ctry="Germany",      activity="Medium", visitor="South Africa",  last="19 days ago",  days=19, visitors=1,    signals=5),
+
     dict(co="Novo Nordisk",            ctry="Denmark",      activity="Medium", visitor="France",        last="20 days ago",  days=20, visitors=4,    signals=4),
     dict(co="Bosch",                   ctry="Germany",      activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=4,    signals=4),
     dict(co="Acronis",                 ctry="Switzerland",  activity="Medium", visitor="Serbia",        last="14 days ago",  days=14, visitors=2,    signals=4),
