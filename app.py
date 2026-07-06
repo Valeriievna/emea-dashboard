@@ -590,16 +590,6 @@ elif data_type == "G2 Intent":
     st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">G2 Intent · Last 90 days</div>', unsafe_allow_html=True)
     render_g2_table(g2_data)
 
-    high_co   = len([d for d in g2_data if d["activity"] == "High"])
-    med_co    = len([d for d in g2_data if d["activity"] == "Medium"])
-    tot_sigs  = sum(d["signals"] for d in g2_data if d["signals"])
-
-    st.markdown('<div style="margin-top:-24px"></div>', unsafe_allow_html=True)
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Companies researching", len(g2_data))
-    c2.metric("High intent",           high_co)
-    c3.metric("Medium intent",         med_co)
-    c4.metric("Total signals",         tot_sigs)
 
 else:
     data = NORTH if region == "EMEA North" else SOUTH
@@ -620,13 +610,3 @@ else:
 """, unsafe_allow_html=True)
     render_table(data)
 
-    leads = [d for d in data if d["lead"]]
-    total_views = sum(d["views"] for d in data if d["views"])
-    total_clicks = sum(d["clicks"] for d in data if d["clicks"])
-
-    st.markdown('<div style="margin-top:-24px"></div>', unsafe_allow_html=True)
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Companies reached", len(data))
-    c2.metric("Total ad views",    f"{total_views:,}")
-    c3.metric("Total ad clicks",   total_clicks)
-    c4.metric("Leads submitted",   len(leads))
