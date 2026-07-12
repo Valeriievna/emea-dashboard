@@ -480,7 +480,8 @@ def fmt_open(v, has_clicks, inmail_only=False):
 def fmt_channels(ch):
     tag_map = {"Ads": "t-ads", "InMail": "t-inmail", "Demo": "t-demo"}
     pills = "".join(f'<span class="tag {tag_map[c]}">{c}</span>' for c in ch)
-    return f'<div class="tags">{pills}</div>'
+    count = f'<span style="font-size:9px;color:#4b5563;margin-left:4px;">{len(ch)}×</span>'
+    return f'<div class="tags" style="align-items:center;">{pills}{count}</div>'
 
 def fmt_lead(name, title, date):
     if name is None:
