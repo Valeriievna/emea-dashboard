@@ -40,6 +40,9 @@ st.markdown("""
   .t-ads     { background:#312e81; color:#a5b4fc; }
   .t-inmail  { background:#14532d; color:#86efac; }
   .t-demo    { background:#451a03; color:#fdba74; }
+  .t-doc     { background:#1e3a5f; color:#7dd3fc; }
+  .t-video   { background:#4a1d96; color:#ddd6fe; }
+  .t-article { background:#422006; color:#fed7aa; }
 
   .num { color: #e5e7eb; font-variant-numeric: tabular-nums; }
   .dim { color: #374151; }
@@ -116,42 +119,42 @@ SOUTH = [
 ]
 
 UNIFY_NORTH = [
-    # views = combined across all 3 ad sets; clicks/CTR summed where available
-    dict(co="SAP",                   ctry="Germany",     ch=["Ads"], views=807, clicks=26,   ctr=3.22, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Siemens",               ctry="Germany",     ch=["Ads"], views=622, clicks=8,    ctr=1.29, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Bosch",                 ctry="Germany",     ch=["Ads"], views=377, clicks=4,    ctr=1.06, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Volvo Cars",            ctry="Sweden",      ch=["Ads"], views=336, clicks=7,    ctr=2.08, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Ericsson",              ctry="Sweden",      ch=["Ads"], views=317, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="IKEA",                  ctry="Sweden",      ch=["Ads"], views=254, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="BASF",                  ctry="Germany",     ch=["Ads"], views=252, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Vodafone",              ctry="UK",          ch=["Ads"], views=248, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="AUMOVIO",               ctry="Europe",      ch=["Ads"], views=233, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Deutsche Bank",         ctry="Germany",     ch=["Ads"], views=219, clicks=3,    ctr=1.37, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Shell",                 ctry="Netherlands", ch=["Ads"], views=211, clicks=4,    ctr=1.90, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="UBS",                   ctry="Switzerland", ch=["Ads"], views=208, clicks=3,    ctr=1.44, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Nokia",                 ctry="Finland",     ch=["Ads"], views=187, clicks=6,    ctr=3.21, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Continental",           ctry="Germany",     ch=["Ads"], views=184, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Infineon Technologies", ctry="Germany",     ch=["Ads"], views=175, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Booking.com",           ctry="Netherlands", ch=["Ads"], views=172, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="A.P. Moller-Maersk",   ctry="Denmark",     ch=["Ads"], views=168, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Eaton",                 ctry="Ireland",     ch=["Ads"], views=167, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Novo Nordisk",          ctry="Denmark",     ch=["Ads"], views=159, clicks=4,    ctr=2.52, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="BMW Group",             ctry="Germany",     ch=["Ads"], views=139, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Zalando",               ctry="Germany",     ch=["Ads"], views=132, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Scania Group",          ctry="Sweden",      ch=["Ads"], views=125, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="LSEG",                  ctry="UK",          ch=["Ads"], views=116, clicks=3,    ctr=2.59, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Volvo Group",           ctry="Sweden",      ch=["Ads"], views=93,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="ASML",                  ctry="Netherlands", ch=["Ads"], views=84,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Nordea",                ctry="Denmark",     ch=["Ads"], views=78,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Delivery Hero",         ctry="Germany",     ch=["Ads"], views=59,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Zurich Insurance",      ctry="Switzerland", ch=["Ads"], views=45,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    # ch = which of the 3 Unify ad sets the company appeared in: Doc / Video / Article
+    dict(co="SAP",                   ctry="Germany",     ch=["Doc","Video","Article"], views=807, clicks=26,   ctr=3.22, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Siemens",               ctry="Germany",     ch=["Doc","Video","Article"], views=622, clicks=8,    ctr=1.29, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Bosch",                 ctry="Germany",     ch=["Doc","Video","Article"], views=377, clicks=4,    ctr=1.06, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Volvo Cars",            ctry="Sweden",      ch=["Doc","Video","Article"], views=336, clicks=7,    ctr=2.08, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Ericsson",              ctry="Sweden",      ch=["Doc","Video","Article"], views=317, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="IKEA",                  ctry="Sweden",      ch=["Doc","Video","Article"], views=254, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="BASF",                  ctry="Germany",     ch=["Doc","Video","Article"], views=252, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Vodafone",              ctry="UK",          ch=["Doc","Video","Article"], views=248, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="AUMOVIO",               ctry="Europe",      ch=["Doc","Video","Article"], views=233, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Deutsche Bank",         ctry="Germany",     ch=["Doc","Video","Article"], views=219, clicks=3,    ctr=1.37, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Shell",                 ctry="Netherlands", ch=["Doc","Video","Article"], views=211, clicks=4,    ctr=1.90, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="UBS",                   ctry="Switzerland", ch=["Doc","Video","Article"], views=208, clicks=3,    ctr=1.44, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Nokia",                 ctry="Finland",     ch=["Doc","Video","Article"], views=187, clicks=6,    ctr=3.21, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Continental",           ctry="Germany",     ch=["Doc","Video","Article"], views=184, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Infineon Technologies", ctry="Germany",     ch=["Doc","Video","Article"], views=175, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Booking.com",           ctry="Netherlands", ch=["Doc","Article"],         views=172, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="A.P. Moller-Maersk",   ctry="Denmark",     ch=["Doc","Article"],         views=168, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Eaton",                 ctry="Ireland",     ch=["Doc","Video","Article"], views=167, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Novo Nordisk",          ctry="Denmark",     ch=["Doc","Article"],         views=159, clicks=4,    ctr=2.52, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="BMW Group",             ctry="Germany",     ch=["Doc","Article"],         views=139, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Zalando",               ctry="Germany",     ch=["Video","Article"],       views=132, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Scania Group",          ctry="Sweden",      ch=["Doc","Video"],           views=125, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="LSEG",                  ctry="UK",          ch=["Doc"],                   views=116, clicks=3,    ctr=2.59, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Volvo Group",           ctry="Sweden",      ch=["Video","Article"],       views=93,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="ASML",                  ctry="Netherlands", ch=["Video","Article"],       views=84,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Nordea",                ctry="Denmark",     ch=["Video","Article"],       views=78,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Delivery Hero",         ctry="Germany",     ch=["Article"],              views=59,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Zurich Insurance",      ctry="Switzerland", ch=["Video"],                views=45,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
 ]
 
 UNIFY_SOUTH = [
-    dict(co="Akbank",      ctry="Turkey", ch=["Ads"], views=201, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Qatar Airways",ctry="Qatar", ch=["Ads"], views=129, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Emirates NBD", ctry="UAE",   ch=["Ads"], views=97,  clicks=3,    ctr=3.09, op=None, lead=None, ltitle=None, ldate=None),
-    dict(co="Valeo",        ctry="France",ch=["Ads"], views=24,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Akbank",       ctry="Turkey", ch=["Doc","Video"],  views=201, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Qatar Airways", ctry="Qatar", ch=["Doc","Video"],  views=129, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Emirates NBD",  ctry="UAE",   ch=["Doc"],          views=97,  clicks=3,    ctr=3.09, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Valeo",         ctry="France",ch=["Video"],        views=24,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
 ]
 
 G2_NORTH = [
@@ -478,7 +481,8 @@ def fmt_open(v, has_clicks, inmail_only=False):
     return         f'<span class="op-lo">{v:.2f}%</span>'
 
 def fmt_channels(ch):
-    tag_map = {"Ads": "t-ads", "InMail": "t-inmail", "Demo": "t-demo"}
+    tag_map = {"Ads": "t-ads", "InMail": "t-inmail", "Demo": "t-demo",
+               "Doc": "t-doc", "Video": "t-video", "Article": "t-article"}
     pills = "".join(f'<span class="tag {tag_map[c]}">{c}</span>' for c in ch)
     count = f'<span style="font-size:9px;color:#4b5563;margin-left:4px;">{len(ch)}×</span>'
     return f'<div class="tags" style="align-items:center;">{pills}{count}</div>'
@@ -534,6 +538,9 @@ td.r{{text-align:right}}
 .t-ads{{background:#312e81;color:#a5b4fc}}
 .t-inmail{{background:#14532d;color:#86efac}}
 .t-demo{{background:#451a03;color:#fdba74}}
+.t-doc{{background:#1e3a5f;color:#7dd3fc}}
+.t-video{{background:#4a1d96;color:#ddd6fe}}
+.t-article{{background:#422006;color:#fed7aa}}
 .num{{color:#e5e7eb;font-variant-numeric:tabular-nums}}
 .dim{{color:#374151}}
 .ctr-hi{{color:#4ade80;font-weight:700}}
