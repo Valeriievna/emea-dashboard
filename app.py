@@ -40,9 +40,9 @@ st.markdown("""
   .t-ads     { background:#312e81; color:#a5b4fc; }
   .t-inmail  { background:#14532d; color:#86efac; }
   .t-demo    { background:#451a03; color:#fdba74; }
-  .t-doc     { background:#1e3a5f; color:#7dd3fc; }
-  .t-video   { background:#4a1d96; color:#ddd6fe; }
-  .t-article { background:#422006; color:#fed7aa; }
+  .t-doc     { background:#111827; color:#4b7fa8; }
+  .t-video   { background:#111827; color:#6b5a8a; }
+  .t-article { background:#111827; color:#7a5a3a; }
 
   .num { color: #e5e7eb; font-variant-numeric: tabular-nums; }
   .dim { color: #374151; }
@@ -538,9 +538,9 @@ td.r{{text-align:right}}
 .t-ads{{background:#312e81;color:#a5b4fc}}
 .t-inmail{{background:#14532d;color:#86efac}}
 .t-demo{{background:#451a03;color:#fdba74}}
-.t-doc{{background:#1e3a5f;color:#7dd3fc}}
-.t-video{{background:#4a1d96;color:#ddd6fe}}
-.t-article{{background:#422006;color:#fed7aa}}
+.t-doc{{background:#111827;color:#4b7fa8}}
+.t-video{{background:#111827;color:#6b5a8a}}
+.t-article{{background:#111827;color:#7a5a3a}}
 .num{{color:#e5e7eb;font-variant-numeric:tabular-nums}}
 .dim{{color:#374151}}
 .ctr-hi{{color:#4ade80;font-weight:700}}
