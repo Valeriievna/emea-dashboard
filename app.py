@@ -115,6 +115,42 @@ SOUTH = [
     dict(co="hiberus",         ctry="Spain",         ch=["Ads","Demo"],          views=1193, clicks=3,    ctr=0.25, op=None,  lead=None,ltitle=None,ldate=None),
 ]
 
+UNIFY_NORTH = [
+    dict(co="SAP",                   ctry="Germany",     ch=["Ads"], views=284, clicks=9,    ctr=3.17, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Siemens",               ctry="Germany",     ch=["Ads"], views=212, clicks=3,    ctr=1.42, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Bosch",                 ctry="Germany",     ch=["Ads"], views=127, clicks=4,    ctr=3.15, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="BASF",                  ctry="Germany",     ch=["Ads"], views=116, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Volvo Cars",            ctry="Sweden",      ch=["Ads"], views=115, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Ericsson",              ctry="Sweden",      ch=["Ads"], views=110, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Zalando",               ctry="Germany",     ch=["Ads"], views=98,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="AUMOVIO",               ctry="Europe",      ch=["Ads"], views=89,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Deutsche Bank",         ctry="Germany",     ch=["Ads"], views=87,  clicks=3,    ctr=3.45, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="IKEA",                  ctry="Sweden",      ch=["Ads"], views=79,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="UBS",                   ctry="Switzerland", ch=["Ads"], views=76,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Novo Nordisk",          ctry="Denmark",     ch=["Ads"], views=76,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="A.P. Moller-Maersk",   ctry="Denmark",     ch=["Ads"], views=75,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Booking.com",           ctry="Netherlands", ch=["Ads"], views=75,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Shell",                 ctry="Netherlands", ch=["Ads"], views=72,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Volvo Group",           ctry="Sweden",      ch=["Ads"], views=65,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Nokia",                 ctry="Finland",     ch=["Ads"], views=64,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="ASML",                  ctry="Netherlands", ch=["Ads"], views=62,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Vodafone",              ctry="UK",          ch=["Ads"], views=62,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Continental",           ctry="Germany",     ch=["Ads"], views=61,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Infineon Technologies", ctry="Germany",     ch=["Ads"], views=61,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Delivery Hero",         ctry="Germany",     ch=["Ads"], views=59,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Nordea",                ctry="Denmark",     ch=["Ads"], views=57,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="BMW Group",             ctry="Germany",     ch=["Ads"], views=53,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Eaton",                 ctry="Ireland",     ch=["Ads"], views=49,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Zurich Insurance",      ctry="Switzerland", ch=["Ads"], views=45,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Scania Group",          ctry="Sweden",      ch=["Ads"], views=34,  clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+]
+
+UNIFY_SOUTH = [
+    dict(co="Qatar Airways",  ctry="Qatar",   ch=["Ads"], views=41, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Akbank",         ctry="Turkey",  ch=["Ads"], views=35, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+    dict(co="Valeo",          ctry="France",  ch=["Ads"], views=24, clicks=None, ctr=None, op=None, lead=None, ltitle=None, ldate=None),
+]
+
 G2_NORTH = [
     # ── High ──
     dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Germany", last="27 days ago", days=27, visitors=2, signals=10,
@@ -716,14 +752,8 @@ with tab_li:
     col_campaign, col_region, _ = st.columns([2, 2, 2])
     with col_campaign:
         st.caption("CAMPAIGN")
-        campaign = st.radio("Campaign", ["Smart Tests"],
+        campaign = st.radio("Campaign", ["Smart Tests", "Unify (AI Governance)"],
                             horizontal=False, label_visibility="collapsed")
-        st.markdown("""
-        <div style="opacity:0.3; cursor:not-allowed; font-size:14px; padding:2px 0 0 2px; color:#fff;">
-          ○ &nbsp;Unify (AI Governance)
-          <span style="font-size:10px; color:#6b7280;"> — coming soon</span>
-        </div>
-        """, unsafe_allow_html=True)
     with col_region:
         st.caption("REGION")
         region = st.radio("Region", ["EMEA North", "EMEA South"],
@@ -731,11 +761,17 @@ with tab_li:
 
     st.divider()
 
-    data = NORTH if region == "EMEA North" else SOUTH
+    if campaign == "Smart Tests":
+        data = NORTH if region == "EMEA North" else SOUTH
+        date_label = "Apr 1 – Jun 30, 2026"
+    else:
+        data = UNIFY_NORTH if region == "EMEA North" else UNIFY_SOUTH
+        date_label = "Jul 1 – 12, 2026"
+
     flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
 
     st.markdown(f'<div class="section-lbl">{region.upper()} — {flag}</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">Apr 1 – Jun 30, 2026</div>', unsafe_allow_html=True)
+    st.markdown(f'<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">{date_label}</div>', unsafe_allow_html=True)
     st.markdown("""
 <div style="font-size:11px; color:#6b7280; background:#111827; border-left:2px solid #a78bfa;
             padding:8px 14px; margin-bottom:14px; border-radius:0 4px 4px 0; line-height:1.6;">
