@@ -80,42 +80,65 @@ st.markdown("""
 
 NORTH = [
     # ── leads first ──
-    dict(co="Sky",                    ctry="UK",            ch=["Ads","InMail"],        views=774,   clicks=22,   ctr=2.84, op=46.02, lead="Megha Parameswaran",   ltitle="Software Engineer",        ldate="Apr 16"),
+    dict(co="Sky",                    ctry="UK",            ch=["Ads","InMail"],        views=774,   clicks=22,   ctr=2.84, op=55.17, lead="Megha Parameswaran",   ltitle="Software Engineer",        ldate="Apr 16"),
     dict(co="Delivery Hero",          ctry="Germany",       ch=["Ads","InMail"],        views=651,   clicks=16,   ctr=2.46, op=None,  lead="Kanchan Khatri",       ltitle="Engineering Manager",      ldate="Mar 13"),
-    dict(co="Ericsson",               ctry="Sweden",        ch=["InMail"],              views=None,  clicks=None, ctr=None, op=55.71, lead="Jitender Thakur",      ltitle="Senior Engineer",          ldate="Mar 12"),
+    dict(co="Ericsson",               ctry="Sweden",        ch=["Ads","InMail"],        views=445,   clicks=4,    ctr=0.90, op=70.59, lead="Jitender Thakur",      ltitle="Senior Engineer",          ldate="Mar 12"),
     dict(co="Siemens Healthineers",   ctry="Germany",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=50.91, lead="Rithika Ravichandran",  ltitle="AI/ML Engineer",           ldate="Apr 19"),
     # ── no lead ──
     dict(co="IBM",                    ctry="UK",            ch=["Ads","Demo","InMail"], views=3145,  clicks=28,   ctr=0.89, op=51.56, lead=None,ltitle=None,ldate=None),
-    dict(co="Lloyds Banking Group",   ctry="UK",            ch=["Ads","InMail"],        views=1331,  clicks=26,   ctr=1.95, op=41.13, lead=None,ltitle=None,ldate=None),
+    dict(co="Lloyds Banking Group",   ctry="UK",            ch=["Ads","InMail"],        views=1548,  clicks=30,   ctr=1.94, op=41.13, lead=None,ltitle=None,ldate=None),
     dict(co="Tata Consultancy Svcs",  ctry="UK",            ch=["Ads"],                 views=1187,  clicks=18,   ctr=1.52, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="Nagarro",                ctry="Germany",       ch=["Ads","Demo","InMail"], views=1337,  clicks=16,   ctr=1.20, op=56.25, lead=None,ltitle=None,ldate=None),
-    dict(co="Cognizant",              ctry="UK",            ch=["Ads"],                 views=717,   clicks=15,   ctr=2.09, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Arm",                    ctry="UK",            ch=["Ads","Demo","InMail"], views=1055,  clicks=13,   ctr=1.23, op=55.42, lead=None,ltitle=None,ldate=None),
-    dict(co="Swisscom",               ctry="Switzerland",   ch=["Ads"],                 views=1070,  clicks=12,   ctr=1.12, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Arm",                    ctry="UK",            ch=["Ads","Demo","InMail"], views=1312,  clicks=19,   ctr=1.45, op=55.42, lead=None,ltitle=None,ldate=None),
     dict(co="Amazon Web Services",    ctry="Ireland",       ch=["Ads"],                 views=1085,  clicks=10,   ctr=0.92, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Mercedes-Benz AG",       ctry="Germany",       ch=["Ads"],                 views=259,   clicks=5,    ctr=1.93, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Swisscom",               ctry="Switzerland",   ch=["Ads"],                 views=1070,  clicks=12,   ctr=1.12, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Cognizant",              ctry="UK",            ch=["Ads","InMail"],        views=717,   clicks=15,   ctr=2.09, op=133.33,lead=None,ltitle=None,ldate=None),
     dict(co="Volvo Cars",             ctry="Sweden",        ch=["Ads","Demo","InMail"], views=706,   clicks=3,    ctr=0.42, op=75.00, lead=None,ltitle=None,ldate=None),
+    dict(co="Siemens",                ctry="Germany",       ch=["Ads"],                 views=702,   clicks=9,    ctr=1.28, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="AUMOVIO",                ctry="Europe",        ch=["Ads"],                 views=670,   clicks=4,    ctr=0.60, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Deutsche Bank",          ctry="Germany",       ch=["Ads"],                 views=546,   clicks=5,    ctr=0.92, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Vodafone",               ctry="UK",            ch=["Ads"],                 views=545,   clicks=3,    ctr=0.55, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="SAP",                    ctry="Germany",       ch=["Ads"],                 views=496,   clicks=4,    ctr=0.81, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="LSEG",                   ctry="UK",            ch=["Ads"],                 views=415,   clicks=5,    ctr=1.20, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Rabobank",               ctry="Netherlands",   ch=["Ads"],                 views=336,   clicks=3,    ctr=0.89, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="ASML",                   ctry="Netherlands",   ch=["Ads"],                 views=331,   clicks=4,    ctr=1.21, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Bosch",                  ctry="Germany",       ch=["Ads"],                 views=331,   clicks=3,    ctr=0.91, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Nokia",                  ctry="Finland",       ch=["Ads"],                 views=314,   clicks=5,    ctr=1.59, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Mercedes-Benz AG",       ctry="Germany",       ch=["Ads"],                 views=259,   clicks=5,    ctr=1.93, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="IKEA",                   ctry="Sweden",        ch=["Ads"],                 views=231,   clicks=4,    ctr=1.73, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Wolt",                   ctry="Finland",       ch=["Ads"],                 views=229,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="NXP Semiconductors",     ctry="Netherlands",   ch=["Ads"],                 views=218,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Eaton",                  ctry="Ireland",       ch=["Ads"],                 views=210,   clicks=6,    ctr=2.86, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Continental",            ctry="Germany",       ch=["Ads"],                 views=209,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Revolut",                ctry="UK",            ch=["Ads"],                 views=206,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Fidelity Investments",   ctry="Ireland",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=66.67, lead=None,ltitle=None,ldate=None),
 ]
 
 SOUTH = [
     # ── leads first ──
     dict(co="Qualitest",                   ctry="Israel",        ch=["Ads","Demo","InMail"], views=1545, clicks=26,   ctr=1.68, op=56.00, lead="Zumirrah Khalid",   ltitle="SDET",                     ldate="Apr 17"),
-    dict(co="stc",                         ctry="Saudi Arabia",  ch=["Ads","Demo"],          views=1212, clicks=14,   ctr=1.16, op=None,  lead="Jamal Saleh",       ltitle="QA and Test Lead",         ldate="Mar 10"),
-    dict(co="Expleo Group",                ctry="France",        ch=["Ads","Demo"],          views=1551, clicks=15,   ctr=0.97, op=None,  lead="Sherin Elmoghazy",  ltitle="Sr QA Analyst",            ldate="Mar 6"),
-    dict(co="Technology Innovation Inst.", ctry="UAE",           ch=["InMail"],              views=None, clicks=None, ctr=None, op=None,  lead="Shaaban Hassan",    ltitle="Senior Software Engineer", ldate="Jun 24"),
+    dict(co="stc",                         ctry="Saudi Arabia",  ch=["Ads","Demo","InMail"], views=1212, clicks=14,   ctr=1.16, op=38.10, lead="Jamal Saleh",       ltitle="QA and Test Lead",         ldate="Mar 10"),
+    dict(co="Expleo Group",                ctry="France",        ch=["Ads","Demo","InMail"], views=1551, clicks=15,   ctr=0.97, op=57.14, lead="Sherin Elmoghazy",  ltitle="Sr QA Analyst",            ldate="Mar 6"),
+    dict(co="Technology Innovation Inst.", ctry="UAE",           ch=["InMail"],              views=None, clicks=None, ctr=None, op=120.00,lead="Shaaban Hassan",    ltitle="Senior Software Engineer", ldate="Jun 24"),
     dict(co="SEAT, S.A.",                  ctry="Spain",         ch=["InMail"],              views=None, clicks=None, ctr=None, op=None,  lead="Xavier Agustin",    ltitle="Manager Vehicle Testing",  ldate="Apr 15"),
     # ── no lead ──
     dict(co="Capgemini",       ctry="France",        ch=["Ads","Demo","InMail"], views=5727, clicks=66,   ctr=1.15, op=66.06, lead=None,ltitle=None,ldate=None),
-    dict(co="Emirates NBD",    ctry="UAE",           ch=["Ads","Demo","InMail"], views=2506, clicks=49,   ctr=1.96, op=68.35, lead=None,ltitle=None,ldate=None),
-    dict(co="Emirates",        ctry="UAE",           ch=["Ads","Demo","InMail"], views=3130, clicks=47,   ctr=1.50, op=46.25, lead=None,ltitle=None,ldate=None),
     dict(co="Elm Company",     ctry="Saudi Arabia",  ch=["Ads","Demo","InMail"], views=3378, clicks=42,   ctr=1.24, op=58.21, lead=None,ltitle=None,ldate=None),
+    dict(co="Emirates",        ctry="UAE",           ch=["Ads","Demo","InMail"], views=3130, clicks=47,   ctr=1.50, op=46.25, lead=None,ltitle=None,ldate=None),
+    dict(co="Emirates NBD",    ctry="UAE",           ch=["Ads","Demo","InMail"], views=3577, clicks=67,   ctr=1.87, op=68.35, lead=None,ltitle=None,ldate=None),
     dict(co="Sopra Steria",    ctry="France",        ch=["Ads","Demo","InMail"], views=1648, clicks=22,   ctr=1.33, op=49.02, lead=None,ltitle=None,ldate=None),
     dict(co="ALTEN",           ctry="France",        ch=["Ads","Demo"],          views=1102, clicks=16,   ctr=1.45, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="Indra Group",     ctry="Spain",         ch=["Ads","Demo"],          views=1336, clicks=15,   ctr=1.12, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="EJADA",           ctry="Saudi Arabia",  ch=["Ads","Demo"],          views=1332, clicks=11,   ctr=0.83, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="Thales",          ctry="France",        ch=["Ads","Demo"],          views=1265, clicks=10,   ctr=0.79, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Mobileye",        ctry="Israel",        ch=["Ads","Demo"],          views=590,  clicks=4,    ctr=0.68, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="hiberus",         ctry="Spain",         ch=["Ads","Demo"],          views=1193, clicks=3,    ctr=0.25, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Mobileye",        ctry="Israel",        ch=["Ads","Demo"],          views=590,  clicks=4,    ctr=0.68, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="ING Türkiye",     ctry="Turkey",        ch=["Ads"],                 views=473,  clicks=5,    ctr=1.06, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Akbank",          ctry="Turkey",        ch=["Ads"],                 views=447,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="VakıfBank",       ctry="Turkey",        ch=["Ads"],                 views=371,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Halkbank",        ctry="Turkey",        ch=["Ads"],                 views=319,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Valeo",           ctry="France",        ch=["Ads"],                 views=254,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Sogeti",          ctry="France",        ch=["InMail"],              views=None, clicks=None, ctr=None, op=50.00, lead=None,ltitle=None,ldate=None),
 ]
 
 UNIFY_NORTH = [
@@ -770,7 +793,7 @@ with tab_li:
 
     if campaign == "Smart Tests":
         data = NORTH if region == "EMEA North" else SOUTH
-        date_label = "Apr 1 – Jun 30, 2026"
+        date_label = "Apr 1 – Jul 12, 2026"
     else:
         data = UNIFY_NORTH if region == "EMEA North" else UNIFY_SOUTH
         date_label = "Jul 1 – 12, 2026"
