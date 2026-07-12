@@ -481,11 +481,7 @@ def fmt_open(v, has_clicks, inmail_only=False):
     return         f'<span class="op-lo">{v:.2f}%</span>'
 
 def fmt_channels(ch):
-    tag_map = {"Ads": "t-ads", "InMail": "t-inmail", "Demo": "t-demo",
-               "Doc": "t-doc", "Video": "t-video", "Article": "t-article"}
-    pills = "".join(f'<span class="tag {tag_map[c]}">{c}</span>' for c in ch)
-    count = f'<span style="font-size:9px;color:#4b5563;margin-left:4px;">{len(ch)}×</span>'
-    return f'<div class="tags" style="align-items:center;">{pills}{count}</div>'
+    return f'<span style="font-size:12px;color:#4b5563;">{len(ch)}</span>'
 
 def fmt_lead(name, title, date):
     if name is None:
@@ -503,12 +499,12 @@ def render_table(data):
         rows += f"""
         <tr class="{cls}">
           <td data-v="{d['co'].lower()}"><div class="co">{d['co']}</div><div class="ctry">{d['ctry']}</div></td>
-          <td>{fmt_channels(d['ch'])}</td>
           <td class="r" data-v="{sv(d['views'])}">{fmt_views(d['views'])}</td>
           <td class="r" data-v="{sv(d['clicks'])}">{fmt_clicks(d['clicks'])}</td>
           <td class="r" data-v="{sv(d['ctr'])}">{fmt_ctr(d['ctr'])}</td>
           <td class="r" data-v="{sv(d['op'])}">{fmt_open(d['op'], has_clicks, inmail_only)}</td>
           <td data-v="{'1' if has_lead else '0'}">{fmt_lead(d['lead'], d['ltitle'], d['ldate'])}</td>
+          <td class="r" data-v="{len(d['ch'])}">{fmt_channels(d['ch'])}</td>
         </tr>"""
 
     height = 55 + len(data) * 52 + 20
@@ -556,12 +552,12 @@ td.r{{text-align:right}}
 <table id="t">
   <thead><tr>
     <th data-col="0">COMPANY <span class="si">↕</span></th>
-    <th>CHANNELS</th>
-    <th class="r" data-col="2">AD VIEWS <span class="si">↕</span></th>
-    <th class="r" data-col="3">AD CLICKS <span class="si">↕</span></th>
-    <th class="r" data-col="4">CTR <span class="si">↕</span></th>
-    <th class="r" data-col="5">INMAIL OPEN RATE <span class="si">↕</span></th>
-    <th data-col="6">LEAD SUBMITTED <span class="si">↕</span></th>
+    <th class="r" data-col="1">AD VIEWS <span class="si">↕</span></th>
+    <th class="r" data-col="2">AD CLICKS <span class="si">↕</span></th>
+    <th class="r" data-col="3">CTR <span class="si">↕</span></th>
+    <th class="r" data-col="4">INMAIL OPEN RATE <span class="si">↕</span></th>
+    <th data-col="5">LEAD SUBMITTED <span class="si">↕</span></th>
+    <th class="r" data-col="6">TOUCHPOINTS <span class="si">↕</span></th>
   </tr></thead>
   <tbody>{rows}</tbody>
 </table>
