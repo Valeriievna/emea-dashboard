@@ -182,7 +182,7 @@ UNIFY_SOUTH = [
 
 G2_NORTH = [
     # ── High ──
-    dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Germany", last="27 days ago", days=27, visitors=2, signals=10,
+    dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Slovakia", last="~5 weeks ago", days=33, visitors=None, signals=10,
          details=dict(
              website="t-systems.com", hq_full="Germany", founded=2000,
              revenue="$5,671,391,000", employees="27,000",
@@ -198,7 +198,7 @@ G2_NORTH = [
                  dict(text="Visitor from Germany looked at alternatives to <b>Plesk</b>",            time="4 months ago", loc="Germany", type="alt"),
              ]
          )),
-    dict(co="Yara", ctry="Norway", activity="High", visitor="Denmark", last="22 days ago", days=22, visitors=5, signals=13,
+    dict(co="Yara", ctry="Norway", activity="High", visitor="Denmark", last="~4 weeks ago", days=27, visitors=None, signals=7,
          details=dict(
              website="yara.com", hq_full="Oslo, Norway", founded=1905,
              revenue="$14,154,000,000", employees="17,342",
@@ -214,9 +214,9 @@ G2_NORTH = [
                  dict(text="Visitor from India viewed the <b>DevOps Platforms</b> category page",        time="4 months ago",       loc="Maharashtra",   type="category"),
              ]
          )),
-    dict(co="ESP Systex",   ctry="UK",      activity="High",   visitor="UK",      last="10 days ago",  days=10,  visitors=None, signals=9),
-    dict(co="Lightdash",    ctry="UK",      activity="High",   visitor="Poland",  last="~1 month ago", days=35,  visitors=None, signals=3),
-    dict(co="Yandex", ctry="Russia", activity="High", visitor="UK", last="28 days ago", days=28, visitors=6, signals=6,
+    dict(co="ESP Systex", ctry="UK", activity="High", visitor="United Kingdom", last="9 days ago", days=9, visitors=None, signals=9),
+    dict(co="Lightdash", ctry="UK", activity="High", visitor="Poland", last="~5 weeks ago", days=34, visitors=None, signals=3),
+    dict(co="Yandex", ctry="Russia", activity="High", visitor="United Kingdom", last="5 days ago", days=5, visitors=None, signals=5,
          details=dict(
              website="yandex.com", hq_full="Moskva, Russia", founded=2000,
              revenue="$13,653,545,000", employees="96,600",
@@ -232,7 +232,7 @@ G2_NORTH = [
              ]
          )),
     # ── Medium ──
-    dict(co="University of Zurich",    ctry="Switzerland",  activity="Medium", visitor="Switzerland",   last="~1 month ago", days=30, visitors=2,    signals=7,
+    dict(co="University of Zurich", ctry="Switzerland", activity="Medium", visitor="Switzerland", last="~6 weeks ago", days=45, visitors=None, signals=6,
          details=dict(website="uzh.ch", hq_full="Zurich, Switzerland", founded=1833,
              revenue="$1,008,380,000", employees="8,259",
              feed=[
@@ -244,8 +244,8 @@ G2_NORTH = [
                  dict(text="Visitor from Switzerland compared <b>Sonatype Nexus Repository</b> to <b>ProGet</b>",                time="about 1 month ago", loc="Zurich", type="compare"),
                  dict(text="Visitor from Switzerland looked at alternatives to <b>Postman</b>",                                  time="2 months ago",      loc="Zurich", type="alt"),
              ])),
-    dict(co="Datev eG",                ctry="Germany",      activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=1,    signals=7),
-    dict(co="PwC",                     ctry="UK",           activity="Medium", visitor="France",        last="2 months ago", days=60, visitors=4,    signals=5,
+    dict(co="Datev eG", ctry="Germany", activity="Medium", visitor="Germany", last="~2 months ago", days=61, visitors=None, signals=7),
+    dict(co="PwC", ctry="UK", activity="Medium", visitor="France", last="~2 months ago", days=52, visitors=None, signals=4,
          details=dict(website="pwc.com", hq_full="Greater London, United Kingdom", founded=1998,
              revenue="$56,900,000,000", employees="364,000",
              feed=[
@@ -260,7 +260,7 @@ G2_NORTH = [
                  dict(text="Visitor from India viewed profile page for <b>BugBase</b>",                            time="about 2 months ago",loc="Tamil Nadu",           type="profile"),
                  dict(text="Visitor from India viewed profile page for <b>H1 Platform</b>",                        time="about 2 months ago",loc="Tamil Nadu",           type="profile"),
              ])),
-    dict(co="Vinted",                  ctry="Lithuania",    activity="Medium", visitor="Sweden",        last="~1 month ago", days=30, visitors=5,    signals=5,
+    dict(co="Vinted", ctry="Lithuania", activity="Medium", visitor="Sweden", last="~5 weeks ago", days=36, visitors=None, signals=5,
          details=dict(website="vinted.com", hq_full="Vilniaus Apskritis, Lithuania", founded=2008,
              revenue="$645,087,000", employees="2,000",
              feed=[
@@ -275,7 +275,7 @@ G2_NORTH = [
                  dict(text="Visitor from Sweden compared <b>GitHub</b> to <b>SonarQube</b>",                       time="about 1 month ago", loc="Stockholms Lan",   type="compare"),
                  dict(text="Visitor from United States compared <b>Squarespace</b> to <b>Vercel</b>",              time=None,                loc=None,               type="compare"),
              ])),
-    dict(co="Visma",                   ctry="Norway",       activity="Medium", visitor="Sweden",        last="2 months ago", days=60, visitors=4,    signals=5,
+    dict(co="Visma", ctry="Norway", activity="Medium", visitor="Sweden", last="~2 months ago", days=59, visitors=None, signals=3,
          details=dict(website="visma.com", hq_full="Oslo, Norway", founded=1996,
              revenue="$4,265,230,000", employees="17,500",
              feed=[
@@ -287,7 +287,7 @@ G2_NORTH = [
                  dict(text="Visitor from Denmark viewed profile page for <b>Optimizely Web Experimentation</b>",   time="3 months ago",       loc="Syddanmark",     type="profile"),
                  dict(text="Visitor from Denmark looked at alternatives to <b>LaunchDarkly</b>",                   time="3 months ago",       loc="Syddanmark",     type="alt"),
              ])),
-    dict(co="Sage",                    ctry="UK",           activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=5,    signals=5,
+    dict(co="Sage", ctry="UK", activity="Medium", visitor="Germany", last="~2 months ago", days=53, visitors=None, signals=3,
          details=dict(website="sage.com", hq_full="Tyne and Wear, United Kingdom", founded=1981,
              revenue="$3,345,894,000", employees="11,094",
              feed=[
@@ -302,7 +302,7 @@ G2_NORTH = [
                  dict(text="Visitor from South Africa viewed profile page for <b>Easyflow.io</b>",                   time="2 months ago",      loc="Gauteng",      type="profile"),
                  dict(text="Visitor from South Africa viewed profile page for <b>Vercel</b>",                        time="3 months ago",      loc="Western Cape", type="profile"),
              ])),
-    dict(co="O2 (Telefónica UK)",      ctry="UK",           activity="Medium", visitor="Poland",        last="2 months ago", days=60, visitors=2,    signals=5,
+    dict(co="O2 (Telefónica UK)", ctry="UK", activity="Medium", visitor="Poland", last="~2 months ago", days=52, visitors=None, signals=5,
          details=dict(website="o2.co.uk", hq_full="Berkshire, United Kingdom", founded=1985,
              revenue="$7,310,005,000", employees="5,780",
              feed=[
@@ -311,7 +311,7 @@ G2_NORTH = [
                  dict(text="Visitor from Spain viewed profile page for <b>SolarWinds Observability</b>",             time="11 months ago",     loc="Madrid",       type="profile"),
              ])),
 
-    dict(co="Novo Nordisk",            ctry="Denmark",      activity="Medium", visitor="France",        last="20 days ago",  days=20, visitors=4,    signals=4,
+    dict(co="Novo Nordisk", ctry="Denmark", activity="Medium", visitor="France", last="~4 weeks ago", days=25, visitors=None, signals=4,
          details=dict(website="novonordisk.com", hq_full="Hovedstaden, Denmark", founded=1923,
              revenue="$42,100,000,000", employees="78,554",
              feed=[
@@ -322,7 +322,7 @@ G2_NORTH = [
                  dict(text="Visitor from Denmark compared <b>GitLab</b> to <b>SonarQube</b>",                      time="3 months ago", loc="Hovedstaden", type="compare"),
                  dict(text="Visitor from Denmark viewed pricing page for <b>Netlify</b>",                          time=None,           loc=None,          type="profile"),
              ])),
-    dict(co="Bosch",                   ctry="Germany",      activity="Medium", visitor="Germany",       last="2 months ago", days=60, visitors=4,    signals=4,
+    dict(co="Bosch", ctry="Germany", activity="Medium", visitor="Germany", last="~2 months ago", days=74, visitors=None, signals=4,
          details=dict(website="bosch.com", hq_full="Baden-Wuerttemberg, Germany", founded=1999,
              revenue="$94,175,736,000", employees="428,300",
              feed=[
@@ -333,7 +333,7 @@ G2_NORTH = [
                  dict(text="Visitor from Singapore compared <b>Gerrit</b> to <b>GitLab</b>",                       time="4 months ago", loc="Central Singapore",   type="compare"),
                  dict(text="Visitor from Singapore looked at alternatives to <b>Genymotion</b>",                   time="4 months ago", loc="South West",          type="alt"),
              ])),
-    dict(co="Acronis",                 ctry="Switzerland",  activity="Medium", visitor="Serbia",        last="14 days ago",  days=14, visitors=2,    signals=4,
+    dict(co="Acronis", ctry="Switzerland", activity="Medium", visitor="Serbia", last="~3 weeks ago", days=20, visitors=None, signals=4,
          details=dict(website="acronis.com", hq_full="Schaffhausen, Switzerland", founded=2003,
              revenue="$420,103,000", employees="2,000",
              feed=[
@@ -341,7 +341,36 @@ G2_NORTH = [
                  dict(text="Visitor from United States viewed profile page for <b>Tenable Vulnerability Management</b>", time="17 days ago",  loc="Massachusetts", type="profile"),
                  dict(text="Visitor from Serbia viewed profile page for <b>Postman</b>",                           time="about 1 month ago", loc="Beograd",     type="profile"),
              ])),
-    dict(co="Swisscom",                ctry="Switzerland",  activity="Medium", visitor="Switzerland",   last="~1 month ago", days=30, visitors=None, signals=None,
+    dict(co="Proximus", ctry="Belgium", activity="Medium", visitor="Belgium", last="today", days=0, visitors=None, signals=5),
+    dict(co="NHS Fife", ctry="UK", activity="Medium", visitor="United Kingdom", last="today", days=0, visitors=None, signals=4),
+    dict(co="Tosi", ctry="Finland", activity="Medium", visitor="Sweden", last="4 days ago", days=4, visitors=None, signals=5),
+    dict(co="TCO Certified", ctry="Sweden", activity="Medium", visitor="Norway", last="5 days ago", days=5, visitors=None, signals=5),
+    dict(co="T-Online", ctry="Germany", activity="Medium", visitor="Germany", last="6 days ago", days=6, visitors=None, signals=4),
+    dict(co="HCI Solutions", ctry="Switzerland", activity="Medium", visitor="Switzerland", last="10 days ago", days=10, visitors=None, signals=3),
+    dict(co="World Education Program", ctry="Belgium", activity="Medium", visitor="Italy", last="11 days ago", days=11, visitors=None, signals=5),
+    dict(co="Zangenberg & Partners", ctry="Denmark", activity="Medium", visitor="Denmark", last="~2 weeks ago", days=15, visitors=None, signals=4),
+    dict(co="Hofmeier", ctry="Netherlands", activity="Medium", visitor="Netherlands", last="~16 days ago", days=16, visitors=None, signals=9),
+    dict(co="Bredvid", ctry="Norway", activity="Medium", visitor="Norway", last="~17 days ago", days=17, visitors=None, signals=11),
+    dict(co="Ding", ctry="Sweden", activity="Medium", visitor="Bulgaria", last="~19 days ago", days=19, visitors=None, signals=3),
+    dict(co="RemoteMore", ctry="Germany", activity="Medium", visitor="Bulgaria", last="~19 days ago", days=19, visitors=None, signals=4),
+    dict(co="Saimatext Oy", ctry="Finland", activity="Medium", visitor="Ireland", last="~4 weeks ago", days=25, visitors=None, signals=5),
+    dict(co="DataSnipper", ctry="Netherlands", activity="Medium", visitor="Netherlands", last="~6 weeks ago", days=39, visitors=None, signals=4),
+    dict(co="Caeli Nova", ctry="UK", activity="Medium", visitor="United Kingdom", last="~3 months ago", days=76, visitors=None, signals=6),
+    dict(co="inriver", ctry="Sweden", activity="Medium", visitor="Denmark", last="~2 months ago", days=65, visitors=None, signals=4),
+    dict(co="Koka Oy", ctry="Finland", activity="Medium", visitor="Sweden", last="~2 months ago", days=75, visitors=None, signals=4),
+    # ── Low ──
+    dict(co="Bechtle", ctry="Germany", activity="Low", visitor="Germany", last="~3 weeks ago", days=22, visitors=None, signals=2),
+    dict(co="SAP", ctry="Germany", activity="Low", visitor="Israel", last="~4 weeks ago", days=25, visitors=None, signals=2),
+    dict(co="Ericsson", ctry="Sweden", activity="Low", visitor="Nigeria", last="9 days ago", days=9, visitors=None, signals=1),
+    dict(co="Nuuday", ctry="Denmark", activity="Medium", visitor="Denmark", last="3 days ago", days=3, visitors=None, signals=4),
+    dict(co="Westcon-Comstor", ctry="UK", activity="Low", visitor="United Arab Emirates", last="~2 months ago", days=48, visitors=None, signals=3),
+    dict(co="NRB", ctry="Belgium", activity="Low", visitor="Belgium", last="~5 weeks ago", days=32, visitors=None, signals=1),
+    dict(co="DEPT", ctry="Netherlands", activity="Low", visitor="United Kingdom", last="~2 months ago", days=51, visitors=None, signals=3),
+    dict(co="Foundever", ctry="Luxembourg", activity="Low", visitor="Morocco", last="11 days ago", days=11, visitors=None, signals=3),
+    dict(co="Coleg Llandrillo", ctry="UK", activity="Low", visitor="United Kingdom", last="~6 weeks ago", days=43, visitors=None, signals=3),
+    dict(co="Siemens", ctry="Germany", activity="Low", visitor="Germany", last="5 days ago", days=5, visitors=None, signals=4),
+    dict(co="Mainova", ctry="Germany", activity="Low", visitor="Germany", last="~2 months ago", days=60, visitors=None, signals=3),
+    dict(co="Swisscom", ctry="Switzerland", activity="Low", visitor="Switzerland", last="~5 weeks ago", days=38, visitors=None, signals=2,
          details=dict(website="swisscom.ch", hq_full="Bern, Switzerland", founded=1998,
              revenue="$13,066,435,000", employees="19,936",
              feed=[
@@ -356,40 +385,11 @@ G2_NORTH = [
                  dict(text="Visitor from Switzerland viewed profile page for <b>IBM Terraform</b>",                        time="11 months ago",     loc="Bern",      type="profile"),
                  dict(text="Visitor from Switzerland viewed profile page for <b>Bitrise Mobile DevOps Platform</b>",       time=None,                loc=None,        type="profile"),
              ])),
-    dict(co="Proximus",              ctry="Belgium",     activity="Medium", visitor="Belgium",      last="1 day ago",    days=1,  visitors=None, signals=5),
-    dict(co="NHS Fife",              ctry="UK",          activity="Medium", visitor="UK",           last="1 day ago",    days=1,  visitors=None, signals=4),
-    dict(co="Tosi",                  ctry="Finland",     activity="Medium", visitor="Sweden",       last="5 days ago",   days=5,  visitors=None, signals=5),
-    dict(co="TCO Certified",         ctry="Sweden",      activity="Medium", visitor="Norway",       last="6 days ago",   days=6,  visitors=None, signals=5),
-    dict(co="T-Online",              ctry="Germany",     activity="Medium", visitor="Germany",      last="7 days ago",   days=7,  visitors=None, signals=4),
-    dict(co="HCI Solutions",         ctry="Switzerland", activity="Medium", visitor="Switzerland",  last="11 days ago",  days=11, visitors=None, signals=3),
-    dict(co="World Education Program",ctry="Belgium",    activity="Medium", visitor="Italy",        last="12 days ago",  days=12, visitors=None, signals=5),
-    dict(co="Zangenberg & Partners", ctry="Denmark",     activity="Medium", visitor="Denmark",      last="16 days ago",  days=16, visitors=None, signals=4),
-    dict(co="Hofmeier",              ctry="Netherlands", activity="Medium", visitor="Netherlands",  last="17 days ago",  days=17, visitors=None, signals=9),
-    dict(co="Bredvid",               ctry="Norway",      activity="Medium", visitor="Norway",       last="18 days ago",  days=18, visitors=None, signals=11),
-    dict(co="Ding",                  ctry="Sweden",      activity="Medium", visitor="Bulgaria",     last="20 days ago",  days=20, visitors=None, signals=3),
-    dict(co="RemoteMore",            ctry="Germany",     activity="Medium", visitor="Bulgaria",     last="20 days ago",  days=20, visitors=None, signals=4),
-    dict(co="Saimatext Oy",          ctry="Finland",     activity="Medium", visitor="Ireland",      last="26 days ago",  days=26, visitors=None, signals=5),
-    dict(co="DataSnipper",           ctry="Netherlands", activity="Medium", visitor="Netherlands",  last="~6 weeks ago", days=40, visitors=None, signals=4),
-    dict(co="Caeli Nova",            ctry="UK",          activity="Medium", visitor="UK",           last="~2 months ago",days=76, visitors=None, signals=6),
-    dict(co="inriver",               ctry="Sweden",      activity="Medium", visitor="Denmark",      last="~2 months ago",days=65, visitors=None, signals=4),
-    dict(co="Koka Oy",               ctry="Finland",     activity="Medium", visitor="Sweden",       last="~2 months ago",days=76, visitors=None, signals=4),
-    # ── Low ──
-    dict(co="Bechtle",                 ctry="Germany",      activity="Low",    visitor="Germany",       last="16 days ago",  days=16, visitors=3,    signals=4),
-    dict(co="SAP",                     ctry="Germany",      activity="Low",    visitor="Israel",        last="20 days ago",  days=20, visitors=4,    signals=4),
-    dict(co="Ericsson",                ctry="Sweden",       activity="Low",    visitor="Nigeria",       last="3 days ago",   days=3,  visitors=4,    signals=4),
-    dict(co="Nuuday",                  ctry="Denmark",      activity="Medium", visitor="Denmark",       last="8 days ago",   days=8,  visitors=None, signals=4),
-    dict(co="Westcon-Comstor",         ctry="UK",           activity="Low",    visitor="UAE",           last="~1 month ago", days=30, visitors=1,    signals=4),
-    dict(co="NRB",                     ctry="Belgium",      activity="Low",    visitor="Belgium",       last="26 days ago",  days=26, visitors=3,    signals=3),
-    dict(co="DEPT",                    ctry="Netherlands",  activity="Low",    visitor="UK",            last="2 months ago", days=60, visitors=3,    signals=3),
-    dict(co="Foundever",               ctry="Luxembourg",   activity="Low",    visitor="Morocco",       last="5 days ago",   days=5,  visitors=1,    signals=3),
-    dict(co="Coleg Llandrillo",        ctry="UK",           activity="Low",    visitor="UK",            last="~1 month ago", days=30, visitors=1,    signals=3),
-    dict(co="Siemens",                 ctry="Germany",      activity="Low",    visitor="Germany",       last="11 days ago",  days=11, visitors=3,    signals=3),
-    dict(co="Mainova",                 ctry="Germany",      activity="Low",    visitor="Germany",       last="2 months ago", days=60, visitors=3,    signals=3),
 ]
 
 G2_SOUTH = [
     # ── High ──
-    dict(co="Thales", ctry="France", activity="High", visitor="France", last="3 days ago", days=3, visitors=10, signals=10,
+    dict(co="Thales", ctry="France", activity="High", visitor="France", last="9 days ago", days=9, visitors=None, signals=7,
          details=dict(
              website="thalesgroup.com", hq_full="Ile-de-France, France", founded=1893,
              revenue="$25,092,430,000", employees="78,189",
@@ -406,19 +406,8 @@ G2_SOUTH = [
                  dict(text="Visitor from France viewed the <b>Configuration Management</b> category page",        time=None,                 loc=None,       type="category"),
              ]
          )),
-    dict(co="Naval Group", ctry="France", activity="High", visitor="France", last="27 days ago", days=27, visitors=7, signals=7,
-         details=dict(
-             website="naval-group.com", hq_full="Ile-de-France, France", founded=2008,
-             revenue="$4,713,936,000", employees="16,325",
-             feed=[
-                 dict(text="Visitor from France viewed profile page for <b>Freshservice</b>",  time="27 days ago",        loc="Morbihan", type="profile"),
-                 dict(text="<b>3 visitors</b> viewed profile page for <b>GitLab</b>",          time="about 1 month ago",  loc=None,       type="profile"),
-                 dict(text="<b>2 visitors</b> compared <b>GitLab</b> to <b>Jira</b>",          time="about 2 months ago", loc=None,       type="compare"),
-                 dict(text="Visitor from France looked at alternatives to <b>GitLab</b>",       time="about 2 months ago", loc="Morbihan", type="alt"),
-                 dict(text="Visitor from France looked at alternatives to <b>GitLab</b>",       time="4 months ago",       loc="Morbihan", type="alt"),
-             ]
-         )),
-    dict(co="Check Point", ctry="Israel", activity="High", visitor="Israel", last="~1 month ago", days=30, visitors=5, signals=6,
+    dict(co="Naval Group", ctry="France", activity="High", visitor="France", last="~5 weeks ago", days=32, visitors=None, signals=6),
+    dict(co="Check Point", ctry="Israel", activity="High", visitor="Israel", last="~6 weeks ago", days=45, visitors=None, signals=6,
          details=dict(
              website="checkpoint.com", hq_full="Tel Aviv, Israel", founded=1993,
              revenue="$2,641,800,000", employees="6,669",
@@ -432,9 +421,9 @@ G2_SOUTH = [
                  dict(text="<b>2 visitors</b> viewed profile page for <b>Check Point Exposure Management</b>",    time=None,                loc=None,       type="profile"),
              ]
          )),
-    dict(co="Workfully",             ctry="Spain",       activity="High",   visitor="France",       last="6 days ago",   days=6,  visitors=None, signals=7),
-    dict(co="MINT",                  ctry="Italy",       activity="High",   visitor="Poland",       last="~7 weeks ago", days=50, visitors=None, signals=4),
-    dict(co="Dnata", ctry="UAE", activity="Medium", visitor="Switzerland", last="2 months ago", days=60, visitors=3, signals=6,
+    dict(co="Workfully", ctry="Spain", activity="High", visitor="France", last="5 days ago", days=5, visitors=None, signals=7),
+    dict(co="MINT", ctry="Italy", activity="High", visitor="Poland", last="~2 months ago", days=49, visitors=None, signals=4),
+    dict(co="Dnata", ctry="UAE", activity="Medium", visitor="Switzerland", last="~3 months ago", days=76, visitors=None, signals=5,
          details=dict(website="dnata.com", hq_full="Dubayy, United Arab Emirates", founded=1959,
              revenue="$4,020,028,000", employees="49,000",
              feed=[
@@ -450,7 +439,7 @@ G2_SOUTH = [
                  dict(text="Visitor from United Arab Emirates compared <b>ServiceNow IT Service Management</b> to <b>BMC Helix ITSM</b>", time="10 months ago", loc="Dubayy", type="compare"),
              ])),
     # ── Medium ──
-    dict(co="Schneider Electric", ctry="France",    activity="Medium", visitor="France",       last="12 days ago",  days=12, visitors=6,  signals=6,
+    dict(co="Schneider Electric", ctry="France", activity="Medium", visitor="France", last="~18 days ago", days=18, visitors=None, signals=4,
          details=dict(website="www.se.com", hq_full="Ile-de-France, France", founded=1836,
              revenue="$41,300,000,000", employees="167,495",
              feed=[
@@ -465,7 +454,7 @@ G2_SOUTH = [
                  dict(text="Visitor from China compared <b>SysAid</b> to <b>Freshservice</b>",                         time="3 months ago",      loc="Liaoning",         type="compare"),
                  dict(text="Visitor from Australia viewed profile page for <b>Jenkins</b>",                            time=None,                loc=None,               type="profile"),
              ])),
-    dict(co="Cognyte",            ctry="Israel",    activity="Medium", visitor="Israel",       last="19 days ago",  days=19, visitors=3,  signals=5,
+    dict(co="Cognyte", ctry="Israel", activity="Medium", visitor="Israel", last="~4 weeks ago", days=25, visitors=None, signals=5,
          details=dict(website="cognyte.com", hq_full="Herzliya, Israel", founded=2020,
              revenue="$388,304,000", employees="1,600",
              feed=[
@@ -475,42 +464,42 @@ G2_SOUTH = [
                  dict(text="Visitor from Israel viewed profile page for <b>Recorded Future</b>",    time="about 2 months ago",loc="Tel Aviv",  type="profile"),
                  dict(text="Visitor from Israel viewed pricing page for <b>vRx by Vicarius</b>",    time=None,                loc=None,        type="profile"),
              ])),
-    dict(co="GMG",                ctry="UAE",       activity="Medium", visitor="UAE",          last="~1 month ago", days=30, visitors=1,  signals=5,
+    dict(co="GMG", ctry="UAE", activity="Medium", visitor="United Arab Emirates", last="~5 weeks ago", days=38, visitors=None, signals=4,
          details=dict(website="gmg.com", hq_full="Dubayy, United Arab Emirates", founded=1978,
              revenue="$2,111,111,000", employees="10,000",
              feed=[
                  dict(text="Visitor from United Arab Emirates viewed profile page for <b>Copilot4DevOps Plus</b>",  time="about 1 month ago", loc="Dubayy", type="profile"),
                  dict(text="Visitor from United Arab Emirates viewed the <b>DevOps Platforms</b> category page",    time="about 1 month ago", loc="Dubayy", type="category"),
              ])),
-    dict(co="SFR",                ctry="France",    activity="Medium", visitor="France",       last="2 months ago", days=60, visitors=1,  signals=5,
+    dict(co="SFR",                ctry="France",    activity="Medium", visitor="France",       last="~3 months ago", days=78, visitors=None, signals=5,
          details=dict(website="sfr.fr", hq_full="Ile-de-France, France", founded=1987,
              revenue="$12,483,289,000", employees="5,000",
              feed=[
                  dict(text="Visitor from France viewed profile page for <b>Freshservice</b>", time="2 months ago", loc="Val-De-Marne", type="profile"),
              ])),
-    dict(co="TaqniaOne",             ctry="Saudi Arabia",activity="Medium", visitor="Saudi Arabia", last="2 days ago",   days=2,  visitors=None, signals=7),
-    dict(co="MADIC group",           ctry="France",      activity="Medium", visitor="France",       last="11 days ago",  days=11, visitors=None, signals=7),
-    dict(co="Women4Tech",            ctry="Turkey",      activity="Medium", visitor="Turkey",       last="~1 month ago", days=33, visitors=None, signals=8),
-    dict(co="Photoroom",             ctry="France",      activity="Medium", visitor="France",       last="~6 weeks ago", days=37, visitors=None, signals=5),
-    dict(co="Skyhook",               ctry="Israel",      activity="Medium", visitor="Israel",       last="~6 weeks ago", days=39, visitors=None, signals=7),
-    dict(co="SysAid",                ctry="Israel",      activity="Medium", visitor="Israel",       last="~6 weeks ago", days=39, visitors=None, signals=4),
-    dict(co="Kleio",                 ctry="France",      activity="Medium", visitor="France",       last="~6 weeks ago", days=41, visitors=None, signals=5),
-    dict(co="GadgetLine",            ctry="Israel",      activity="Medium", visitor="Israel",       last="~7 weeks ago", days=46, visitors=None, signals=5),
-    dict(co="Omendo",                ctry="France",      activity="Medium", visitor="France",       last="~7 weeks ago", days=50, visitors=None, signals=5),
-    dict(co="Ruth & Bruce Rappaport",ctry="Israel",      activity="Medium", visitor="Israel",       last="~6 weeks ago", days=43, visitors=None, signals=5),
-    dict(co="Joygame",               ctry="Turkey",      activity="Medium", visitor="Turkey",       last="2 months ago", days=59, visitors=None, signals=8),
-    dict(co="Mackolik",              ctry="Turkey",      activity="Medium", visitor="Turkey",       last="2 months ago", days=67, visitors=None, signals=8),
+    dict(co="TaqniaOne", ctry="Saudi Arabia", activity="Medium", visitor="Saudi Arabia", last="1 day ago", days=1, visitors=None, signals=7),
+    dict(co="MADIC group", ctry="France", activity="Medium", visitor="France", last="10 days ago", days=10, visitors=None, signals=7),
+    dict(co="Women4Tech", ctry="Turkey", activity="Medium", visitor="Türkiye", last="~5 weeks ago", days=32, visitors=None, signals=8),
+    dict(co="Photoroom", ctry="France", activity="Medium", visitor="France", last="~5 weeks ago", days=36, visitors=None, signals=5),
+    dict(co="Skyhook", ctry="Israel", activity="Medium", visitor="Israel", last="~5 weeks ago", days=38, visitors=None, signals=7),
+    dict(co="SysAid", ctry="Israel", activity="Medium", visitor="Israel", last="~5 weeks ago", days=38, visitors=None, signals=4),
+    dict(co="Kleio", ctry="France", activity="Medium", visitor="France", last="~6 weeks ago", days=40, visitors=None, signals=5),
+    dict(co="GadgetLine", ctry="Israel", activity="Medium", visitor="Israel", last="~6 weeks ago", days=45, visitors=None, signals=5),
+    dict(co="Omendo", ctry="France", activity="Medium", visitor="France", last="~2 months ago", days=49, visitors=None, signals=5),
+    dict(co="Ruth & Bruce Rappaport", ctry="Israel", activity="Medium", visitor="Israel", last="~6 weeks ago", days=42, visitors=None, signals=5),
+    dict(co="Joygame", ctry="Turkey", activity="Medium", visitor="Türkiye", last="~2 months ago", days=58, visitors=None, signals=8),
+    dict(co="Mackolik", ctry="Turkey", activity="Medium", visitor="Türkiye", last="~2 months ago", days=66, visitors=None, signals=8),
     # ── Low ──
-    dict(co="Académie de Rennes", ctry="France",    activity="Low",    visitor="France",       last="2 months ago", days=60, visitors=8,  signals=8),
-    dict(co="Capgemini",          ctry="France",    activity="Low",    visitor="Spain",        last="6 days ago",   days=6,  visitors=3,  signals=5),
-    dict(co="Sky Italia",         ctry="Italy",     activity="Low",    visitor="Italy",        last="~1 month ago", days=30, visitors=4,  signals=4),
-    dict(co="monday.com",         ctry="Israel",    activity="Low",    visitor="Israel",       last="26 days ago",  days=26, visitors=2,  signals=4),
-    dict(co="Togg",               ctry="Turkey",    activity="Low",    visitor="Turkey",       last="24 days ago",  days=24, visitors=1,  signals=4),
-    dict(co="Ben Gurion Univ.",   ctry="Israel",    activity="Low",    visitor="Israel",       last="~1 month ago", days=30, visitors=2,  signals=3),
-    dict(co="Zagrebacka banka",   ctry="Croatia",   activity="Low",    visitor="Croatia",      last="2 months ago", days=60, visitors=1,  signals=3),
-    dict(co="CTT",                ctry="Portugal",  activity="Low",    visitor="Portugal",     last="2 months ago", days=60, visitors=1,  signals=3),
-    dict(co="e&",                 ctry="UAE",       activity="Low",    visitor="UAE",          last="2 months ago", days=60, visitors=2,  signals=3),
-    dict(co="Sharaf DG",          ctry="UAE",       activity="Low",    visitor="UAE",          last="7 days ago",   days=7,  visitors=None, signals=None),
+    dict(co="Académie de Rennes", ctry="France", activity="Low", visitor="France", last="~2 months ago", days=53, visitors=None, signals=0),
+    dict(co="Capgemini", ctry="France", activity="Low", visitor="Spain", last="12 days ago", days=12, visitors=None, signals=1),
+    dict(co="Sky Italia", ctry="Italy", activity="Low", visitor="Italy", last="~6 weeks ago", days=40, visitors=None, signals=2),
+    dict(co="monday.com", ctry="Israel", activity="Low", visitor="Israel", last="~4 weeks ago", days=31, visitors=None, signals=3),
+    dict(co="Togg", ctry="Turkey", activity="Low", visitor="Türkiye", last="~4 weeks ago", days=29, visitors=None, signals=4),
+    dict(co="Ben Gurion Univ.", ctry="Israel", activity="Low", visitor="Israel", last="~6 weeks ago", days=44, visitors=None, signals=3),
+    dict(co="Zagrebacka banka", ctry="Croatia", activity="Low", visitor="Croatia", last="~2 months ago", days=52, visitors=None, signals=3),
+    dict(co="CTT", ctry="Portugal", activity="Low", visitor="Portugal", last="~2 months ago", days=53, visitors=None, signals=3),
+    dict(co="e&", ctry="UAE", activity="Low", visitor="United Arab Emirates", last="~2 months ago", days=72, visitors=None, signals=3),
+    dict(co="Sharaf DG", ctry="UAE", activity="Low", visitor="United Arab Emirates", last="12 days ago", days=12, visitors=None, signals=3),
 ]
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
