@@ -182,38 +182,38 @@ UNIFY_SOUTH = [
 
 G2_NORTH = [
     # ── High ──
-    dict(co="Yandex", ctry="Russian Federation", activity="High", visitor="United Kingdom", last="5 days ago", days=5, visitors=None, signals=5),
-    dict(co="Yara", ctry="Norway", activity="High", visitor="Denmark", last="~4 weeks ago", days=27, visitors=None, signals=7),
-    dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Slovakia", last="~5 weeks ago", days=33, visitors=None, signals=10),
+    dict(co="Yandex", ctry="Russian Federation", activity="High", visitor="United Kingdom", last="6 days ago", days=6, visitors=None, signals=5),
+    dict(co="Yara", ctry="Norway", activity="High", visitor="Denmark", last="~4 weeks ago", days=28, visitors=None, signals=7),
+    dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Slovakia", last="~5 weeks ago", days=34, visitors=None, signals=10),
     # ── Medium ──
-    dict(co="Proximus", ctry="Belgium", activity="Medium", visitor="Belgium", last="today", days=0, visitors=None, signals=5),
-    dict(co="NHS Fife", ctry="United Kingdom", activity="Medium", visitor="United Kingdom", last="today", days=0, visitors=None, signals=4),
-    dict(co="Nuuday", ctry="Denmark", activity="Medium", visitor="Denmark", last="3 days ago", days=3, visitors=None, signals=4),
-    dict(co="Acronis", ctry="Switzerland", activity="Medium", visitor="Serbia", last="~3 weeks ago", days=20, visitors=None, signals=4),
-    dict(co="DHL", ctry="Germany", activity="Medium", visitor="South Africa", last="~3 weeks ago", days=24, visitors=None, signals=5),
-    dict(co="Novo Nordisk", ctry="Denmark", activity="Medium", visitor="France", last="~4 weeks ago", days=25, visitors=None, signals=4),
-    dict(co="Vinted", ctry="Lithuania", activity="Medium", visitor="Sweden", last="~5 weeks ago", days=36, visitors=None, signals=5),
-    dict(co="University of Zurich", ctry="Switzerland", activity="Medium", visitor="Switzerland", last="~2 months ago", days=45, visitors=None, signals=6),
-    dict(co="PwC", ctry="United Kingdom", activity="Medium", visitor="France", last="~2 months ago", days=52, visitors=None, signals=4),
-    dict(co="O2 (Telefónica UK)", ctry="United Kingdom", activity="Medium", visitor="Poland", last="~2 months ago", days=52, visitors=None, signals=5),
-    dict(co="Sage", ctry="United Kingdom", activity="Medium", visitor="Germany", last="~2 months ago", days=53, visitors=None, signals=3),
-    dict(co="Visma", ctry="Norway", activity="Medium", visitor="Sweden", last="~2 months ago", days=59, visitors=None, signals=3),
-    dict(co="Datev eG", ctry="Germany", activity="Medium", visitor="Germany", last="~2 months ago", days=61, visitors=None, signals=7),
-    dict(co="Bosch", ctry="Germany", activity="Medium", visitor="Germany", last="~2 months ago", days=74, visitors=None, signals=4),
+    dict(co="Proximus", ctry="Belgium", activity="Medium", visitor="Belgium", last="1 day ago", days=1, visitors=None, signals=5),
+    dict(co="NHS Fife", ctry="United Kingdom", activity="Medium", visitor="United Kingdom", last="1 day ago", days=1, visitors=None, signals=4),
+    dict(co="Nuuday", ctry="Denmark", activity="Medium", visitor="Denmark", last="4 days ago", days=4, visitors=None, signals=4),
+    dict(co="Acronis", ctry="Switzerland", activity="Medium", visitor="Serbia", last="~3 weeks ago", days=21, visitors=None, signals=4),
+    dict(co="DHL", ctry="Germany", activity="Medium", visitor="South Africa", last="~4 weeks ago", days=25, visitors=None, signals=5),
+    dict(co="Novo Nordisk", ctry="Denmark", activity="Medium", visitor="France", last="~4 weeks ago", days=26, visitors=None, signals=4),
+    dict(co="Vinted", ctry="Lithuania", activity="Medium", visitor="Sweden", last="~5 weeks ago", days=37, visitors=None, signals=5),
+    dict(co="University of Zurich", ctry="Switzerland", activity="Medium", visitor="Switzerland", last="~2 months ago", days=46, visitors=None, signals=6),
+    dict(co="PwC", ctry="United Kingdom", activity="Medium", visitor="France", last="~2 months ago", days=53, visitors=None, signals=4),
+    dict(co="O2 (Telefónica UK)", ctry="United Kingdom", activity="Medium", visitor="Poland", last="~2 months ago", days=53, visitors=None, signals=5),
+    dict(co="Sage", ctry="United Kingdom", activity="Medium", visitor="Germany", last="~2 months ago", days=54, visitors=None, signals=3),
+    dict(co="Visma", ctry="Norway", activity="Medium", visitor="Sweden", last="~2 months ago", days=60, visitors=None, signals=3),
+    dict(co="Datev eG", ctry="Germany", activity="Medium", visitor="Germany", last="~2 months ago", days=62, visitors=None, signals=7),
+    dict(co="Bosch", ctry="Germany", activity="Medium", visitor="Germany", last="~2 months ago", days=75, visitors=None, signals=4),
 ]
 
 G2_SOUTH = [
     # ── High ──
-    dict(co="Thales", ctry="France", activity="High", visitor="France", last="~9 days ago", days=9, visitors=None, signals=7),
-    dict(co="Naval Group", ctry="France", activity="High", visitor="France", last="~5 weeks ago", days=32, visitors=None, signals=6),
-    dict(co="Check Point", ctry="Israel", activity="High", visitor="Israel", last="~2 months ago", days=45, visitors=None, signals=6),
+    dict(co="Thales", ctry="France", activity="High", visitor="France", last="~10 days ago", days=10, visitors=None, signals=7),
+    dict(co="Naval Group", ctry="France", activity="High", visitor="France", last="~5 weeks ago", days=33, visitors=None, signals=6),
+    dict(co="Check Point", ctry="Israel", activity="High", visitor="Israel", last="~2 months ago", days=46, visitors=None, signals=6),
     # ── Medium ──
-    dict(co="Schneider Electric", ctry="France", activity="Medium", visitor="France", last="~3 weeks ago", days=18, visitors=None, signals=4),
-    dict(co="Cognyte", ctry="Israel", activity="Medium", visitor="Israel", last="~4 weeks ago", days=25, visitors=None, signals=5),
-    dict(co="GMG", ctry="United Arab Emirates", activity="Medium", visitor="United Arab Emirates", last="~5 weeks ago", days=38, visitors=None, signals=4),
-    dict(co="Tanta University", ctry="Egypt", activity="Medium", visitor="Egypt", last="~2 months ago", days=52, visitors=None, signals=5),
-    dict(co="Dnata", ctry="United Arab Emirates", activity="Medium", visitor="Switzerland", last="~3 months ago", days=76, visitors=None, signals=5),
-    dict(co="SFR", ctry="France", activity="Medium", visitor="France", last="~3 months ago", days=78, visitors=None, signals=5),
+    dict(co="Schneider Electric", ctry="France", activity="Medium", visitor="France", last="~3 weeks ago", days=19, visitors=None, signals=4),
+    dict(co="Cognyte", ctry="Israel", activity="Medium", visitor="Israel", last="~4 weeks ago", days=26, visitors=None, signals=5),
+    dict(co="GMG", ctry="United Arab Emirates", activity="Medium", visitor="United Arab Emirates", last="~6 weeks ago", days=39, visitors=None, signals=4),
+    dict(co="Tanta University", ctry="Egypt", activity="Medium", visitor="Egypt", last="~2 months ago", days=53, visitors=None, signals=5),
+    dict(co="Dnata", ctry="United Arab Emirates", activity="Medium", visitor="Switzerland", last="~3 months ago", days=77, visitors=None, signals=5),
+    dict(co="SFR", ctry="France", activity="Medium", visitor="France", last="~3 months ago", days=79, visitors=None, signals=5),
 ]
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -564,6 +564,6 @@ with tab_g2:
 
     st.markdown(f'<div class="section-lbl">{region_g2.upper()} — {flag_g2}</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:4px;">G2 Intent · Last 90 days</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px; color:#6b7280; margin-bottom:10px;">Updated Jul 12, 2026</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size:11px; color:#6b7280; margin-bottom:10px;">Updated Jul 13, 2026</div>', unsafe_allow_html=True)
     render_g2_table(g2_data)
 
