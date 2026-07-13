@@ -262,7 +262,19 @@ G2_NORTH = [
             dict(type="profile", text="Visitor from Serbia viewed profile page for Postman", time="about 1 month ago", loc="Beograd"),
         ]
     )),
-    dict(co="DHL", ctry="Germany", activity="Medium", visitor="South Africa", last="~4 weeks ago", days=25, visitors=None, signals=5),
+    dict(co="DHL", ctry="Germany", activity="Medium", visitor="South Africa", last="~4 weeks ago", days=25, visitors=None, signals=5, details=dict(
+        website="dhl.com", hq_full="Nordrhein-Westfalen, Germany", founded="1969", revenue="$70,758,990,000", employees="395,000",
+        feed=[
+            dict(type="profile", text="Visitor from Canada viewed profile page for KernelCare Enterprise", time="about 8 hours ago", loc="Ontario"),
+            dict(type="profile", text="Visitor from United States viewed profile page for SolarWinds Observability", time="5 days ago", loc="California"),
+            dict(type="profile", text="Visitor from United States viewed profile page for Rational ClearCase", time="6 days ago", loc="Pennsylvania"),
+            dict(type="profile", text="Visitor from Singapore viewed pricing page for SoftSpell", time="21 days ago", loc="Central Singapore"),
+            dict(type="profile", text="Visitor from United States viewed your G2 profile", time="22 days ago", loc="Texas"),
+            dict(type="category", text="Visitor from United States viewed the Risk-Based Vulnerability Management category page", time="22 days ago", loc="Texas"),
+            dict(type="profile", text="Visitor from South Africa viewed profile page for Recorded Future", time="26 days ago", loc="Gauteng"),
+            dict(type="profile", text="Visitor from South Africa viewed pricing page for Recorded Future", time="26 days ago", loc="Gauteng"),
+        ]
+    )),
     dict(co="Novo Nordisk", ctry="Denmark", activity="Medium", visitor="France", last="~4 weeks ago", days=26, visitors=None, signals=4, details=dict(
         website="novonordisk.com", hq_full="Hovedstaden, Denmark", founded="1923", revenue="$42,100,000,000", employees="78,554",
         feed=[
@@ -316,7 +328,14 @@ G2_NORTH = [
             dict(type="profile", text="Visitor from India viewed profile page for H1 Platform", time="2 months ago", loc="Tamil Nadu"),
         ]
     )),
-    dict(co="O2 (Telefónica UK)", ctry="United Kingdom", activity="Medium", visitor="Poland", last="~2 months ago", days=53, visitors=None, signals=5),
+    dict(co="O2 (Telefónica UK)", ctry="United Kingdom", activity="Medium", visitor="Poland", last="~2 months ago", days=53, visitors=None, signals=5, details=dict(
+        website="o2.co.uk", hq_full="Berkshire, United Kingdom", founded="1985", revenue="$7,310,005,000", employees="5,780",
+        feed=[
+            dict(type="profile", text="2 visitors viewed profile page for BackBox", time="about 2 months ago"),
+            dict(type="profile", text="Visitor from Poland viewed profile page for Bamboo", time="about 2 months ago", loc="Wielkopolskie"),
+            dict(type="profile", text="Visitor from Spain viewed profile page for SolarWinds Observability", time="11 months ago", loc="Madrid"),
+        ]
+    )),
     dict(co="Sage", ctry="United Kingdom", activity="Medium", visitor="Germany", last="~2 months ago", days=54, visitors=None, signals=3, details=dict(
         website="sage.com", hq_full="Tyne and Wear, United Kingdom", founded="1981", revenue="$3,345,894,000", employees="11,094",
         feed=[
@@ -474,7 +493,12 @@ G2_SOUTH = [
             dict(type="compare", text="Visitor from United Arab Emirates compared ServiceNow IT Service Management to BMC Helix ITSM", time="10 months ago", loc="Dubayy"),
         ]
     )),
-    dict(co="SFR", ctry="France", activity="Medium", visitor="France", last="~3 months ago", days=79, visitors=None, signals=5),
+    dict(co="SFR", ctry="France", activity="Medium", visitor="France", last="~3 months ago", days=79, visitors=None, signals=5, details=dict(
+        website="sfr.fr", hq_full="Ile-de-France, France", founded="1987", revenue="$12,483,289,000", employees="5,000",
+        feed=[
+            dict(type="profile", text="Visitor from France viewed profile page for Freshservice", time="3 months ago", loc="Val-De-Marne"),
+        ]
+    )),
     # ── Low ──
     dict(co="Türk Telekom", ctry="Türkiye", activity="Low", visitor="Türkiye", last="3 days ago", days=3, visitors=None, signals=6),
     dict(co="Orange", ctry="France", activity="Low", visitor="France", last="~12 days ago", days=12, visitors=None, signals=11),
