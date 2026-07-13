@@ -94,24 +94,24 @@ NORTH = [
     dict(co="Swisscom",               ctry="Switzerland",   ch=["Ads"],                 views=1070,  clicks=12,   ctr=1.12, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="Cognizant",              ctry="UK",            ch=["Ads","InMail"],        views=717,   clicks=15,   ctr=2.09, op=133.33,lead=None,ltitle=None,ldate=None),
     dict(co="Volvo Cars",             ctry="Sweden",        ch=["Ads","Demo","InMail"], views=706,   clicks=3,    ctr=0.42, op=75.00, lead=None,ltitle=None,ldate=None),
-    dict(co="Siemens",                ctry="Germany",       ch=["Ads"],                 views=702,   clicks=9,    ctr=1.28, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="AUMOVIO",                ctry="Europe",        ch=["Ads"],                 views=670,   clicks=4,    ctr=0.60, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Deutsche Bank",          ctry="Germany",       ch=["Ads"],                 views=546,   clicks=5,    ctr=0.92, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Vodafone",               ctry="UK",            ch=["Ads"],                 views=545,   clicks=3,    ctr=0.55, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="SAP",                    ctry="Germany",       ch=["Ads"],                 views=496,   clicks=4,    ctr=0.81, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="LSEG",                   ctry="UK",            ch=["Ads"],                 views=415,   clicks=5,    ctr=1.20, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Rabobank",               ctry="Netherlands",   ch=["Ads"],                 views=336,   clicks=3,    ctr=0.89, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="ASML",                   ctry="Netherlands",   ch=["Ads"],                 views=331,   clicks=4,    ctr=1.21, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Bosch",                  ctry="Germany",       ch=["Ads"],                 views=331,   clicks=3,    ctr=0.91, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Nokia",                  ctry="Finland",       ch=["Ads"],                 views=314,   clicks=5,    ctr=1.59, op=None,  lead=None,ltitle=None,ldate=None),
+    dict(co="Siemens",                ctry="Germany",       ch=["Ads"],                 views=702,   clicks=9,    ctr=1.28, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="AUMOVIO",                ctry="Europe",        ch=["Ads"],                 views=670,   clicks=4,    ctr=0.60, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Deutsche Bank",          ctry="Germany",       ch=["Ads"],                 views=546,   clicks=5,    ctr=0.92, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Vodafone",               ctry="UK",            ch=["Ads"],                 views=545,   clicks=3,    ctr=0.55, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="SAP",                    ctry="Germany",       ch=["Ads"],                 views=496,   clicks=4,    ctr=0.81, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="LSEG",                   ctry="UK",            ch=["Ads"],                 views=415,   clicks=5,    ctr=1.20, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Rabobank",               ctry="Netherlands",   ch=["Ads"],                 views=336,   clicks=3,    ctr=0.89, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="ASML",                   ctry="Netherlands",   ch=["Ads"],                 views=331,   clicks=4,    ctr=1.21, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Bosch",                  ctry="Germany",       ch=["Ads"],                 views=331,   clicks=3,    ctr=0.91, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Nokia",                  ctry="Finland",       ch=["Ads"],                 views=314,   clicks=5,    ctr=1.59, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
     dict(co="Mercedes-Benz AG",       ctry="Germany",       ch=["Ads"],                 views=259,   clicks=5,    ctr=1.93, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="IKEA",                   ctry="Sweden",        ch=["Ads"],                 views=231,   clicks=4,    ctr=1.73, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Wolt",                   ctry="Finland",       ch=["Ads"],                 views=229,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="NXP Semiconductors",     ctry="Netherlands",   ch=["Ads"],                 views=218,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Eaton",                  ctry="Ireland",       ch=["Ads"],                 views=210,   clicks=6,    ctr=2.86, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Continental",            ctry="Germany",       ch=["Ads"],                 views=209,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Revolut",                ctry="UK",            ch=["Ads"],                 views=206,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Fidelity Investments",   ctry="Ireland",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=66.67, lead=None,ltitle=None,ldate=None),
+    dict(co="IKEA",                   ctry="Sweden",        ch=["Ads"],                 views=231,   clicks=4,    ctr=1.73, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Wolt",                   ctry="Finland",       ch=["Ads"],                 views=229,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="NXP Semiconductors",     ctry="Netherlands",   ch=["Ads"],                 views=218,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Eaton",                  ctry="Ireland",       ch=["Ads"],                 views=210,   clicks=6,    ctr=2.86, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Continental",            ctry="Germany",       ch=["Ads"],                 views=209,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Revolut",                ctry="UK",            ch=["Ads"],                 views=206,   clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Fidelity Investments",   ctry="Ireland",       ch=["InMail"],              views=None,  clicks=None, ctr=None, op=66.67, lead=None,ltitle=None,ldate=None, is_new=True),
 ]
 
 SOUTH = [
@@ -133,12 +133,12 @@ SOUTH = [
     dict(co="Thales",          ctry="France",        ch=["Ads","Demo"],          views=1265, clicks=10,   ctr=0.79, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="hiberus",         ctry="Spain",         ch=["Ads","Demo"],          views=1193, clicks=3,    ctr=0.25, op=None,  lead=None,ltitle=None,ldate=None),
     dict(co="Mobileye",        ctry="Israel",        ch=["Ads","Demo"],          views=590,  clicks=4,    ctr=0.68, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="ING Türkiye",     ctry="Turkey",        ch=["Ads"],                 views=473,  clicks=5,    ctr=1.06, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Akbank",          ctry="Turkey",        ch=["Ads"],                 views=447,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="VakıfBank",       ctry="Turkey",        ch=["Ads"],                 views=371,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Halkbank",        ctry="Turkey",        ch=["Ads"],                 views=319,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Valeo",           ctry="France",        ch=["Ads"],                 views=254,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None),
-    dict(co="Sogeti",          ctry="France",        ch=["InMail"],              views=None, clicks=None, ctr=None, op=50.00, lead=None,ltitle=None,ldate=None),
+    dict(co="ING Türkiye",     ctry="Turkey",        ch=["Ads"],                 views=473,  clicks=5,    ctr=1.06, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Akbank",          ctry="Turkey",        ch=["Ads"],                 views=447,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="VakıfBank",       ctry="Turkey",        ch=["Ads"],                 views=371,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Halkbank",        ctry="Turkey",        ch=["Ads"],                 views=319,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Valeo",           ctry="France",        ch=["Ads"],                 views=254,  clicks=None, ctr=None, op=None,  lead=None,ltitle=None,ldate=None, is_new=True),
+    dict(co="Sogeti",          ctry="France",        ch=["InMail"],              views=None, clicks=None, ctr=None, op=50.00, lead=None,ltitle=None,ldate=None, is_new=True),
 ]
 
 UNIFY_NORTH = [
@@ -554,7 +554,7 @@ def render_table(data):
         sv = lambda x: str(x) if x is not None else "-999"
         rows += f"""
         <tr class="{cls}">
-          <td data-v="{d['co'].lower()}"><div class="co">{d['co']}</div><div class="ctry">{d['ctry']}</div></td>
+          <td data-v="{d['co'].lower()}"><div class="co">{d['co']}{'<span style="background:#7c3aed;color:#e9d5ff;font-size:8px;font-weight:700;padding:1px 6px;border-radius:2px;margin-left:6px;vertical-align:middle;letter-spacing:0.5px;">NEW</span>' if d.get('is_new') else ''}</div><div class="ctry">{d['ctry']}</div></td>
           <td class="r" data-v="{sv(d['views'])}">{fmt_views(d['views'])}</td>
           <td class="r" data-v="{sv(d['clicks'])}">{fmt_clicks(d['clicks'])}</td>
           <td class="r" data-v="{sv(d['ctr'])}">{fmt_ctr(d['ctr'])}</td>
