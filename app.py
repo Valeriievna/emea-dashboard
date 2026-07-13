@@ -200,6 +200,19 @@ G2_NORTH = [
     dict(co="Visma", ctry="Norway", activity="Medium", visitor="Sweden", last="~2 months ago", days=60, visitors=None, signals=3),
     dict(co="Datev eG", ctry="Germany", activity="Medium", visitor="Germany", last="~2 months ago", days=62, visitors=None, signals=7),
     dict(co="Bosch", ctry="Germany", activity="Medium", visitor="Germany", last="~2 months ago", days=75, visitors=None, signals=4),
+    # ── Low ──
+    dict(co="Politechnika Czstochowska", ctry="Poland", activity="Low", visitor="Poland", last="2 days ago", days=2, visitors=None, signals=3),
+    dict(co="University of Turku", ctry="Finland", activity="Low", visitor="Finland", last="6 days ago", days=6, visitors=None, signals=3),
+    dict(co="Siemens", ctry="Germany", activity="Low", visitor="Germany", last="6 days ago", days=6, visitors=None, signals=4),
+    dict(co="Foundever", ctry="Luxembourg", activity="Low", visitor="Morocco", last="~12 days ago", days=12, visitors=None, signals=3),
+    dict(co="Coleg Llandrillo; Grwp LlandrilloMenai", ctry="United Kingdom", activity="Low", visitor="United Kingdom", last="~2 months ago", days=44, visitors=None, signals=3),
+    dict(co="Westcon-Comstor", ctry="United Kingdom", activity="Low", visitor="United Arab Emirates", last="~2 months ago", days=49, visitors=None, signals=3),
+    dict(co="DEPT", ctry="Netherlands", activity="Low", visitor="United Kingdom", last="~2 months ago", days=52, visitors=None, signals=3),
+    dict(co="UNILIN", ctry="Belgium", activity="Low", visitor="Belgium", last="~2 months ago", days=60, visitors=None, signals=3),
+    dict(co="Mainova", ctry="Germany", activity="Low", visitor="Germany", last="~2 months ago", days=61, visitors=None, signals=3),
+    dict(co="ORTEC", ctry="Netherlands", activity="Low", visitor="Greece", last="~2 months ago", days=74, visitors=None, signals=4),
+    dict(co="Pepperl+Fuchs", ctry="Germany", activity="Low", visitor="Germany", last="~3 months ago", days=80, visitors=None, signals=6),
+    dict(co="IFS", ctry="Sweden", activity="Low", visitor="Türkiye", last="~3 months ago", days=88, visitors=None, signals=3),
 ]
 
 G2_SOUTH = [
@@ -214,6 +227,18 @@ G2_SOUTH = [
     dict(co="Tanta University", ctry="Egypt", activity="Medium", visitor="Egypt", last="~2 months ago", days=53, visitors=None, signals=5),
     dict(co="Dnata", ctry="United Arab Emirates", activity="Medium", visitor="Switzerland", last="~3 months ago", days=77, visitors=None, signals=5),
     dict(co="SFR", ctry="France", activity="Medium", visitor="France", last="~3 months ago", days=79, visitors=None, signals=5),
+    # ── Low ──
+    dict(co="Türk Telekom", ctry="Türkiye", activity="Low", visitor="Türkiye", last="3 days ago", days=3, visitors=None, signals=6),
+    dict(co="Orange", ctry="France", activity="Low", visitor="France", last="~12 days ago", days=12, visitors=None, signals=11),
+    dict(co="Sharaf DG", ctry="United Arab Emirates", activity="Low", visitor="United Arab Emirates", last="~13 days ago", days=13, visitors=None, signals=3),
+    dict(co="Togg", ctry="Türkiye", activity="Low", visitor="Türkiye", last="~4 weeks ago", days=30, visitors=None, signals=4),
+    dict(co="monday.com", ctry="Israel", activity="Low", visitor="Israel", last="~5 weeks ago", days=32, visitors=None, signals=3),
+    dict(co="Ben Gurion University of Negev", ctry="Israel", activity="Low", visitor="Israel", last="~2 months ago", days=45, visitors=None, signals=3),
+    dict(co="Zagrebacka banka", ctry="Croatia", activity="Low", visitor="Croatia", last="~2 months ago", days=53, visitors=None, signals=3),
+    dict(co="CTT", ctry="Portugal", activity="Low", visitor="Portugal", last="~2 months ago", days=54, visitors=None, signals=3),
+    dict(co="Rothschild & Co", ctry="France", activity="Low", visitor="France", last="~2 months ago", days=62, visitors=None, signals=3),
+    dict(co="Trendyol", ctry="Türkiye", activity="Low", visitor="Türkiye", last="~2 months ago", days=65, visitors=None, signals=15),
+    dict(co="e&", ctry="United Arab Emirates", activity="Low", visitor="United Arab Emirates", last="~2 months ago", days=73, visitors=None, signals=3),
 ]
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
