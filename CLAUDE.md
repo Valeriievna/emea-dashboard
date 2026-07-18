@@ -11,7 +11,8 @@ data/
   linkedin.py       ← NORTH, SOUTH, UNIFY_NORTH, UNIFY_SOUTH (LinkedIn Smart Test + Unify campaigns)
   g2.py             ← G2_NORTH, G2_SOUTH (G2 buyer intent, 49 companies, last 90 days)
 scripts/
-  gen_g2.py         ← Regenerates G2 lists from a new CSV export
+  gen_g2.py                ← Regenerates G2 lists from a new CSV export
+  linkedin_countries.py    ← Running company -> (country, region) lookup, reused across LinkedIn refreshes
 requirements.txt
 ```
 
@@ -30,11 +31,13 @@ gh api repos/Valeriievna/emea-dashboard/git/refs/heads/main -X PATCH -f sha=$SHA
 ### LinkedIn (data/linkedin.py)
 
 Each entry is a `dict` with keys:
-`co, ctry, ch, views, clicks, ctr, op, lead, ltitle, ldate, is_new`
+`co, ctry, ch, views, clicks, ctr, engagement, op, lead, ltitle, ldate, is_new`
 
 - `ch` — list of channels: `"Ads"`, `"InMail"`, `"Demo"`, `"Doc"`, `"Video"`, `"Article"`
-- `is_new=True` — shows a purple NEW badge (marks companies added Jul 1–12 2026)
-- `lead=None` means no lead submitted; non-None rows get a gold highlight
+- `views`/`clicks`/`ctr` — from the Ads ad-set export only (impressions/clicks aren't reported for InMail)
+- `engagement` — combined Ads + InMail `Paid engagements` count (added Jul 18 2026 refresh); `None`/absent on older Unify entries
+- `is_new=True` — shows a purple NEW badge (marks companies not present in the previous refresh's NORTH/SOUTH)
+- `lead=None` means no lead submitted; non-None rows get a gold highlight (leads are added manually — not derivable from the Campaign Manager company export)
 
 ### G2 (data/g2.py)
 
@@ -73,7 +76,21 @@ High and Medium companies can have expandable detail panels. Feed item types:
 - `"compare"` → orange dot — compared two products
 - `"alt"` → yellow dot — looked at alternatives to a product
 
+## Refreshing LinkedIn data
+
+LinkedIn Campaign Manager doesn't offer a single export with both full company coverage and lead identity, and there's no self-serve API access — so refreshes combine two Campaign Manager exports plus one manual step:
+
+1. Export the "companies" report from Campaign Manager twice for the desired window (30/60/90 days — LinkedIn only offers preset windows): once for the **Ads ad set** (has impressions/clicks) and once for the **InMail ad set** (only has `Paid engagements`, no impressions/clicks).
+2. Merge by company name: `views`/`clicks`/`ctr` come only from the Ads export; `engagement` = Ads `Paid engagements` + InMail `Paid engagements`.
+3. Classify each company's country and NORTH/SOUTH region (Campaign Manager doesn't report country) — reuse the running lookup built during these sessions rather than re-researching known companies each time. Exclude entries with no clear EMEA base or ICP fit (consumer platforms, academic institutions, unidentifiable "Confidential"/"Stealth" placeholders, negligible signal).
+4. Apply a `views >=` cutoff on the Ads side to size the list (this needs revisiting each time — 90-day totals run much higher than 30-day ones, so the same raw threshold isn't comparable across window sizes). Keep all InMail-only companies (no Ads impressions) regardless of engagement.
+5. `is_new` = not present in the *previous* refresh's `NORTH`/`SOUTH` (a git diff against the currently committed data, not a fixed "added on date X" list).
+6. Leads: Campaign Manager's company export only gives lead *counts*, not names — add `lead`/`ltitle`/`ldate` manually from the per-campaign lead view (its row cap is rarely hit since only a small fraction of engaged companies convert to leads).
+7. Deploy.
+
+**Momentum flag (planned, not yet implemented)**: since numbers are windowed snapshots (not cumulative), a future refresh could diff each company's `views`/`engagement` against its value in the previously committed `data/linkedin.py` (via git) and flag significant growth — distinct from `is_new`, which only catches companies absent entirely from the prior list.
+
 ## Last updated
 
-- LinkedIn Smart Test data: Apr 1 – Jul 12, 2026 (23 NEW companies from Jul 1–12 marked with badge)
+- LinkedIn Smart Test data: last 90 days through Jul 18, 2026
 - G2 data: Jul 13, 2026 (last 90 days)

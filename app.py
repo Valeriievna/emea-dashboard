@@ -106,6 +106,10 @@ def fmt_open(v, has_clicks, inmail_only=False):
 def fmt_channels(ch):
     return f'<span style="font-size:12px;color:#4b5563;">{len(ch)}</span>'
 
+def fmt_engagement(v):
+    if v is None: return '<span class="dim">—</span>'
+    return f'<span class="num">{v:,}</span>'
+
 def fmt_lead(name, title, date):
     if name is None:
         return '<span class="no-lead">—</span>'
@@ -125,6 +129,7 @@ def render_table(data):
           <td class="r" data-v="{sv(d['views'])}">{fmt_views(d['views'])}</td>
           <td class="r" data-v="{sv(d['clicks'])}">{fmt_clicks(d['clicks'])}</td>
           <td class="r" data-v="{sv(d['ctr'])}">{fmt_ctr(d['ctr'])}</td>
+          <td class="r" data-v="{sv(d.get('engagement'))}">{fmt_engagement(d.get('engagement'))}</td>
           <td class="r" data-v="{sv(d['op'])}">{fmt_open(d['op'], has_clicks, inmail_only)}</td>
           <td data-v="{'1' if has_lead else '0'}">{fmt_lead(d['lead'], d['ltitle'], d['ldate'])}</td>
           <td class="r" data-v="{len(d['ch'])}">{fmt_channels(d['ch'])}</td>
@@ -178,9 +183,10 @@ td.r{{text-align:right}}
     <th class="r" data-col="1">AD VIEWS <span class="si">↕</span></th>
     <th class="r" data-col="2">AD CLICKS <span class="si">↕</span></th>
     <th class="r" data-col="3">CTR <span class="si">↕</span></th>
-    <th class="r" data-col="4">INMAIL OPEN RATE <span class="si">↕</span></th>
-    <th data-col="5">LEAD SUBMITTED <span class="si">↕</span></th>
-    <th class="r" data-col="6">TOUCHPOINTS <span class="si">↕</span></th>
+    <th class="r" data-col="4">ENGAGEMENT <span class="si">↕</span></th>
+    <th class="r" data-col="5">INMAIL OPEN RATE <span class="si">↕</span></th>
+    <th data-col="6">LEAD SUBMITTED <span class="si">↕</span></th>
+    <th class="r" data-col="7">TOUCHPOINTS <span class="si">↕</span></th>
   </tr></thead>
   <tbody>{rows}</tbody>
 </table>
@@ -393,7 +399,7 @@ with tab_li:
 
     if campaign == "Smart Tests":
         data = NORTH if region == "EMEA North" else SOUTH
-        date_label = "Apr 1 – Jul 12, 2026"
+        date_label = "Last 90 days (through Jul 18, 2026)"
     else:
         data = UNIFY_NORTH if region == "EMEA North" else UNIFY_SOUTH
         date_label = "Jul 1 – 12, 2026"
@@ -409,6 +415,7 @@ with tab_li:
   &nbsp;<span style="color:#4ade80;">■</span> ≥2% strong
   &nbsp;<span style="color:#facc15;">■</span> ≥1% good
   &nbsp;<span style="color:#6b7280;">■</span> &lt;1% low
+  <br><b style="color:#d1d5db;">Engagement</b> — combined Ads + InMail engagements (likes, comments, shares, opens) over the period.
 </div>
 """, unsafe_allow_html=True)
     render_table(data)
