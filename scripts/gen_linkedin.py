@@ -5,7 +5,7 @@ Regenerate LinkedIn NORTH/SOUTH from N Campaign Manager "companies" exports
 (Doc, Video, Article), or anything in between.
 
 Usage:
-    python3 scripts/gen_linkedin.py Ads=ads.csv InMail=inmail.csv [--threshold 15]
+    python3 scripts/gen_linkedin.py Ads=ads.csv InMail=inmail.csv [--views-threshold 150] [--engagement-threshold 15]
     python3 scripts/gen_linkedin.py Doc=doc.csv Video=video.csv Article=article.csv
 
 What it does:
@@ -20,8 +20,11 @@ What it does:
        running lookup). Companies not in that lookup are printed separately
        under NEEDS CLASSIFICATION — add them to linkedin_countries.py by hand
        (LinkedIn's export doesn't report company country) and re-run.
-    3. Keeps a company if engagement >= threshold (default 15) OR it already
-       has a lead in the currently committed data/linkedin.py.
+    3. Keeps a company if: it has Ads views >= views-threshold (default 150,
+       clicks aren't separately gated — whatever the real click count is is
+       fine); OR, for InMail-only companies with no Ads views at all,
+       engagement >= engagement-threshold (default 15); OR it already has a
+       lead in the currently committed data/linkedin.py.
     4. Computes is_new by diffing against the currently committed NORTH/SOUTH
        in data/linkedin.py. Only meaningful if the previous refresh used the
        SAME window size (30 vs 90-day totals aren't comparable).
@@ -30,6 +33,14 @@ What it does:
        separate lead-gen export, since Campaign Manager's company export only
        gives lead counts, not identity).
     6. Prints ready-to-paste NORTH/SOUTH blocks to stdout.
+
+NA (North America, flat region, no EMEA-style NORTH_CORE/SOUTH_CORE split) isn't
+wired into main()'s classify() step — regenerate it with a small standalone
+script calling merge(), apply_threshold_and_leads(), and load_current(["NA"])
+directly. Always pass load_current() the list(s) matching what you're
+regenerating — a company can exist as separate entities in different regions
+under the same name (e.g. "Fidelity Investments" in both NA and EMEA), and a
+lead belongs to one specific entity, not the company name in general.
 
 This does NOT auto-deploy. Review the output (especially anything flagged
 NEEDS VERIFICATION or NEEDS CLASSIFICATION), paste it into data/linkedin.py,
@@ -55,14 +66,21 @@ def load_csv(path):
     return rows
 
 
-def load_current():
+def load_current(list_names=("NORTH", "SOUTH")):
+    """Load company->dict lookup from the given lists in the currently
+    committed data/linkedin.py, for lead-preservation and is_new diffing.
+    Must scope this to the same list(s) you're regenerating — e.g. NA has
+    its own companies that can share a name with an EMEA entry (same brand,
+    different regional entity), and leads belong to one specific entity, not
+    the company name in general."""
     src = LINKEDIN_PY.read_text()
     tree = ast.parse(src)
     ns = {}
     exec(compile(tree, "linkedin.py", "exec"), ns)
     current = {}
-    for d in ns["NORTH"] + ns["SOUTH"]:
-        current[d["co"].strip().lower()] = d
+    for name in list_names:
+        for d in ns[name]:
+            current[d["co"].strip().lower()] = d
     return current
 
 
@@ -128,17 +146,21 @@ def classify(merged):
     return classified, unclassified
 
 
-def apply_threshold_and_leads(rows, current, threshold):
-    """Inclusion rule: any real Ads clicks is sufficient on its own (a click is a
-    stronger signal than a bare engagement count); companies with no clicks
-    (InMail-only, or Ads with 0 clicks) need engagement >= threshold instead.
-    A lead always overrides both."""
+def apply_threshold_and_leads(rows, current, views_threshold=150, engagement_threshold=15):
+    """Inclusion rule:
+    - Company has Ads views data: keep if views >= views_threshold. Clicks are
+      not separately gated — whatever the real click count is, it's fine.
+    - Company has NO Ads views (InMail-only): keep if engagement >=
+      engagement_threshold, since engagement is the only signal available.
+    - A lead always overrides both — a submitted lead is real signal
+      regardless of views/engagement."""
     kept = []
     for d in rows:
         prior = current.get(d["co"].lower())
         lead, ltitle, ldate = (prior["lead"], prior["ltitle"], prior["ldate"]) if prior else (None, None, None)
-        has_clicks = d["clicks"] is not None and d["clicks"] > 0
-        if has_clicks or d["engagement"] >= threshold or lead is not None:
+        has_views = d["views"] is not None
+        qualifies = (d["views"] >= views_threshold) if has_views else (d["engagement"] >= engagement_threshold)
+        if qualifies or lead is not None:
             d["lead"], d["ltitle"], d["ldate"] = lead, ltitle, ldate
             d["is_new"] = prior is None
             kept.append(d)
@@ -164,10 +186,15 @@ def fmt(rows_):
 
 def main():
     args = sys.argv[1:]
-    threshold = 15
-    if "--threshold" in args:
-        i = args.index("--threshold")
-        threshold = int(args[i + 1])
+    views_threshold = 150
+    engagement_threshold = 15
+    if "--views-threshold" in args:
+        i = args.index("--views-threshold")
+        views_threshold = int(args[i + 1])
+        args = args[:i] + args[i + 2:]
+    if "--engagement-threshold" in args:
+        i = args.index("--engagement-threshold")
+        engagement_threshold = int(args[i + 1])
         args = args[:i] + args[i + 2:]
 
     channels = []
@@ -186,7 +213,7 @@ def main():
     current = load_current()
     merged = merge(channels)
     classified, unclassified = classify(merged)
-    kept = apply_threshold_and_leads(classified, current, threshold)
+    kept = apply_threshold_and_leads(classified, current, views_threshold, engagement_threshold)
 
     north = [d for d in kept if d["region"] == "NORTH"]
     south = [d for d in kept if d["region"] == "SOUTH"]
