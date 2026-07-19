@@ -129,11 +129,16 @@ def classify(merged):
 
 
 def apply_threshold_and_leads(rows, current, threshold):
+    """Inclusion rule: any real Ads clicks is sufficient on its own (a click is a
+    stronger signal than a bare engagement count); companies with no clicks
+    (InMail-only, or Ads with 0 clicks) need engagement >= threshold instead.
+    A lead always overrides both."""
     kept = []
     for d in rows:
         prior = current.get(d["co"].lower())
         lead, ltitle, ldate = (prior["lead"], prior["ltitle"], prior["ldate"]) if prior else (None, None, None)
-        if d["engagement"] >= threshold or lead is not None:
+        has_clicks = d["clicks"] is not None and d["clicks"] > 0
+        if has_clicks or d["engagement"] >= threshold or lead is not None:
             d["lead"], d["ltitle"], d["ldate"] = lead, ltitle, ldate
             d["is_new"] = prior is None
             kept.append(d)
