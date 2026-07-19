@@ -1,15 +1,21 @@
 """
-Regenerate LinkedIn Smart Test NORTH/SOUTH from two Campaign Manager "companies"
-exports (same window size, e.g. both 90-day): one for the Ads ad set, one for
-the InMail ad set.
+Regenerate LinkedIn NORTH/SOUTH from N Campaign Manager "companies" exports
+(same window size, e.g. all 90-day) — one per ad set. Works for Smart Test
+(2 ad sets: Ads, InMail) or campaigns with more ad sets, like Unify
+(Doc, Video, Article), or anything in between.
 
 Usage:
-    python3 scripts/gen_linkedin.py ads.csv inmail.csv [--threshold 15]
+    python3 scripts/gen_linkedin.py Ads=ads.csv InMail=inmail.csv [--threshold 15]
+    python3 scripts/gen_linkedin.py Doc=doc.csv Video=video.csv Article=article.csv
 
 What it does:
-    1. Merges the two exports by company name.
-       - views/clicks/ctr come only from the Ads export (InMail has neither).
-       - engagement = Ads Paid engagements + InMail Paid engagements.
+    1. Merges all N exports by company name.
+       - views/clicks/ctr = summed Paid impressions/clicks across every
+         channel that reports them (some, like InMail, never do).
+       - engagement = summed Paid engagements across every channel.
+       - ch = list of channel names the company showed real signal in
+         (impressions or engagements), e.g. ["Ads","InMail"] or
+         ["Doc","Video"].
     2. Classifies country/region using scripts/linkedin_countries.py (the
        running lookup). Companies not in that lookup are printed separately
        under NEEDS CLASSIFICATION — add them to linkedin_countries.py by hand
@@ -60,36 +66,46 @@ def load_current():
     return current
 
 
-def merge(ads_path, inmail_path):
-    ads = load_csv(ads_path)
-    inmail = load_csv(inmail_path)
-    names = set(ads) | set(inmail)
+def merge(channels):
+    """channels: list of (channel_name, csv_path) tuples, in the order given
+    on the command line. views/clicks are summed across every channel that
+    reports impressions; engagement is summed across all channels."""
+    loaded = [(name, load_csv(path)) for name, path in channels]
+    names = set()
+    for _, rows in loaded:
+        names |= set(rows)
 
     merged = []
-    for name in names:
-        if name in EXCLUDED:
+    for co in names:
+        if co in EXCLUDED:
             continue
-        a = ads.get(name)
-        m = inmail.get(name)
-        ch, views, clicks, ctr = [], None, None, None
-        ads_eng = inmail_eng = 0
-        if a:
-            imp, clk, eng = a["Paid impressions"].strip(), a["Paid clicks"].strip(), a["Paid engagements"].strip()
+        ch = []
+        total_views = total_clicks = total_engagement = 0
+        has_impressions = False
+        for channel_name, rows in loaded:
+            row = rows.get(co)
+            if not row:
+                continue
+            imp = row["Paid impressions"].strip()
+            clk = row["Paid clicks"].strip()
+            eng = row["Paid engagements"].strip()
+            present = False
             if imp:
-                ch.append("Ads")
-                views = int(imp)
-                clicks = int(clk) if clk else 0
-                ctr = round(clicks / views * 100, 2) if views else None
-            ads_eng = int(eng) if eng else 0
-        if m:
-            eng = m["Paid engagements"].strip()
+                has_impressions = True
+                present = True
+                total_views += int(imp)
+                total_clicks += int(clk) if clk else 0
             if eng:
-                ch.append("InMail")
-                inmail_eng = int(eng)
+                present = True
+                total_engagement += int(eng)
+            if present:
+                ch.append(channel_name)
         if not ch:
             continue
-        merged.append(dict(co=name, ch=ch, views=views, clicks=clicks, ctr=ctr,
-                            engagement=ads_eng + inmail_eng))
+        views = total_views if has_impressions else None
+        clicks = total_clicks if has_impressions else None
+        ctr = round(total_clicks / total_views * 100, 2) if has_impressions and total_views else None
+        merged.append(dict(co=co, ch=ch, views=views, clicks=clicks, ctr=ctr, engagement=total_engagement))
     return merged
 
 
@@ -142,16 +158,28 @@ def fmt(rows_):
 
 
 def main():
-    if len(sys.argv) < 3:
+    args = sys.argv[1:]
+    threshold = 15
+    if "--threshold" in args:
+        i = args.index("--threshold")
+        threshold = int(args[i + 1])
+        args = args[:i] + args[i + 2:]
+
+    channels = []
+    for arg in args:
+        if "=" not in arg:
+            print(f"Expected Name=path.csv, got: {arg}\n")
+            print(__doc__)
+            sys.exit(1)
+        name, path = arg.split("=", 1)
+        channels.append((name, path))
+
+    if not channels:
         print(__doc__)
         sys.exit(1)
-    ads_path, inmail_path = sys.argv[1], sys.argv[2]
-    threshold = 15
-    if "--threshold" in sys.argv:
-        threshold = int(sys.argv[sys.argv.index("--threshold") + 1])
 
     current = load_current()
-    merged = merge(ads_path, inmail_path)
+    merged = merge(channels)
     classified, unclassified = classify(merged)
     kept = apply_threshold_and_leads(classified, current, threshold)
 
