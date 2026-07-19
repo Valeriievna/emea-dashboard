@@ -73,7 +73,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Data ─────────────────────────────────────────────────────────────────────
-from data.linkedin import NORTH, SOUTH, UNIFY_NORTH, UNIFY_SOUTH
+from data.linkedin import NORTH, SOUTH, NA, UNIFY_NORTH, UNIFY_SOUTH
 from data.g2 import G2_NORTH, G2_SOUTH
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -375,19 +375,30 @@ with tab_li:
                             horizontal=False, label_visibility="collapsed")
     with col_region:
         st.caption("REGION")
-        region = st.radio("Region", ["EMEA North", "EMEA South"],
+        region_options = ["EMEA North", "EMEA South", "North America"] if campaign == "Smart Tests" else ["EMEA North", "EMEA South"]
+        region = st.radio("Region", region_options,
                           horizontal=False, label_visibility="collapsed")
 
     st.divider()
 
     if campaign == "Smart Tests":
-        data = NORTH if region == "EMEA North" else SOUTH
-        date_label = "Last 90 days (through Jul 18, 2026)"
+        if region == "EMEA North":
+            data = NORTH
+        elif region == "EMEA South":
+            data = SOUTH
+        else:
+            data = NA
+        date_label = "Jul 19, 2026" if region == "North America" else "Last 90 days (through Jul 18, 2026)"
     else:
         data = UNIFY_NORTH if region == "EMEA North" else UNIFY_SOUTH
         date_label = "Jul 1 – 12, 2026"
 
-    flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
+    if region == "EMEA North":
+        flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland"
+    elif region == "EMEA South":
+        flag = "France · UAE · Saudi Arabia · Israel · Spain"
+    else:
+        flag = "USA · Canada"
 
     st.markdown(f'<div class="section-lbl">{region.upper()} — {flag}</div>', unsafe_allow_html=True)
     st.markdown(f'<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:10px;">{date_label}</div>', unsafe_allow_html=True)

@@ -8,7 +8,7 @@ Live at: https://emea-dashboard-4.streamlit.app (deployed via GitHub → Streaml
 ```
 app.py              ← UI + rendering only (~430 lines)
 data/
-  linkedin.py       ← NORTH, SOUTH, UNIFY_NORTH, UNIFY_SOUTH (LinkedIn Smart Test + Unify campaigns)
+  linkedin.py       ← NORTH, SOUTH, NA, UNIFY_NORTH, UNIFY_SOUTH (LinkedIn Smart Test + Unify campaigns)
   g2.py             ← G2_NORTH, G2_SOUTH (G2 buyer intent, 49 companies, last 90 days)
 scripts/
   gen_g2.py                ← Regenerates G2 lists from a new CSV export
@@ -38,6 +38,8 @@ Each entry is a `dict` with keys:
 - `engagement` — combined Ads + InMail `Paid engagements` count (added Jul 18 2026 refresh); `None`/absent on older Unify entries
 - `is_new=True` — shows a purple NEW badge (marks companies not present in the previous refresh's NORTH/SOUTH)
 - `lead=None` means no lead submitted; non-None rows get a gold highlight (leads are added manually — not derivable from the Campaign Manager company export)
+
+`NA` (added Jul 19 2026) is a flat North America list for the Smart Test campaign only — no North/South split like EMEA, since it's a single region. Only appears as a REGION option in the UI when "Smart Tests" is the selected campaign; Unify doesn't have NA data (yet). `scripts/linkedin_countries.py`'s NORTH_CORE/SOUTH_CORE classification doesn't apply here — NA entries are just tagged `ctry="USA"` or `"Canada"` directly, no EMEA-style region lookup needed.
 
 ### G2 (data/g2.py)
 
