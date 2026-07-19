@@ -96,7 +96,7 @@ def fmt_channels(ch):
     return f'<span style="font-size:12px;color:#4b5563;">{len(ch)}</span>'
 
 def fmt_engagement(v):
-    if v is None: return '<span class="dim">—</span>'
+    if v is None or v < 15: return '<span class="dim">—</span>'
     return f'<span class="num">{v:,}</span>'
 
 def fmt_lead(name, title, date):
