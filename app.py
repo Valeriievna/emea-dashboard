@@ -399,6 +399,7 @@ with tab_li:
   &nbsp;<span style="color:#6b7280;">■</span> &lt;1% low
   <br><b style="color:#d1d5db;">Engagement</b> — all interactions combined (clicks, likes, comments, shares, opens) across Ads + InMail.
   <b style="color:#d1d5db;">Ad Clicks</b> — actual clicks only, Ads channel.
+  <b style="color:#d1d5db;">Touchpoints</b> — number of different ad types/channels (Ads, InMail, Demo, Doc, Video, Article) the company was seen in within this campaign.
 </div>
 """, unsafe_allow_html=True)
     render_table(data)
