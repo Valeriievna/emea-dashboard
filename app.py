@@ -102,7 +102,8 @@ def fmt_engagement(v):
 def fmt_lead(name, title, date):
     if name is None:
         return '<span class="no-lead">—</span>'
-    return f'<span class="lead-name">{name}</span><br><span class="lead-sub">{title}</span>'
+    date_part = f' &nbsp;<span class="lead-sub">· {date}</span>' if date else ''
+    return f'<span class="lead-name">{name}</span><br><span class="lead-sub">{title}</span>{date_part}'
 
 def render_table(data):
     rows = ""
