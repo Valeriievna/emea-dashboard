@@ -78,15 +78,18 @@ High and Medium companies can have expandable detail panels. Feed item types:
 
 ## Refreshing LinkedIn data
 
-LinkedIn Campaign Manager doesn't offer a single export with both full company coverage and lead identity, and there's no self-serve API access — so refreshes combine two Campaign Manager exports plus one manual step:
+LinkedIn Campaign Manager doesn't offer a single export with both full company coverage and lead identity, and there's no self-serve API access — so refreshes combine two Campaign Manager exports, `scripts/gen_linkedin.py`, and one manual step:
 
-1. Export the "companies" report from Campaign Manager twice for the desired window (30/60/90 days — LinkedIn only offers preset windows): once for the **Ads ad set** (has impressions/clicks) and once for the **InMail ad set** (only has `Paid engagements`, no impressions/clicks).
-2. Merge by company name: `views`/`clicks`/`ctr` come only from the Ads export; `engagement` = Ads `Paid engagements` + InMail `Paid engagements`.
-3. Classify each company's country and NORTH/SOUTH region (Campaign Manager doesn't report country) — reuse the running lookup built during these sessions rather than re-researching known companies each time. Exclude entries with no clear EMEA base or ICP fit (consumer platforms, academic institutions, unidentifiable "Confidential"/"Stealth" placeholders, negligible signal).
-4. Size the list with an `engagement >= 15` floor (combined Ads+InMail engagement) — this replaced an earlier `views >=` cutoff on the Ads side, which let through companies with high impressions but almost no actual interaction. A company with a lead is always kept regardless of engagement. This threshold, like the old one, needs revisiting per refresh since raw totals scale with window size (90-day vs 30-day aren't comparable).
-5. `is_new` = not present in the *previous* refresh's `NORTH`/`SOUTH`. **Only diff two refreshes that use the same window size** (e.g. 90-day vs 90-day) — comparing across different window sizes (e.g. this 90-day refresh vs. the prior 30-day one) produces false positives, since a wider window naturally surfaces companies a narrower one wouldn't have shown, even with no real change. The Jul 18 2026 90-day refresh is the current clean baseline with `is_new` cleared on everything; the next refresh (same window size) is what should start populating it again.
-6. Leads: Campaign Manager's company export only gives lead *counts*, not names — add `lead`/`ltitle`/`ldate` manually from the per-campaign lead view (its row cap is rarely hit since only a small fraction of engaged companies convert to leads). Keep leads even if the company later drops below the engagement threshold or a submission date falls outside the current window — a lead is real signal regardless of current engagement level.
-7. Deploy.
+1. Export the "companies" report from Campaign Manager twice for the desired window (30/60/90 days — LinkedIn only offers preset windows, and **must match the window size of the previous refresh** — see `is_new` note below): once for the **Ads ad set** (has impressions/clicks) and once for the **InMail ad set** (only has `Paid engagements`, no impressions/clicks).
+2. Run `python3 scripts/gen_linkedin.py ads.csv inmail.csv`. It merges the two exports (`views`/`clicks`/`ctr` from Ads only; `engagement` = Ads `Paid engagements` + InMail `Paid engagements`), classifies country/region via `scripts/linkedin_countries.py`, applies the `engagement >= 15`-or-has-a-lead inclusion rule, diffs against the currently committed `data/linkedin.py` for `is_new`, and preserves existing leads.
+3. Fix anything the script flags:
+   - **NEEDS CLASSIFICATION** — companies not yet in `scripts/linkedin_countries.py`. Look up their country/EMEA base and add them there (Campaign Manager doesn't report country, so this is manual), or add to `EXCLUDED` if there's no clear ICP fit. Re-run.
+   - **NEEDS VERIFICATION** comments — best-effort country guesses already in the lookup; worth a sanity check if the company matters to the current decision.
+4. Paste the script's `NORTH`/`SOUTH` output into `data/linkedin.py`.
+5. Add new leads manually from the separate lead-gen export (name/title/date) — Campaign Manager's company export only gives lead *counts*, not identity. Leads are exempt from the engagement cutoff (kept even if the company's engagement is below 15, or the lead date falls outside the current window) — a submitted lead is real signal regardless of current engagement level.
+6. Deploy.
+
+The engagement threshold (default 15 in the script) needs revisiting per refresh since raw totals scale with window size — a 90-day total isn't comparable to a 30-day one, so re-check with `--threshold` if the distribution looks off. Same goes for `is_new`: it's a diff against whatever's currently committed, so it's only meaningful between two refreshes of the *same* window size (the Jul 18 2026 90-day refresh is the current clean baseline).
 
 **Momentum flag (planned, not yet implemented)**: since numbers are windowed snapshots (not cumulative), a future refresh could diff each company's `views`/`engagement` against its value in the previously committed `data/linkedin.py` (via git) and flag significant growth — distinct from `is_new`, which only catches companies absent entirely from the prior list.
 
