@@ -114,9 +114,9 @@ def render_table(data):
         <tr class="{cls}">
           <td data-v="{d['co'].lower()}"><div class="co">{d['co']}{'<span style="background:#7c3aed;color:#e9d5ff;font-size:8px;font-weight:700;padding:1px 6px;border-radius:2px;margin-left:6px;vertical-align:middle;letter-spacing:0.5px;">NEW</span>' if d.get('is_new') else ''}</div><div class="ctry">{d['ctry']}</div></td>
           <td class="r" data-v="{sv(d['views'])}">{fmt_views(d['views'])}</td>
+          <td class="r" data-v="{sv(d.get('engagement'))}">{fmt_engagement(d.get('engagement'))}</td>
           <td class="r" data-v="{sv(d['clicks'])}">{fmt_clicks(d['clicks'])}</td>
           <td class="r" data-v="{sv(d['ctr'])}">{fmt_ctr(d['ctr'])}</td>
-          <td class="r" data-v="{sv(d.get('engagement'))}">{fmt_engagement(d.get('engagement'))}</td>
           <td data-v="{'1' if has_lead else '0'}">{fmt_lead(d['lead'], d['ltitle'], d['ldate'])}</td>
           <td class="r" data-v="{len(d['ch'])}">{fmt_channels(d['ch'])}</td>
         </tr>"""
@@ -164,9 +164,9 @@ td.r{{text-align:right}}
   <thead><tr>
     <th data-col="0">COMPANY <span class="si">↕</span></th>
     <th class="r" data-col="1">AD VIEWS <span class="si">↕</span></th>
-    <th class="r" data-col="2">AD CLICKS <span class="si">↕</span></th>
-    <th class="r" data-col="3">CTR <span class="si">↕</span></th>
-    <th class="r" data-col="4">ENGAGEMENT <span class="si">↕</span></th>
+    <th class="r" data-col="2">ENGAGEMENT <span class="si">↕</span></th>
+    <th class="r" data-col="3">AD CLICKS <span class="si">↕</span></th>
+    <th class="r" data-col="4">CTR <span class="si">↕</span></th>
     <th data-col="5">LEAD SUBMITTED <span class="si">↕</span></th>
     <th class="r" data-col="6">TOUCHPOINTS <span class="si">↕</span></th>
   </tr></thead>
