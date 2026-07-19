@@ -31,7 +31,7 @@ gh api repos/Valeriievna/emea-dashboard/git/refs/heads/main -X PATCH -f sha=$SHA
 ### LinkedIn (data/linkedin.py)
 
 Each entry is a `dict` with keys:
-`co, ctry, ch, views, clicks, ctr, engagement, op, lead, ltitle, ldate, is_new`
+`co, ctry, ch, views, clicks, ctr, engagement, lead, ltitle, ldate, is_new`
 
 - `ch` — list of channels: `"Ads"`, `"InMail"`, `"Demo"`, `"Doc"`, `"Video"`, `"Article"`
 - `views`/`clicks`/`ctr` — from the Ads ad-set export only (impressions/clicks aren't reported for InMail)

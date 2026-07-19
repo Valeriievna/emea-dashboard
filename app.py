@@ -51,10 +51,6 @@ st.markdown("""
   .ctr-mid { color: #facc15; font-weight: 600; }
   .ctr-lo  { color: #6b7280; }
 
-  .op-hi  { color: #4ade80; font-weight: 700; }
-  .op-mid { color: #facc15; font-weight: 600; }
-  .op-lo  { color: #6b7280; }
-
   .lead-name { font-weight: 700; color: #fde68a; font-size: 12px; }
   .lead-sub  { font-size: 10px; color: #92400e; }
   .no-lead   { color: #1f2937; }
@@ -96,13 +92,6 @@ def fmt_ctr(v):
     if v >= 1:    return f'<span class="ctr-mid">{v:.2f}%</span>'
     return         f'<span class="ctr-lo">{v:.2f}%</span>'
 
-def fmt_open(v, has_clicks, inmail_only=False):
-    if v is None: return '<span class="dim">—</span>'
-    if not has_clicks and not inmail_only: return '<span class="dim">—</span>'
-    if v >= 55:   return f'<span class="op-hi">{v:.2f}%</span>'
-    if v >= 40:   return f'<span class="op-mid">{v:.2f}%</span>'
-    return         f'<span class="op-lo">{v:.2f}%</span>'
-
 def fmt_channels(ch):
     return f'<span style="font-size:12px;color:#4b5563;">{len(ch)}</span>'
 
@@ -119,8 +108,6 @@ def render_table(data):
     rows = ""
     for d in data:
         has_lead = d["lead"] is not None
-        has_clicks = d["clicks"] is not None
-        inmail_only = d["views"] is None
         cls = "lead-row" if has_lead else ""
         sv = lambda x: str(x) if x is not None else "-999"
         rows += f"""
@@ -130,7 +117,6 @@ def render_table(data):
           <td class="r" data-v="{sv(d['clicks'])}">{fmt_clicks(d['clicks'])}</td>
           <td class="r" data-v="{sv(d['ctr'])}">{fmt_ctr(d['ctr'])}</td>
           <td class="r" data-v="{sv(d.get('engagement'))}">{fmt_engagement(d.get('engagement'))}</td>
-          <td class="r" data-v="{sv(d['op'])}">{fmt_open(d['op'], has_clicks, inmail_only)}</td>
           <td data-v="{'1' if has_lead else '0'}">{fmt_lead(d['lead'], d['ltitle'], d['ldate'])}</td>
           <td class="r" data-v="{len(d['ch'])}">{fmt_channels(d['ch'])}</td>
         </tr>"""
@@ -170,9 +156,6 @@ td.r{{text-align:right}}
 .ctr-hi{{color:#4ade80;font-weight:700}}
 .ctr-mid{{color:#facc15;font-weight:600}}
 .ctr-lo{{color:#6b7280}}
-.op-hi{{color:#4ade80;font-weight:700}}
-.op-mid{{color:#facc15;font-weight:600}}
-.op-lo{{color:#6b7280}}
 .lead-name{{font-weight:700;color:#fde68a;font-size:12px}}
 .lead-sub{{font-size:10px;color:#92400e}}
 .no-lead{{color:#1f2937}}
@@ -184,9 +167,8 @@ td.r{{text-align:right}}
     <th class="r" data-col="2">AD CLICKS <span class="si">↕</span></th>
     <th class="r" data-col="3">CTR <span class="si">↕</span></th>
     <th class="r" data-col="4">ENGAGEMENT <span class="si">↕</span></th>
-    <th class="r" data-col="5">INMAIL OPEN RATE <span class="si">↕</span></th>
-    <th data-col="6">LEAD SUBMITTED <span class="si">↕</span></th>
-    <th class="r" data-col="7">TOUCHPOINTS <span class="si">↕</span></th>
+    <th data-col="5">LEAD SUBMITTED <span class="si">↕</span></th>
+    <th class="r" data-col="6">TOUCHPOINTS <span class="si">↕</span></th>
   </tr></thead>
   <tbody>{rows}</tbody>
 </table>
