@@ -9,7 +9,8 @@ Live at: https://emea-dashboard-4.streamlit.app (deployed via GitHub → Streaml
 app.py              ← UI + rendering only (~430 lines)
 data/
   linkedin.py       ← NORTH, SOUTH, UNIFY_NORTH, UNIFY_SOUTH (LinkedIn Smart Test + Unify campaigns)
-  g2.py             ← G2_NORTH, G2_SOUTH (G2 buyer intent, 49 companies, last 90 days)
+  g2.py             ← G2_NORTH, G2_SOUTH (G2 buyer intent, 49 companies, last 90 days);
+                        G2_FM_NORTH, G2_FM_SOUTH (Feature Management product view, 15 companies)
 scripts/
   gen_g2.py                ← Regenerates G2 lists from a new CSV export
   linkedin_countries.py    ← Running company -> (country, region) lookup, reused across LinkedIn refreshes
@@ -68,6 +69,37 @@ Each entry is a `dict` with keys:
 CSV columns used: `company_name`, `company_country`, `activity_level`, `last_seen`, `competitive_signals`, `visitor_locations`
 CSV encoding: `utf-8-sig` (has BOM). Normalize `TÃ¼rkiye` → `Türkiye`.
 
+## G2 "by product" views
+
+The G2 tab has a PRODUCT selector alongside REGION. `"All Products"` uses `G2_NORTH`/`G2_SOUTH`
+(the rules above). `"Feature Management"` uses `G2_FM_NORTH`/`G2_FM_SOUTH` — a narrower view scoped
+to one competitive set, built from the raw per-visit-event G2 Buyer Intent CSV export (not the
+aggregated export `gen_g2.py` expects — columns include `visit_url`, `visit_type`, `visit_date`,
+`visit_title`, `subject_product_name`, etc., one row per visitor page-view).
+
+Differences from the North/South convention above, by design:
+- **Competitor scope**: only visits to LaunchDarkly, Unleash, ConfigCat, Statsig, GrowthBook,
+  DevCycle, or Optimizely Feature Experimentation count as a signal. (PostHog/VWO Testing/Optimizely
+  Web Experimentation are different G2 categories — Product Analytics / A/B Testing — and excluded.)
+- **No `signals >= 3` floor for Low** — even a single visit to one of these products is meaningful
+  intent for this narrower lens, so all qualifying companies are included regardless of count.
+- **Every company gets a `details`/`feed`**, including Low/single-signal ones — the point of this
+  view is to let a rep expand any company and see exactly which page views back up the "interest"
+  claim, not just to flag High/Medium accounts.
+- Country still has to fall in `NORTH_CORE`/`SOUTH_CORE` (same lists as above) or the company is
+  dropped rather than redefining territories — this is why Fast Bank (Armenia) and Zenith Bank
+  (Nigeria) aren't in the Jul 2026 build even though they had qualifying visits.
+- The raw CSV's `company_country`/`company_state` fields aren't always trustworthy (matched by
+  domain, not always accurate) — cross-check against `visitor_country`/company identity before
+  trusting them blindly. E.g. "The Academic College of Tel Aviv Yaffo" was flagged with
+  `company_country=Italy` in the export; it's a real Israeli institution and the visitor was from
+  Israel, so it's filed under Israel/South, not Italy.
+
+There's no dedicated regen script for this view yet (built via a one-off scratch script against the
+Jul 19 2026 CSV export) — if this becomes a recurring refresh, generalize `scripts/gen_linkedin.py`'s
+pattern (a small script parsing the raw CSV, filtering to the competitor slug set, grouping by
+company, classifying region) rather than hand-editing `data/g2.py` again.
+
 ## G2 detail panels
 
 High and Medium companies can have expandable detail panels. Feed item types:
@@ -101,3 +133,4 @@ The engagement threshold (default 15 in the script) needs revisiting per refresh
 
 - LinkedIn Smart Test data: last 90 days through Jul 18, 2026
 - G2 data: Jul 13, 2026 (last 90 days)
+- G2 Feature Management view: Jul 19, 2026 (last 90 days, Apr 21 – Jul 16, 2026 visit window)

@@ -330,3 +330,119 @@ G2_SOUTH = [
     dict(co="Trendyol", ctry="Türkiye", activity="Low", visitor="Türkiye", last="~2 months ago", days=65, visitors=None, signals=15),
     dict(co="e&", ctry="United Arab Emirates", activity="Low", visitor="United Arab Emirates", last="~2 months ago", days=73, visitors=None, signals=3),
 ]
+
+# ── Feature Management (product-specific view) ────────────────────────────────
+# Competitor scope: LaunchDarkly, Unleash, ConfigCat, Statsig, GrowthBook, DevCycle,
+# Optimizely Feature Experimentation. Unlike G2_NORTH/G2_SOUTH, single-signal "Low"
+# companies are included here (even one profile/compare view is meaningful for this
+# narrower, product-specific lens) and every company gets a feed so its interest can
+# be "unrolled" and inspected.
+G2_FM_NORTH = [
+    # ── High ──
+    dict(co="T-Systems International", ctry="Germany", activity="High", visitor="Germany", last="~6 weeks ago", days=41, visitors=None, signals=7, details=dict(
+        website="t-systems.com", hq_full="Hessen, Germany", revenue="$5,671,391,000", employees="27,000",
+        feed=[
+            dict(type="profile", text="Visitor from Germany viewed profile page for ConfigCat", time="~6 weeks ago", loc="Nordrhein-Westfalen"),
+            dict(type="compare", text="Visitor from Germany compared ConfigCat to Unleash", time="~6 weeks ago", loc="Nordrhein-Westfalen"),
+            dict(type="compare", text="Visitor from Germany compared ConfigCat to LaunchDarkly", time="~6 weeks ago", loc="Nordrhein-Westfalen"),
+            dict(type="compare", text="Visitor from Germany compared Unleash to LaunchDarkly", time="~6 weeks ago", loc="Nordrhein-Westfalen"),
+            dict(type="profile", text="Visitor from Germany viewed profile page for Unleash", time="~6 weeks ago", loc="Nordrhein-Westfalen"),
+            dict(type="profile", text="Visitor from Germany viewed profile page for LaunchDarkly", time="~6 weeks ago", loc="Nordrhein-Westfalen"),
+            dict(type="compare", text="Visitor from Germany compared LaunchDarkly to Statsig", time="~6 weeks ago", loc="Nordrhein-Westfalen"),
+        ]
+    )),
+    # ── Medium ──
+    dict(co="Nuuday", ctry="Denmark", activity="Medium", visitor="Denmark", last="11 days ago", days=11, visitors=None, signals=2, details=dict(
+        website="nuuday.com", hq_full="Hovedstaden, Denmark", revenue="$2,126,360,000", employees="3,079",
+        feed=[
+            dict(type="alt", text="Visitor from Denmark looked at alternatives to DevCycle", time="11 days ago", loc="Hovedstaden"),
+            dict(type="profile", text="Visitor from Denmark viewed profile page for Statsig", time="~5 weeks ago", loc="Hovedstaden"),
+        ]
+    )),
+    # ── Low ──
+    dict(co="Siemens", ctry="Germany", activity="Low", visitor="Germany", last="~4 weeks ago", days=25, visitors=None, signals=1, details=dict(
+        website="siemens.com", hq_full="Bayern, Germany", revenue="$93,033,293,000", employees="318,000",
+        feed=[
+            dict(type="profile", text="Visitor from Germany viewed profile page for LaunchDarkly", time="~4 weeks ago", loc="Bayern"),
+        ]
+    )),
+    dict(co="Telenet", ctry="Belgium", activity="Low", visitor="Belgium", last="~4 weeks ago", days=26, visitors=None, signals=1, details=dict(
+        website="www2.telenet.be/residential/nl", hq_full="Vlaams Gewest, Belgium", revenue="$2,583,005,000", employees="3,431",
+        feed=[
+            dict(type="compare", text="Visitor from Belgium compared GrowthBook to LaunchDarkly", time="~4 weeks ago", loc="Vlaams-Brabant"),
+        ]
+    )),
+    dict(co="Swissgrid", ctry="Switzerland", activity="Low", visitor="Switzerland", last="~6 weeks ago", days=41, visitors=None, signals=1, details=dict(
+        website="swissgrid.ch", hq_full="Saint Gallen, Switzerland", revenue="$369,743,000", employees="545",
+        feed=[
+            dict(type="compare", text="Visitor from Switzerland compared GitHub to LaunchDarkly", time="~6 weeks ago", loc="Aargau"),
+        ]
+    )),
+    dict(co="LEGO", ctry="Denmark", activity="Low", visitor="Denmark", last="~7 weeks ago", days=48, visitors=None, signals=1, details=dict(
+        website="lego.com", hq_full="South Denmark, Denmark", revenue="$12,922,686,000", employees="33,000",
+        feed=[
+            dict(type="compare", text="Visitor from Denmark compared GrowthBook to Optimizely Feature Experimentation", time="~7 weeks ago", loc="Syddanmark"),
+        ]
+    )),
+    dict(co="DZI", ctry="Bulgaria", activity="Low", visitor="Bulgaria", last="about 2 months ago", days=70, visitors=None, signals=1, details=dict(
+        website="dzi.bg", hq_full="Sofia-Capital, Bulgaria", revenue="$273,553,000", employees="599",
+        feed=[
+            dict(type="profile", text="Visitor from Bulgaria viewed profile page for LaunchDarkly", time="about 2 months ago", loc="Sofiya"),
+        ]
+    )),
+    dict(co="Yara", ctry="Norway", activity="Low", visitor="Denmark", last="3 months ago", days=82, visitors=None, signals=1, details=dict(
+        website="yara.com", hq_full="Oslo, Norway", revenue="$14,154,000,000", employees="17,342",
+        feed=[
+            dict(type="profile", text="Visitor from Denmark viewed profile page for LaunchDarkly", time="3 months ago", loc="Hovedstaden"),
+        ]
+    )),
+    dict(co="Visma", ctry="Norway", activity="Low", visitor="Denmark", last="3 months ago", days=89, visitors=None, signals=1, details=dict(
+        website="visma.com", hq_full="Oslo, Norway", revenue="$4,265,230,000", employees="17,500",
+        feed=[
+            dict(type="alt", text="Visitor from Denmark looked at alternatives to LaunchDarkly", time="3 months ago", loc="Syddanmark"),
+        ]
+    )),
+]
+
+G2_FM_SOUTH = [
+    # ── Medium ──
+    dict(co="Criteo", ctry="France", activity="Medium", visitor="Cyprus", last="~3 weeks ago", days=20, visitors=None, signals=2, details=dict(
+        website="criteo.com", hq_full="Ile-de-France, France", revenue="$1,944,901,000", employees="3,649",
+        feed=[
+            dict(type="profile", text="Visitor from Cyprus viewed profile page for LaunchDarkly", time="~3 weeks ago", loc="Limassol"),
+            dict(type="alt", text="Visitor from Cyprus looked at alternatives to ConfigCat", time="~3 weeks ago", loc="Limassol"),
+        ]
+    )),
+    dict(co="Sharaf DG", ctry="United Arab Emirates", activity="Medium", visitor="United Arab Emirates", last="~3 weeks ago", days=20, visitors=None, signals=2, details=dict(
+        website="sharafdg.com", hq_full="Dubayy, United Arab Emirates", revenue="$320,606,000", employees="1,952",
+        feed=[
+            dict(type="profile", text="Visitor from United Arab Emirates viewed profile page for GrowthBook", time="~3 weeks ago", loc="Dubayy"),
+            dict(type="profile", text="Visitor from United Arab Emirates viewed profile page for Statsig", time="~3 weeks ago", loc="Dubayy"),
+        ]
+    )),
+    # ── Low ──
+    dict(co="University of Upper Alsace", ctry="France", activity="Low", visitor="France", last="~4 weeks ago", days=25, visitors=None, signals=1, details=dict(
+        website="uha.fr", hq_full="Grand Est, France", revenue="$103,191,000", employees="646",
+        feed=[
+            dict(type="profile", text="Visitor from France viewed profile page for LaunchDarkly", time="~4 weeks ago", loc="Meuse"),
+        ]
+    )),
+    dict(co="The Academic College of Tel Aviv Yaffo", ctry="Israel", activity="Low", visitor="Israel", last="about 2 months ago", days=64, visitors=None, signals=1, details=dict(
+        website="mta.ac.il", hq_full="Israel", revenue="$246,974,000", employees="1,769",
+        feed=[
+            dict(type="profile", text="Visitor from Israel viewed profile page for LaunchDarkly", time="about 2 months ago", loc="Hamerkaz"),
+        ]
+    )),
+    dict(co="Mozn", ctry="Saudi Arabia", activity="Low", visitor="Saudi Arabia", last="about 2 months ago", days=68, visitors=None, signals=1, details=dict(
+        website="mozn.sa", hq_full="Ar Riyad, Saudi Arabia", revenue="$16,706,000", employees="508",
+        feed=[
+            dict(type="alt", text="Visitor from Saudi Arabia looked at alternatives to LaunchDarkly", time="about 2 months ago", loc="Ar Riyad"),
+        ]
+    )),
+    dict(co="University of Constantine 2 - Abdelhamid Mehri", ctry="Algeria", activity="Low", visitor="Algeria", last="about 2 months ago", days=71, visitors=None, signals=1, details=dict(
+        website="univ-constantine2.dz", hq_full="Algeria", revenue="$119,729,000", employees="761",
+        feed=[
+            dict(type="profile", text="Visitor from Algeria viewed profile page for LaunchDarkly", time="about 2 months ago", loc="Alger"),
+        ]
+    )),
+]

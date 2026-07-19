@@ -74,7 +74,7 @@ st.markdown("""
 
 # ── Data ─────────────────────────────────────────────────────────────────────
 from data.linkedin import NORTH, SOUTH, UNIFY_NORTH, UNIFY_SOUTH
-from data.g2 import G2_NORTH, G2_SOUTH
+from data.g2 import G2_NORTH, G2_SOUTH, G2_FM_NORTH, G2_FM_SOUTH
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -407,7 +407,11 @@ with tab_li:
 
 # ── G2 Intent tab ─────────────────────────────────────────────────────────────
 with tab_g2:
-    col_region_g2, _, _ = st.columns([2, 2, 2])
+    col_product_g2, col_region_g2, _ = st.columns([2, 2, 2])
+    with col_product_g2:
+        st.caption("PRODUCT")
+        product_g2 = st.radio("Product G2", ["All Products", "Feature Management"],
+                              horizontal=False, label_visibility="collapsed")
     with col_region_g2:
         st.caption("REGION")
         region_g2 = st.radio("Region G2", ["EMEA North", "EMEA South"],
@@ -415,11 +419,17 @@ with tab_g2:
 
     st.divider()
 
-    g2_data = G2_NORTH if region_g2 == "EMEA North" else G2_SOUTH
+    if product_g2 == "Feature Management":
+        g2_data = G2_FM_NORTH if region_g2 == "EMEA North" else G2_FM_SOUTH
+        product_label = "G2 Intent · Feature Management · Last 90 days"
+    else:
+        g2_data = G2_NORTH if region_g2 == "EMEA North" else G2_SOUTH
+        product_label = "G2 Intent · Last 90 days"
+
     flag_g2 = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region_g2 == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
 
     st.markdown(f'<div class="section-lbl">{region_g2.upper()} — {flag_g2}</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:4px;">G2 Intent · Last 90 days</div>', unsafe_allow_html=True)
+    st.markdown(f'<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:4px;">{product_label}</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size:11px; color:#6b7280; margin-bottom:10px;">Updated Jul 13, 2026</div>', unsafe_allow_html=True)
     render_g2_table(g2_data)
 
