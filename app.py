@@ -397,7 +397,8 @@ with tab_li:
   &nbsp;<span style="color:#4ade80;">■</span> ≥2% strong
   &nbsp;<span style="color:#facc15;">■</span> ≥1% good
   &nbsp;<span style="color:#6b7280;">■</span> &lt;1% low
-  <br><b style="color:#d1d5db;">Engagement</b> — combined Ads + InMail engagements (likes, comments, shares, opens) over the period.
+  <br><b style="color:#d1d5db;">Engagement</b> — all interactions combined (clicks, likes, comments, shares, opens) across Ads + InMail.
+  <b style="color:#d1d5db;">Ad Clicks</b> — actual clicks only, Ads channel.
 </div>
 """, unsafe_allow_html=True)
     render_table(data)
