@@ -8,7 +8,7 @@ Live at: https://emea-dashboard-4.streamlit.app (deployed via GitHub → Streaml
 ```
 app.py              ← UI + rendering only (~430 lines)
 data/
-  linkedin.py       ← NORTH, SOUTH, NA, UNIFY_NORTH, UNIFY_SOUTH (LinkedIn Smart Test + Unify campaigns)
+  linkedin.py       ← NORTH, SOUTH, UNIFY_NORTH, UNIFY_SOUTH (LinkedIn Smart Test + Unify campaigns)
   g2.py             ← G2_NORTH, G2_SOUTH (G2 buyer intent, 49 companies, last 90 days)
 scripts/
   gen_g2.py                ← Regenerates G2 lists from a new CSV export
@@ -38,8 +38,6 @@ Each entry is a `dict` with keys:
 - `engagement` — combined Ads + InMail `Paid engagements` count (added Jul 18 2026 refresh); `None`/absent on older Unify entries
 - `is_new=True` — shows a purple NEW badge (marks companies not present in the previous refresh's NORTH/SOUTH)
 - `lead=None` means no lead submitted; non-None rows get a gold highlight (leads are added manually — not derivable from the Campaign Manager company export)
-
-`NA` (added Jul 19 2026) is a flat North America list for the Smart Test campaign only — no North/South split like EMEA, since it's a single region. Only appears as a REGION option in the UI when "Smart Tests" is the selected campaign; Unify doesn't have NA data (yet). `scripts/linkedin_countries.py`'s NORTH_CORE/SOUTH_CORE classification doesn't apply here — NA entries are just tagged `ctry="USA"` or `"Canada"` directly, no EMEA-style region lookup needed.
 
 ### G2 (data/g2.py)
 
@@ -87,7 +85,7 @@ LinkedIn Campaign Manager doesn't offer a single export with both full company c
 
 **Inclusion rule**: a company with Ads views data is kept if `views >= 150` (clicks aren't separately gated — whatever the real click count is is fine, even 0). A company with *no* Ads views at all (InMail-only) is kept if `engagement >= 15`, since engagement is the only signal available for it. A lead always overrides both. Both numbers (`--views-threshold`, `--engagement-threshold`) need revisiting per refresh since raw totals scale with window size and market (a 90-day EMEA total isn't comparable to a 30-day one, or to NA's much higher-volume market).
 
-**NA isn't wired into the script's region classification** (no NORTH_CORE/SOUTH_CORE split applies to a flat region) — regenerate it with a small standalone script calling `merge()`, `apply_threshold_and_leads()`, and `load_current(["NA"])` directly. Always scope `load_current()` to the list(s) you're regenerating — a company can exist as separate entities in different regions under the same name (e.g. Fidelity Investments has both an Ireland and a USA entry), and a lead belongs to one specific entity, not the company name in general.
+**A North America list (`NA`) was tried and removed for now** — it was a flat region (no NORTH_CORE/SOUTH_CORE split), not wired into the script's region classification; would need a small standalone script calling `merge()`, `apply_threshold_and_leads()`, and `load_current(["NA"])` directly if revisited. Always scope `load_current()` to the list(s) you're regenerating — a company can exist as separate entities in different regions under the same name (e.g. Fidelity Investments had both an Ireland and a USA entry), and a lead belongs to one specific entity, not the company name in general.
 3. Fix anything the script flags:
    - **NEEDS CLASSIFICATION** — companies not yet in `scripts/linkedin_countries.py`. Look up their country/EMEA base and add them there (Campaign Manager doesn't report country, so this is manual), or add to `EXCLUDED` if there's no clear ICP fit. Re-run.
    - **NEEDS VERIFICATION** comments — best-effort country guesses already in the lookup; worth a sanity check if the company matters to the current decision.
