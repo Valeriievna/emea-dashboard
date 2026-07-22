@@ -422,14 +422,16 @@ with tab_g2:
     if product_g2 == "Feature Management":
         g2_data = G2_FM_NORTH if region_g2 == "EMEA North" else G2_FM_SOUTH
         product_label = "G2 Intent · Feature Management · Last 90 days"
+        updated_label = "Updated Jul 18, 2026"
     else:
         g2_data = G2_NORTH if region_g2 == "EMEA North" else G2_SOUTH
         product_label = "G2 Intent · Last 90 days"
+        updated_label = "Updated Jul 13, 2026"
 
     flag_g2 = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region_g2 == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
 
     st.markdown(f'<div class="section-lbl">{region_g2.upper()} — {flag_g2}</div>', unsafe_allow_html=True)
     st.markdown(f'<div style="font-size:13px; font-weight:700; color:#a78bfa; letter-spacing:0.5px; margin-bottom:4px;">{product_label}</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size:11px; color:#6b7280; margin-bottom:10px;">Updated Jul 13, 2026</div>', unsafe_allow_html=True)
+    st.markdown(f'<div style="font-size:11px; color:#6b7280; margin-bottom:10px;">{updated_label}</div>', unsafe_allow_html=True)
     render_g2_table(g2_data)
 

@@ -133,4 +133,4 @@ The engagement threshold (default 15 in the script) needs revisiting per refresh
 
 - LinkedIn Smart Test data: last 90 days through Jul 18, 2026
 - G2 data: Jul 13, 2026 (last 90 days)
-- G2 Feature Management view: Jul 19, 2026 (last 90 days, Apr 21 – Jul 16, 2026 visit window)
+- G2 Feature Management view: Jul 18, 2026 (last 90 days, Apr 21 – Jul 16, 2026 visit window)
