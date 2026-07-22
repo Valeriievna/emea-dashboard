@@ -1,6 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+SHOW_UNIFY = False  # Unify (AI Governance) campaign hidden for now — flip to True to bring it back
+
 st.set_page_config(
     page_title="EMEA Intent — Sales",
     page_icon="📊",
@@ -371,7 +373,8 @@ with tab_li:
     col_campaign, col_region, _ = st.columns([2, 2, 2])
     with col_campaign:
         st.caption("CAMPAIGN")
-        campaign = st.radio("Campaign", ["Smart Tests", "Unify (AI Governance)"],
+        campaign_options = ["Smart Tests"] + (["Unify (AI Governance)"] if SHOW_UNIFY else [])
+        campaign = st.radio("Campaign", campaign_options,
                             horizontal=False, label_visibility="collapsed")
     with col_region:
         st.caption("REGION")
