@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-SHOW_UNIFY = False  # Unify (AI Governance) campaign hidden for now — flip to True to bring it back
+SHOW_UNIFY = True
 
 st.set_page_config(
     page_title="EMEA Intent — Sales",
@@ -388,7 +388,7 @@ with tab_li:
         date_label = "Last 90 days (through Jul 18, 2026)"
     else:
         data = UNIFY_NORTH if region == "EMEA North" else UNIFY_SOUTH
-        date_label = "Jul 1 – 12, 2026"
+        date_label = "Last 30 days (campaign started Jul 1, 2026)"
 
     flag = "UK · Germany · Netherlands · Sweden · Switzerland · Ireland" if region == "EMEA North" else "France · UAE · Saudi Arabia · Israel · Spain"
 

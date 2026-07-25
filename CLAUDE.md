@@ -34,7 +34,7 @@ gh api repos/Valeriievna/emea-dashboard/git/refs/heads/main -X PATCH -f sha=$SHA
 Each entry is a `dict` with keys:
 `co, ctry, ch, views, clicks, ctr, engagement, lead, ltitle, ldate, is_new`
 
-- `ch` — list of channels: `"Ads"`, `"InMail"`, `"Demo"`, `"Doc"`, `"Video"`, `"Article"`
+- `ch` — list of channels: `"Ads"`, `"InMail"`, `"Demo"`, `"Doc"`, `"TL"` (thought-leader post), `"VOD"` (video-on-demand w/ lead gen form). Older Unify entries used `"Video"`/`"Article"` — retired when Unify's ad-set structure changed (see Jul 25 2026 refresh below).
 - `views`/`clicks`/`ctr` — from the Ads ad-set export only (impressions/clicks aren't reported for InMail)
 - `engagement` — combined Ads + InMail `Paid engagements` count (added Jul 18 2026 refresh); `None`/absent on older Unify entries
 - `is_new=True` — shows a purple NEW badge (marks companies not present in the previous refresh's NORTH/SOUTH)
@@ -113,9 +113,11 @@ High and Medium companies can have expandable detail panels. Feed item types:
 LinkedIn Campaign Manager doesn't offer a single export with both full company coverage and lead identity, and there's no self-serve API access — so refreshes combine two Campaign Manager exports, `scripts/gen_linkedin.py`, and one manual step:
 
 1. Export the "companies" report from Campaign Manager twice for the desired window (30/60/90 days — LinkedIn only offers preset windows, and **must match the window size of the previous refresh** — see `is_new` note below): once for the **Ads ad set** (has impressions/clicks) and once for the **InMail ad set** (only has `Paid engagements`, no impressions/clicks).
-2. Run `python3 scripts/gen_linkedin.py Ads=ads.csv InMail=inmail.csv` (works for any number of ad-set exports, not just these two — e.g. a Unify-style refresh would be `Doc=doc.csv Video=video.csv Article=article.csv`). It merges all exports (`views`/`clicks`/`ctr` summed across every channel that reports impressions; `engagement` summed across all channels), classifies country/region via `scripts/linkedin_countries.py`, applies the inclusion rule below, diffs against the currently committed `data/linkedin.py` for `is_new`, and preserves existing leads.
+2. Run `python3 scripts/gen_linkedin.py Ads=ads.csv InMail=inmail.csv` (works for any number of ad-set exports, not just these two — e.g. the Unify refresh uses `Doc=doc.csv TL=tl.csv VOD=vod.csv`). It merges all exports (`views`/`clicks`/`ctr` summed across every channel that reports impressions; `engagement` summed across all channels), classifies country/region via `scripts/linkedin_countries.py`, applies the inclusion rule below, diffs against the currently committed `data/linkedin.py` for `is_new`, and preserves existing leads.
 
-**Inclusion rule**: a company with Ads views data is kept if `views >= 150` (clicks aren't separately gated — whatever the real click count is is fine, even 0). A company with *no* Ads views at all (InMail-only) is kept if `engagement >= 15`, since engagement is the only signal available for it. A lead always overrides both. Both numbers (`--views-threshold`, `--engagement-threshold`) need revisiting per refresh since raw totals scale with window size and market (a 90-day EMEA total isn't comparable to a 30-day one, or to NA's much higher-volume market).
+**Inclusion rule (Smart Test)**: a company with Ads views data is kept if `views >= 150` (clicks aren't separately gated — whatever the real click count is is fine, even 0). A company with *no* Ads views at all (InMail-only) is kept if `engagement >= 15`, since engagement is the only signal available for it. A lead always overrides both. Both numbers (`--views-threshold`, `--engagement-threshold`) need revisiting per refresh since raw totals scale with window size and market (a 90-day EMEA total isn't comparable to a 30-day one, or to NA's much higher-volume market).
+
+**Inclusion rule (Unify)** differs by explicit choice: no views/engagement threshold at all — every company with real signal in at least one of the three exports is kept (`apply_threshold_and_leads(..., views_threshold=0, engagement_threshold=0)`, `current={}` since it's a from-scratch rebuild each time so far). Revisit this if the list grows too large to be useful; there's no reason it has to stay threshold-free forever.
 
 **A North America list (`NA`) was tried and removed for now** — it was a flat region (no NORTH_CORE/SOUTH_CORE split), not wired into the script's region classification; would need a small standalone script calling `merge()`, `apply_threshold_and_leads()`, and `load_current(["NA"])` directly if revisited. Always scope `load_current()` to the list(s) you're regenerating — a company can exist as separate entities in different regions under the same name (e.g. Fidelity Investments had both an Ireland and a USA entry), and a lead belongs to one specific entity, not the company name in general.
 3. Fix anything the script flags:
@@ -132,5 +134,6 @@ The engagement threshold (default 15 in the script) needs revisiting per refresh
 ## Last updated
 
 - LinkedIn Smart Test data: last 90 days through Jul 18, 2026
+- LinkedIn Unify data: rebuilt from scratch Jul 25, 2026 — last 30 days, campaign started Jul 1, 2026. Ad sets are now Doc / TL (thought-leader post) / VOD (video-on-demand w/ lead gen form), replacing the old Doc/Video/Article structure. No `is_new` baseline (from-scratch rebuild, not a diff). Two companies (Bosch, Booking.com) showed `Paid leads=1` in the VOD export, but the company-level export doesn't give lead identity (name/title/date) — `lead` is left `None` for both until that's sourced from wherever VOD lead-gen submissions are tracked.
 - G2 data: Jul 13, 2026 (last 90 days)
 - G2 Feature Management view: Jul 18, 2026 (last 90 days, Apr 21 – Jul 16, 2026 visit window)

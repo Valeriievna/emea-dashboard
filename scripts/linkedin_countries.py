@@ -3,6 +3,24 @@
 # manually across refresh sessions instead of re-researched each time.
 # confidence: H = confident, M = best-effort (worth a sanity check if it matters for a decision)
 CLASSIFY = {
+    "BNP Paribas": ("France", "H"),
+    "Deutsche Börse Group": ("Germany", "H"),
+    "Zürcher Kantonalbank": ("Switzerland", "H"),
+    "Sanofi": ("France", "H"),
+    "Amdocs": ("Israel", "M"),
+    "Commerzbank AG": ("Germany", "H"),
+    "ENOC": ("UAE", "H"),
+    "European Central Bank": ("Germany", "H"),
+    "SICK Sensor Intelligence": ("Germany", "H"),
+    "Doctolib": ("France", "H"),
+    "Deutsche Post und DHL": ("Germany", "H"),
+    "Chubb": ("Switzerland", "M"),
+    "EPSRC": ("UK", "H"),
+    "University of Surrey": ("UK", "H"),
+    "UKRI CircularChem": ("UK", "H"),
+    "The Alan Turing Institute": ("UK", "H"),
+    "Pepperl+Fuchs Group": ("Germany", "H"),
+    "Action": ("Netherlands", "H"),
     "Capgemini": ("France", "H"),
     "Emirates NBD": ("UAE", "H"),
     "Tata Consultancy Services": ("UK", "H"),
@@ -295,6 +313,8 @@ CLASSIFY = {
 
 # excluded: no clear enterprise ICP fit, no identifiable/EMEA entity, or signal too weak to matter
 EXCLUDED = {
+    "Commercial Bank of Ethiopia",  # Ethiopia doesn't fit NORTH_CORE/SOUTH_CORE
+    "R3V Tech",  # unclear EMEA base, low-confidence, near-threshold signal
     "Vitelco", "ID3", "TrustMotion", "TikTok", "YouTube", "DoorDash",
     "Microsoft", "EY", "Deloitte",  # noise-level raw signal (views=3)
     "Renesas Electronics", "Technical University of Munich", "Virtusa",
