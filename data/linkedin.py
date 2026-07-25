@@ -138,7 +138,7 @@ SOUTH = [
 UNIFY_NORTH = [  # 141 companies — rebuilt from scratch, last 30 days through Jul 25 2026 (campaign started Jul 1), cross-checked against a hand-curated account reference list
     dict(co="SAP", ctry="Germany", ch=["Doc","TL","VOD"], views=1865, clicks=41, ctr=2.2, engagement=62, lead=None,ltitle=None,ldate=None),
     dict(co="Siemens", ctry="Germany", ch=["Doc","TL","VOD"], views=1439, clicks=17, ctr=1.18, engagement=19, lead=None,ltitle=None,ldate=None),
-    dict(co="Bosch", ctry="Germany", ch=["Doc","TL","VOD"], views=873, clicks=8, ctr=0.92, engagement=24, lead=None,ltitle=None,ldate=None),
+    dict(co="Bosch", ctry="Germany", ch=["Doc","TL","VOD"], views=873, clicks=8, ctr=0.92, engagement=24, lead="Gerald Eckstein",ltitle="Senior Vice President of Engineering",ldate=None),
     dict(co="Volvo Cars", ctry="Sweden", ch=["Doc","TL","VOD"], views=691, clicks=14, ctr=2.03, engagement=24, lead=None,ltitle=None,ldate=None),
     dict(co="Ericsson", ctry="Sweden", ch=["Doc","TL","VOD"], views=620, clicks=4, ctr=0.65, engagement=5, lead=None,ltitle=None,ldate=None),
     dict(co="BASF", ctry="Germany", ch=["Doc","TL","VOD"], views=548, clicks=5, ctr=0.91, engagement=7, lead=None,ltitle=None,ldate=None),
@@ -148,7 +148,7 @@ UNIFY_NORTH = [  # 141 companies — rebuilt from scratch, last 30 days through 
     dict(co="Vodafone", ctry="UK", ch=["Doc","TL","VOD"], views=526, clicks=9, ctr=1.71, engagement=12, lead=None,ltitle=None,ldate=None),
     dict(co="Shell", ctry="UK", ch=["Doc","TL","VOD"], views=507, clicks=4, ctr=0.79, engagement=8, lead=None,ltitle=None,ldate=None),
     dict(co="UBS", ctry="Switzerland", ch=["Doc","TL","VOD"], views=486, clicks=7, ctr=1.44, engagement=7, lead=None,ltitle=None,ldate=None),
-    dict(co="Booking.com", ctry="Netherlands", ch=["Doc","TL","VOD"], views=468, clicks=3, ctr=0.64, engagement=27, lead=None,ltitle=None,ldate=None),
+    dict(co="Booking.com", ctry="Netherlands", ch=["Doc","TL","VOD"], views=468, clicks=3, ctr=0.64, engagement=27, lead="Pankaj Saharan",ltitle="Senior Director of Engineering",ldate=None),
     dict(co="A.P. Moller - Maersk", ctry="Denmark", ch=["Doc","TL","VOD"], views=450, clicks=4, ctr=0.89, engagement=5, lead=None,ltitle=None,ldate=None),
     dict(co="Zalando", ctry="Germany", ch=["Doc","TL","VOD"], views=430, clicks=0, ctr=0.0, engagement=0, lead=None,ltitle=None,ldate=None),
     dict(co="Continental", ctry="Germany", ch=["Doc","TL","VOD"], views=408, clicks=6, ctr=1.47, engagement=10, lead=None,ltitle=None,ldate=None),
