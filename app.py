@@ -97,8 +97,9 @@ def fmt_ctr(v):
 def fmt_channels(ch):
     return f'<span style="font-size:12px;color:#4b5563;">{len(ch)}</span>'
 
-def fmt_engagement(v):
-    if v is None or v < 15: return '<span class="dim">—</span>'
+def fmt_engagement(v, cutoff=True):
+    if v is None: return '<span class="dim">—</span>'
+    if cutoff and v < 15: return '<span class="dim">—</span>'
     return f'<span class="num">{v:,}</span>'
 
 def fmt_lead(name, title, date):
@@ -107,7 +108,7 @@ def fmt_lead(name, title, date):
     date_part = f' &nbsp;<span class="lead-sub">· {date}</span>' if date else ''
     return f'<span class="lead-name">{name}</span><br><span class="lead-sub">{title}</span>{date_part}'
 
-def render_table(data):
+def render_table(data, engagement_cutoff=True):
     rows = ""
     for d in data:
         has_lead = d["lead"] is not None
@@ -117,7 +118,7 @@ def render_table(data):
         <tr class="{cls}">
           <td data-v="{d['co'].lower()}"><div class="co">{d['co']}{'<span style="background:#7c3aed;color:#e9d5ff;font-size:8px;font-weight:700;padding:1px 6px;border-radius:2px;margin-left:6px;vertical-align:middle;letter-spacing:0.5px;">NEW</span>' if d.get('is_new') else ''}</div><div class="ctry">{d['ctry']}</div></td>
           <td class="r" data-v="{sv(d['views'])}">{fmt_views(d['views'])}</td>
-          <td class="r" data-v="{sv(d.get('engagement'))}">{fmt_engagement(d.get('engagement'))}</td>
+          <td class="r" data-v="{sv(d.get('engagement'))}">{fmt_engagement(d.get('engagement'), engagement_cutoff)}</td>
           <td class="r" data-v="{sv(d['clicks'])}">{fmt_clicks(d['clicks'])}</td>
           <td class="r" data-v="{sv(d['ctr'])}">{fmt_ctr(d['ctr'])}</td>
           <td data-v="{'1' if has_lead else '0'}">{fmt_lead(d['lead'], d['ltitle'], d['ldate'])}</td>
@@ -406,7 +407,7 @@ with tab_li:
   <b style="color:#d1d5db;">Touchpoints</b> = # of ad types/channels seen
 </div>
 """, unsafe_allow_html=True)
-    render_table(data)
+    render_table(data, engagement_cutoff=(campaign == "Smart Tests"))
 
 # ── G2 Intent tab ─────────────────────────────────────────────────────────────
 with tab_g2:
