@@ -117,7 +117,13 @@ LinkedIn Campaign Manager doesn't offer a single export with both full company c
 
 **Inclusion rule (Smart Test)**: a company with Ads views data is kept if `views >= 150` (clicks aren't separately gated — whatever the real click count is is fine, even 0). A company with *no* Ads views at all (InMail-only) is kept if `engagement >= 15`, since engagement is the only signal available for it. A lead always overrides both. Both numbers (`--views-threshold`, `--engagement-threshold`) need revisiting per refresh since raw totals scale with window size and market (a 90-day EMEA total isn't comparable to a 30-day one, or to NA's much higher-volume market).
 
-**Inclusion rule (Unify)** differs by explicit choice: no views/engagement threshold at all — every company with real signal in at least one of the three exports is kept (`apply_threshold_and_leads(..., views_threshold=0, engagement_threshold=0)`, `current={}` since it's a from-scratch rebuild each time so far). Revisit this if the list grows too large to be useful; there's no reason it has to stay threshold-free forever.
+**Inclusion rule (Unify)** differs by explicit choice: no views/engagement threshold at all — every company with real signal in at least one of the three exports is kept. Revisit this if the list grows too large to be useful; there's no reason it has to stay threshold-free forever.
+
+**Unify refresh command** (run this, not the bare Ads/InMail form):
+```
+python3 scripts/gen_linkedin.py Doc=doc.csv TL=tl.csv VOD=vod.csv --target UNIFY_NORTH,UNIFY_SOUTH --views-threshold 0 --engagement-threshold 0
+```
+`--target` scopes both the lead-carryover and `is_new` diff to `UNIFY_NORTH`/`UNIFY_SOUTH` specifically (not the default `NORTH`/`SOUTH`) — without it, the script would silently diff Unify's new data against Smart Test's committed lists, which is meaningless. The Jul 25 2026 rebuild is the current clean baseline (`is_new` stripped since it was a from-scratch structure change, not a diff); refreshes from here on should show real `is_new` counts and the purple NEW badge for companies absent from the prior Unify refresh.
 
 **A North America list (`NA`) was tried and removed for now** — it was a flat region (no NORTH_CORE/SOUTH_CORE split), not wired into the script's region classification; would need a small standalone script calling `merge()`, `apply_threshold_and_leads()`, and `load_current(["NA"])` directly if revisited. Always scope `load_current()` to the list(s) you're regenerating — a company can exist as separate entities in different regions under the same name (e.g. Fidelity Investments had both an Ireland and a USA entry), and a lead belongs to one specific entity, not the company name in general.
 3. Fix anything the script flags:

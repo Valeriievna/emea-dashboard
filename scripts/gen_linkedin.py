@@ -6,7 +6,7 @@ Regenerate LinkedIn NORTH/SOUTH from N Campaign Manager "companies" exports
 
 Usage:
     python3 scripts/gen_linkedin.py Ads=ads.csv InMail=inmail.csv [--views-threshold 150] [--engagement-threshold 15]
-    python3 scripts/gen_linkedin.py Doc=doc.csv Video=video.csv Article=article.csv
+    python3 scripts/gen_linkedin.py Doc=doc.csv TL=tl.csv VOD=vod.csv --target UNIFY_NORTH,UNIFY_SOUTH --views-threshold 0 --engagement-threshold 0
 
 What it does:
     1. Merges all N exports by company name.
@@ -25,22 +25,24 @@ What it does:
        fine); OR, for InMail-only companies with no Ads views at all,
        engagement >= engagement-threshold (default 15); OR it already has a
        lead in the currently committed data/linkedin.py.
-    4. Computes is_new by diffing against the currently committed NORTH/SOUTH
-       in data/linkedin.py. Only meaningful if the previous refresh used the
-       SAME window size (30 vs 90-day totals aren't comparable).
+    4. Computes is_new by diffing against the currently committed lists named
+       by --target (default NORTH,SOUTH — pass --target UNIFY_NORTH,UNIFY_SOUTH
+       for Unify) in data/linkedin.py. Only meaningful if the previous refresh
+       used the SAME window/campaign structure — a from-scratch rebuild (e.g.
+       after a threshold or ad-set-structure change) should have is_new
+       stripped from the output rather than trusted, since every company would
+       otherwise show as "new" against an incompatible baseline.
     5. Preserves lead/ltitle/ldate from the currently committed data for any
        company that already has one (add new leads by hand afterward from the
        separate lead-gen export, since Campaign Manager's company export only
        gives lead counts, not identity).
-    6. Prints ready-to-paste NORTH/SOUTH blocks to stdout.
+    6. Prints ready-to-paste blocks (named per --target) to stdout.
 
-NA (North America, flat region, no EMEA-style NORTH_CORE/SOUTH_CORE split) isn't
-wired into main()'s classify() step — regenerate it with a small standalone
-script calling merge(), apply_threshold_and_leads(), and load_current(["NA"])
-directly. Always pass load_current() the list(s) matching what you're
-regenerating — a company can exist as separate entities in different regions
-under the same name (e.g. "Fidelity Investments" in both NA and EMEA), and a
-lead belongs to one specific entity, not the company name in general.
+--target also matters for correctness, not just labeling: a company can exist
+as separate entities under the same name in different lists (e.g. "Fidelity
+Investments" as both an EMEA and a since-removed NA entry), and a lead belongs
+to one specific entity, not the company name in general — always pass the
+exact list(s) you're regenerating.
 
 This does NOT auto-deploy. Review the output (especially anything flagged
 NEEDS VERIFICATION or NEEDS CLASSIFICATION), paste it into data/linkedin.py,
@@ -188,6 +190,7 @@ def main():
     args = sys.argv[1:]
     views_threshold = 150
     engagement_threshold = 15
+    target_north, target_south = "NORTH", "SOUTH"
     if "--views-threshold" in args:
         i = args.index("--views-threshold")
         views_threshold = int(args[i + 1])
@@ -195,6 +198,12 @@ def main():
     if "--engagement-threshold" in args:
         i = args.index("--engagement-threshold")
         engagement_threshold = int(args[i + 1])
+        args = args[:i] + args[i + 2:]
+    if "--target" in args:
+        # e.g. --target UNIFY_NORTH,UNIFY_SOUTH — which committed lists to diff
+        # against for is_new/lead-carryover, and what to name the printed output.
+        i = args.index("--target")
+        target_north, target_south = args[i + 1].split(",")
         args = args[:i] + args[i + 2:]
 
     channels = []
@@ -210,7 +219,7 @@ def main():
         print(__doc__)
         sys.exit(1)
 
-    current = load_current()
+    current = load_current((target_north, target_south))
     merged = merge(channels)
     classified, unclassified = classify(merged)
     kept = apply_threshold_and_leads(classified, current, views_threshold, engagement_threshold)
@@ -224,10 +233,10 @@ def main():
             print(f"  - {name}")
         print()
 
-    print(f"NORTH = [  # {len(north)} companies, {sum(1 for d in north if d['is_new'])} new")
+    print(f"{target_north} = [  # {len(north)} companies, {sum(1 for d in north if d['is_new'])} new")
     print(fmt(north))
     print("]\n")
-    print(f"SOUTH = [  # {len(south)} companies, {sum(1 for d in south if d['is_new'])} new")
+    print(f"{target_south} = [  # {len(south)} companies, {sum(1 for d in south if d['is_new'])} new")
     print(fmt(south))
     print("]")
 
