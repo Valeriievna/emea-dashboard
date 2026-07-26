@@ -139,7 +139,7 @@ The engagement threshold (default 15 in the script) needs revisiting per refresh
 
 ## Last updated
 
-- LinkedIn Smart Test data: last 90 days through Jul 18, 2026
+- LinkedIn Smart Test data: last 90 days through Jul 26, 2026
 - LinkedIn Unify data: rebuilt from scratch Jul 25, 2026 — last 30 days, campaign started Jul 1, 2026. Ad sets are now Doc / TL (thought-leader post) / VOD (video-on-demand w/ lead gen form), replacing the old Doc/Video/Article structure. No `is_new` baseline (from-scratch rebuild, not a diff). Two companies (Bosch, Booking.com) showed `Paid leads=1` in the VOD export, but the company-level export doesn't give lead identity (name/title/date) — `lead` is left `None` for both until that's sourced from wherever VOD lead-gen submissions are tracked.
 - G2 data: Jul 13, 2026 (last 90 days)
 - G2 Feature Management view: Jul 18, 2026 (last 90 days, Apr 21 – Jul 16, 2026 visit window)

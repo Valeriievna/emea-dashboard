@@ -3,6 +3,7 @@
 # manually across refresh sessions instead of re-researched each time.
 # confidence: H = confident, M = best-effort (worth a sanity check if it matters for a decision)
 CLASSIFY = {
+    "Crédit Agricole Group Infrastructure Platform": ("France", "H"),
     "Alstom": ("France", "H"),
     "Bosch Aftermarket": ("Germany", "H"),
     "If IT Services A/S": ("Sweden", "M"),
